@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.antigenmhc.otaku.service.manager.mapper.AdminMapper">
+
+    <select id="selectAdminByQuery"
+            resultType="Admin"
+            parameterType="AdminQueryVo">
+        select oa.id, name, intro, career, level, avatar, sort, join_date, is_deleted, gmt_create, gmt_modified
+        from er_ci_yuan.otaku_admin oa
+        <where>
+            <if test="queryVo.name != null">
+                oa.name like #{queryVo.name}"%"
+            </if>
+            <if test="queryVo.level != null">
+                and oa.level = #{queryVo.level}
+            </if>
+            <if test="queryVo.joinDateEnd != null">
+                and oa.join_date &lt;= #{queryVo.joinDateEnd}
+            </if>
+            <if test="queryVo.joinDateBegin != null">
+                and oa.join_date &gt;= #{queryVo.joinDateBegin}
+            </if>
+                and is_deleted &lt;&gt; 1
+        </where>
+            order by oa.sort
+    </select>
+
+</mapper>
