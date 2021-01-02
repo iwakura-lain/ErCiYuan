@@ -22,7 +22,7 @@
             </if>
                 and is_deleted &lt;&gt; 1
         </where>
-            order by oa.sort
+            order by oa.sort, oa.level desc, oa.join_date
     </select>
 
 </mapper>

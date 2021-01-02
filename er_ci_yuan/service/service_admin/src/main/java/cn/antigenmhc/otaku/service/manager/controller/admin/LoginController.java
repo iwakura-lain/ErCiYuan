@@ -34,8 +34,7 @@ public class LoginController {
         return Result.ok().
                 setData("name", "zzz").
                 setData("roles", "[admin]").
-                setData("avater", "https://q1.qlogo.cn/g?b=qq&nk=908204532&s=640")
-                ;
+                setData("avater", "https://q1.qlogo.cn/g?b=qq&nk=908204532&s=640");
     }
 
     @PostMapping("logout")

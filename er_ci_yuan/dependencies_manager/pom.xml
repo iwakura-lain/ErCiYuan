@@ -36,7 +36,6 @@
         <swagger-beauty.version>2.0.8</swagger-beauty.version>
     </properties>
 
-
     <dependencyManagement>
         <dependencies>
             <!--Spring Cloud-->
