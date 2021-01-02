@@ -1,49 +1,15 @@
 <template>
   <div class="app-container">
-    <!-- 输入表单 -->
-    <el-form label-width="120px">
-      <el-form-item label="魔女名讳">
-        <el-input v-model="admin.name" />
-      </el-form-item>
-      <el-form-item label="注册时间">
-        <el-date-picker v-model="admin.joinDate" value-format="yyyy-MM-dd" />
-      </el-form-item>
-      <el-form-item label="rating">
-        <el-input-number v-model="admin.sort" :min="0"/>
-      </el-form-item>
-      <el-form-item label="头衔">
-        <el-select v-model="admin.level">
-          <!--
-            数据类型一定要和取出的json中的一致，否则没法回填
-            这里value使用v-bind的值，保证其数据类型是number
-            -->
-          <el-option :value="1" label="见习魔女"/>
-          <el-option :value="2" label="灰之魔女"/>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="战绩">
-        <el-input v-model="admin.career"/>
-      </el-form-item>
-      <el-form-item label="人生格言">
-        <el-input v-model="admin.intro" :rows="10" type="textarea"/>
-      </el-form-item>
-
-      <!-- 头像：TODO -->
-      <el-form-item>
-        <el-button :disabled="saveBtnDisabled" type="primary" @click="saveOrUpdate()">保存</el-button>
-        <el-button type="warning" @click="backListPage">取消</el-button>
-      </el-form-item>
-
-    </el-form>
-
+    <adminForm/>
   </div>
 </template>
 
 <script>
 import adminApi from '@/api/admin'
+import adminForm from '@/views/admin/adminForm'
 
 export default {
-
+  components: { adminForm },
   data() {
     return {
       // admin 对象

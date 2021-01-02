@@ -1,7 +1,7 @@
 <template>
-  <div :class="{'collapse':collapse}" class="sidebar-logo-container">
+  <div class="sidebar-logo-container">
     <transition name="sidebarLogoFade">
-      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
+      <router-link v-if="true" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo">
         <h1 v-else class="sidebar-title">{{ title }} </h1>
       </router-link>
@@ -17,14 +17,11 @@
 export default {
   name: 'SidebarLogo',
   props: {
-    collapse: {
-      type: Boolean,
-      required: true
-    }
+
   },
   data() {
     return {
-      title: '呐呐呐',
+      title: '',
       logo: 'https://gitee.com/antigenmhc/picture/raw/master/img/20201231121521.png'
     }
   }
@@ -44,8 +41,8 @@ export default {
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: 150px;
-  line-height: 150px;
+  height: 130px;
+  line-height: 130px;
   background: #2b2f3a;
   text-align: center;
   overflow: hidden;

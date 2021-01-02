@@ -47,26 +47,26 @@ export const constantRouterMap = [
     // 父路径默认跳转路径
     redirect: '/admin/list',
     name: 'admin',
-    meta: { title: '魔法协会' },
+    meta: { title: '魔法统筹协会' },
     children: [
       {
         // 子路径，完整路径为/父路径/子路径
         path: 'list',
         name: 'adminList',
         component: () => import('@/views/admin/adminList'),
-        meta: { title: '在职法师' }
+        meta: { title: '在职魔女' }
       },
       {
         path: 'create',
         name: 'adminCreate',
         component: () => import('@/views/admin/adminForm'),
-        meta: { title: '注册法师' }
+        meta: { title: '注册魔女' }
       },
       {
         path: 'edit/:id',
         name: 'adminEdit',
-        component: () => import('@/views/admin/adminForm'),
-        meta: { title: '法师更新' },
+        component: () => import('@/views/admin/adminUpdate'),
+        meta: { title: '魔女更新' },
         hidden: true
       }
     ]
