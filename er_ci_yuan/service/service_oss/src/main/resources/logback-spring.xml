@@ -3,7 +3,7 @@
 
     <contextName>logback</contextName>
 
-    <property name="log.path" value="D:/erciyuan/er_ci_yuan/admin" />
+    <property name="log.path" value="D:/erciyuan/er_ci_yuan/oss" />
 
     <!--控制台日志格式：彩色日志-->
     <!-- magenta:洋红 -->

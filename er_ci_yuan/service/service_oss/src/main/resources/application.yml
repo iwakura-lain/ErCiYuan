@@ -1,0 +1,20 @@
+server:
+  port: 8180
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-oss
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
+aliyun:
+  oss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    accesskeyId: LTAI4GHuKKmNvRD7yMynyc2R
+    accesskeySecret: 5FmTCHVQjvzz4yocGnGUk2246FKXYY
+    bucketName: antigenmhc-erciyuan

@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.constraints.Max;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -51,7 +54,7 @@ public class AdminController {
     @GetMapping("list/{page}/{limit}")
     public Result listPage(@ApiParam(value = "当前页码", required = true) @PathVariable("page") Long page,
                            @ApiParam(value = "每页记录数", required = true) @PathVariable("limit") Long limit,
-                           @ApiParam("查询条件对象") AdminQueryVo queryVo){
+                           @ApiParam("查询条件") AdminQueryVo queryVo){
         Page<Admin> adminPage = new Page<>(page, limit);
         IPage<Admin> pageModel = adminService.selectPageByQuery(adminPage, queryVo);
         List<Admin> records = pageModel.getRecords();
@@ -85,6 +88,21 @@ public class AdminController {
             return Result.error().setMessage("更新失败,管理员不存在");
         }
         return Result.ok().setMessage("更新成功");
+    }
+
+    @ApiOperation("根据 id 列表批量删除")
+    @DeleteMapping("batch-remove")
+    public Result deleteAdminsByIdList(
+            @ApiParam(value = "id列表")
+            @RequestBody List<String> ids){
+        System.out.println(ids);
+        boolean isDeleteSuccess = adminService.removeByIds(ids);
+
+        if(isDeleteSuccess) {
+            return Result.ok().setMessage("批量删除成功");
+        }else {
+            return Result.error().setMessage("数据不存在");
+        }
     }
 }
 

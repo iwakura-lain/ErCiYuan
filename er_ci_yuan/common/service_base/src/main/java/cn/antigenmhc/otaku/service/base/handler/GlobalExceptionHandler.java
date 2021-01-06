@@ -3,6 +3,7 @@ package cn.antigenmhc.otaku.service.base.handler;
 import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
 import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
+import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,5 +51,17 @@ public class GlobalExceptionHandler {
     public Result jsonParseException(HttpMessageNotReadableException e){
         log.error(ExceptionUtils.getMessage(e));
         return Result.setResult(ResultCodeEnum.JSON_PARSE_ERROR);
+    }
+
+    /**
+     * 统一异常处理
+     * @param e: 统一异常处理
+     * @return
+     */
+    @ExceptionHandler(IntegrateException.class)
+    @ResponseBody
+    public Result integrateException(IntegrateException e){
+        log.error(e.getMessage());
+        return Result.error().setMessage(e.getMessage()).setCode(e.getCode());
     }
 }

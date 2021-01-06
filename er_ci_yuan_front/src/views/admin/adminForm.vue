@@ -28,7 +28,19 @@
         <el-input v-model="admin.intro" :rows="10" type="textarea"/>
       </el-form-item>
 
-      <!-- 头像：TODO -->
+      <el-form-item label="头像上传">
+        <el-upload
+          :show-file-list="false"
+          :on-success="handleAvatarSuccess"
+          :on-error="handleAvatarError"
+          :before-upload="beforeAvatarUpload"
+          class="avatar-uploader"
+          action="http://127.0.0.1:8180/admin/oss/file/upload?moduleName=avatar">
+          <img v-if="admin.avatar" :src="admin.avatar" class="avatar">
+          <i v-else class="el-icon-plus avatar-uploader-icon"/>
+        </el-upload>
+      </el-form-item>
+
       <el-form-item>
         <el-button :disabled="saveBtnDisabled" type="primary" @click="saveOrUpdate()">保存</el-button>
         <el-button type="warning" @click="backListPage">取消</el-button>
@@ -112,7 +124,67 @@ export default {
         message: '已取消',
         type: 'info'
       })
+    },
+
+    // 文件上传成功的钩子函数
+    handleAvatarSuccess(res) {
+      if (res.success) {
+        this.admin.avatar = res.data.url
+        // 强制重新渲染
+        this.$forceUpdate()
+      } else {
+        this.$message({
+          message: '上传失败',
+          type: 'error'
+        })
+      }
+    },
+    // 文件上传失败， http 响应码不为 200 时的处理
+    handleAvatarError() {
+      this.$message({
+        message: '上传失败( http 请求失败)',
+        type: 'error'
+      })
+    },
+    // 上传前校验
+    beforeAvatarUpload(file) {
+      const isJPG = file.type === 'image/jpeg' || file.type === 'image/png'
+      const isLt2M = file.size / 1024 / 1024 < 2
+
+      if (!isJPG) {
+        this.$message.error('上传头像图片只能是 JPG 或 PNG 格式!')
+      }
+      if (!isLt2M) {
+        this.$message.error('上传头像图片大小不能超过 2MB!')
+      }
+      return isJPG && isLt2M
     }
   }
 }
 </script>
+
+<style>
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+</style>

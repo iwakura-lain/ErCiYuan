@@ -1,7 +1,5 @@
 package cn.antigenmhc.otaku.service.base.config;
 
-import com.github.xiaoymin.knife4j.spring.extension.OpenApiExtensionResolver;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +9,7 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 
@@ -21,7 +19,7 @@ import java.util.ArrayList;
  * @Version: 1.0
  **/
 @Configuration
-@EnableSwagger2WebMvc
+@EnableSwagger2
 public class SwaggerConfig {
 
 //    @Bean
@@ -39,7 +37,7 @@ public class SwaggerConfig {
     public Docket adminApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("adminApi")
-                .apiInfo(adminApiInfo())
+                .apiInfo(apiInfo("admin管理", "admin管理接口"))
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.manager.controller"))
                 //请求路径过滤
@@ -47,14 +45,26 @@ public class SwaggerConfig {
                 .build();
     }
 
-    private ApiInfo adminApiInfo(){
+    @Bean
+    public Docket fileApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("fileApi")
+                .apiInfo(apiInfo("文件管理", "文件管理接口"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.oss.controller"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    private ApiInfo apiInfo(String title, String desc){
         //作者信息
         Contact contact = new Contact("antigenMHC",
                 "https://www.yuque.com/antigenmhc",
                 "723493929@qq.com");
         //文档介绍
-        return new ApiInfo("admin接口",
-                "后台管理员接口",
+        return new ApiInfo(title,
+                desc,
                 "2.0",
                 "https://www.yuque.com/antigenmhc",
                 contact,

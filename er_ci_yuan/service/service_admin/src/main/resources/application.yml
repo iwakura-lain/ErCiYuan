@@ -26,12 +26,3 @@ mybatis-plus:
       logic-delete-value: 1
   type-aliases-package: cn.antigenmhc.otaku.service.manager.pojo
   mapper-locations: classpath:/xml/**.xml
-
-knife4j:
-  # 开启增强配置
-  enable: true
-  #开启Swagger的Basic认证功能,默认是false
-  basic:
-    enable: true
-    username: root
-    password: root
