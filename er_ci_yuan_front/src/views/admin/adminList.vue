@@ -33,8 +33,17 @@
       </el-form-item>
     </el-form>
 
+    <div style="margin-bottom: 20px">
+      <el-button type="danger" size="mini" @click="batchRemove()">
+        批量删除
+      </el-button>
+    </div>
+
     <!-- 表格 -->
-    <el-table v-loading="loading" :data="adminList" align="center" border stripe>
+    <el-table v-loading="loading" :data="adminList" align="center" border stripe @selection-change="handleSelectionChange">
+      <el-table-column
+        type="selection"
+        width="55"/>
       <el-table-column label="" width="50" align="center">
         <template slot-scope="scope">
           {{ (page - 1) * limit + scope.$index + 1 }}
@@ -106,7 +115,9 @@ export default {
       // 查询表单对象
       searchFrom: {},
       // 加载动画开关
-      loading: true
+      loading: true,
+      // 批量删除数组
+      batchSelectAdmin: []
     }
   },
 
@@ -139,6 +150,11 @@ export default {
       this.fetchData()
     },
 
+    // 表格记录选择事件处理, 获取选中的对象
+    handleSelectionChange(selection) {
+      this.batchSelectAdmin = selection
+    },
+
     // 重置查询 表单，刷新数据
     resetData() {
       this.searchFrom = {}
@@ -162,6 +178,47 @@ export default {
             dangerouslyUseHTMLString: true,
             type: 'success'
           })
+        })
+      }).catch((err) => {
+        if (err === 'cancel') {
+          this.$notify({
+            type: 'info',
+            dangerouslyUseHTMLString: true,
+            message: '<strong> <b style="color:#8A2BE2">取消注销<b> <strong>'
+          })
+        }
+      })
+    },
+    // 批量删除
+    batchRemove() {
+      if (this.batchSelectAdmin.length === 0) {
+        this.$message({
+          message: '请选择要注销的魔女，不然就爪巴',
+          type: 'error'
+        })
+        return
+      }
+
+      // 询问是否删除
+      this.$confirm('将注销这些魔女, 是否确定?', 'Warning', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        // 获取选中的记录的 id
+        const ids = []
+        this.batchSelectAdmin.forEach(item => {
+          ids.push(item.id)
+        })
+        adminApi.batchRemoveById(ids).then(response => {
+          // 弹出成功提示
+          this.$notify({
+            message: '<strong> <b style="color:green">注销成功<b><strong>',
+            dangerouslyUseHTMLString: true,
+            type: 'success'
+          })
+          // 刷新数据
+          this.fetchData()
         })
       }).catch((err) => {
         if (err === 'cancel') {

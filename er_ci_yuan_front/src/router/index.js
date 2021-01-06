@@ -65,7 +65,7 @@ export const constantRouterMap = [
       {
         path: 'edit/:id',
         name: 'adminEdit',
-        component: () => import('@/views/admin/adminUpdate'),
+        component: () => import('@/views/admin/adminForm'),
         meta: { title: '魔女更新' },
         hidden: true
       }
