@@ -4,7 +4,13 @@
     <!--查询表单-->
     <el-form :inline="true">
       <el-form-item>
-        <el-input v-model="searchFrom.name" placeholder="名讳"/>
+        <el-autocomplete
+          v-model="searchFrom.name"
+          :fetch-suggestions="querySearch"
+          :trigger-on-focus="false"
+          class="inline-input"
+          placeholder="名讳"
+        />
       </el-form-item>
 
       <el-form-item>
@@ -28,7 +34,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="fetchData()">查询</el-button>
+        <el-button type="primary" icon="el-icon-search" @click="fetchDataByQuery()">查询</el-button>
         <el-button type="warning" icon="el-icon-close" @click="resetData()">清空</el-button>
       </el-form-item>
     </el-form>
@@ -44,11 +50,6 @@
       <el-table-column
         type="selection"
         width="55"/>
-      <el-table-column label="" width="50" align="center">
-        <template slot-scope="scope">
-          {{ (page - 1) * limit + scope.$index + 1 }}
-        </template>
-      </el-table-column>
 
       <el-table-column align="center" prop="name" label="名讳" width="200" />
       <el-table-column align="center" prop="level" label="头衔" width="150">
@@ -117,7 +118,11 @@ export default {
       // 加载动画开关
       loading: true,
       // 批量删除数组
-      batchSelectAdmin: []
+      batchSelectAdmin: [],
+      // 查询后的分页page
+      listPage: 1,
+      // 查询后的分页记录数
+      listLimit: 5
     }
   },
 
@@ -130,9 +135,24 @@ export default {
   },
 
   methods: {
-    // 调用 api，加载列表
+    // 无 query 条件下的查询专用方法，只用于所有数据的分页
     fetchData() {
       adminApi.pageList(this.page, this.limit, this.searchFrom).then((response) => {
+        this.adminList = response.data.rows
+        this.total = response.data.total
+        this.loading = false
+      })
+    },
+    // 查询专用分页方法，避免和 fetchData() 冲突导致除了第一页以外搜不出数据
+    fetchDataByQuery() {
+      adminApi.pageList(this.listPage, this.listLimit, this.searchFrom).then((response) => {
+        this.total = response.data.total
+        // 记录数可以达到的分页数，以及显示哪个分页，否则不以当前分页页码显示
+        if (response.data.total > this.limit) {
+          this.page = Math.floor(this.total / this.limit) + 1
+          this.fetchData()
+          return
+        }
         this.adminList = response.data.rows
         this.total = response.data.total
         this.loading = false
@@ -155,10 +175,16 @@ export default {
       this.batchSelectAdmin = selection
     },
 
-    // 重置查询 表单，刷新数据
+    // 重置查询表单，刷新数据
     resetData() {
       this.searchFrom = {}
       this.fetchData()
+    },
+    // 输入建议
+    querySearch(queryString, callback) {
+      adminApi.getRecordsNameByKey(queryString).then(response => {
+        callback(response.data.records)
+      })
     },
 
     // 删除记录

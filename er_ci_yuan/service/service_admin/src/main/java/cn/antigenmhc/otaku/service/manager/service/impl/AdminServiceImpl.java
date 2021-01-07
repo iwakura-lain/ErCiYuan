@@ -14,7 +14,11 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.Wrapper;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <p>
@@ -62,5 +66,23 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 //        }
         return adminMapper.selectAdminByQuery(adminPage, adminQueryVo);
         //return baseMapper.selectPage(adminPage, queryWrapper);
+    }
+
+    @Override
+    public List<Map<String, String>> getRecordsNameByKey(String key) {
+        List<Admin> records = adminMapper.getRecordsNameByKey(key);
+
+        List<Map<String, String>> nameList= new LinkedList<>();
+
+        for (Admin record : records) {
+            Map<String, String> tmp = new ConcurrentHashMap<>(1);
+            //element-ui 中输入建议默认渲染 key 为 value 的数据，
+            //如果想要在 key 为其它值的情况下渲染数据，查询 element-ui 文档中
+            // input 组件 -> autoComplete attributes -> value-key
+            tmp.put("value", record.getName());
+            nameList.add(tmp);
+        }
+
+        return nameList;
     }
 }

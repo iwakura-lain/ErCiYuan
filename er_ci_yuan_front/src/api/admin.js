@@ -59,5 +59,12 @@ export default{
       method: 'delete',
       data: ids
     })
+  },
+
+  getRecordsNameByKey(key) {
+    return request({
+      url: `/admin/manager/admin/list/name/${key}`,
+      method: 'get'
+    })
   }
 }

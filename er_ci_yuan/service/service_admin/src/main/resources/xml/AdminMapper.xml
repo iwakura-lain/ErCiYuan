@@ -25,4 +25,14 @@
             order by oa.sort, oa.level desc, oa.join_date
     </select>
 
+    <select id="getRecordsNameByKey"
+            resultType="Admin"
+            parameterType="string">
+        select oa.name
+        from er_ci_yuan.otaku_admin as oa
+        <where>
+            oa.name like #{key}"%" and is_deleted &lt;&gt; 1
+        </where>
+    </select>
+
 </mapper>

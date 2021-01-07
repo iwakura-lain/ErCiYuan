@@ -19,6 +19,7 @@ import javax.validation.constraints.Max;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -95,14 +96,20 @@ public class AdminController {
     public Result deleteAdminsByIdList(
             @ApiParam(value = "id列表")
             @RequestBody List<String> ids){
-        System.out.println(ids);
-        boolean isDeleteSuccess = adminService.removeByIds(ids);
 
+        boolean isDeleteSuccess = adminService.removeByIds(ids);
         if(isDeleteSuccess) {
             return Result.ok().setMessage("批量删除成功");
         }else {
             return Result.error().setMessage("数据不存在");
         }
+    }
+
+    @ApiParam("根据关键字查询 admin 名字列表")
+    @GetMapping("list/name/{key}")
+    public Result getRecordsNameByKey(@PathVariable("key") String key){
+        List<Map<String, String>> records = adminService.getRecordsNameByKey(key);
+        return Result.ok().setMessage("查询成功").setData("records", records);
     }
 }
 

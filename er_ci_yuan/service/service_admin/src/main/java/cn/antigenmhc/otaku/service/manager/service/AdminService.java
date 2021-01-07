@@ -6,6 +6,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * <p>
  * 管理员 服务类
@@ -23,4 +26,12 @@ public interface AdminService extends IService<Admin> {
      * @return：最终分页对象
      */
     IPage<Admin> selectPageByQuery(Page<Admin> adminPage, AdminQueryVo queryVo);
+
+    /**
+     * 根据关键字模糊查询 name
+     * @param key：关键字
+     * @return：模糊查询出的名字列表，元素为键值对
+     */
+    List<Map<String, String>> getRecordsNameByKey(String key);
+
 }
