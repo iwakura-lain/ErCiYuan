@@ -12,6 +12,10 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
 server:
   port: 8081
@@ -26,3 +30,7 @@ mybatis-plus:
       logic-delete-value: 1
   type-aliases-package: cn.antigenmhc.otaku.service.manager.pojo
   mapper-locations: classpath:/xml/**.xml
+
+service-oss:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

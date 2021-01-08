@@ -5,6 +5,7 @@ import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
 import cn.antigenmhc.otaku.service.manager.pojo.Admin;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.AdminQueryVo;
+import cn.antigenmhc.otaku.service.manager.remote.RemoteOssFileService;
 import cn.antigenmhc.otaku.service.manager.service.AdminService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -37,6 +38,9 @@ public class AdminController {
 
     @Resource
     private AdminService adminService;
+
+    @Resource
+    private RemoteOssFileService remoteOssFileService;
 
     @ApiOperation("管理员列表")
     @GetMapping("getall")
@@ -105,11 +109,18 @@ public class AdminController {
         }
     }
 
-    @ApiParam("根据关键字查询 admin 名字列表")
+    @ApiOperation("根据关键字模糊查询 admin 名字列表")
     @GetMapping("list/name/{key}")
     public Result getRecordsNameByKey(@PathVariable("key") String key){
         List<Map<String, String>> records = adminService.getRecordsNameByKey(key);
         return Result.ok().setMessage("查询成功").setData("records", records);
     }
+
+    @GetMapping("test")
+    public Result test(){
+        remoteOssFileService.test();
+        return Result.ok();
+    }
+
 }
 

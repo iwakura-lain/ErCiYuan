@@ -6,10 +6,7 @@ import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
 import cn.antigenmhc.otaku.service.oss.service.FileService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -44,5 +41,12 @@ public class FileController {
             log.error(e.getMessage());
             throw new IntegrateException(ResultCodeEnum.FILE_UPLOAD_ERROR);
         }
+    }
+
+    @ApiOperation("远程调用测试")
+    @GetMapping("test")
+    public Result test(){
+        log.info("oss test 调用 23333333333");
+        return Result.ok();
     }
 }

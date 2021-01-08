@@ -10,11 +10,15 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
 
 aliyun:
   oss:
     endpoint: oss-cn-hangzhou.aliyuncs.com
-    accesskeyId: LTAI4GHuKKmNvRD7yMynyc2R
-    accesskeySecret: 5FmTCHVQjvzz4yocGnGUk2246FKXYY
+    accesskeyId: xxxxxx
+    accesskeySecret: xxxxxx
     bucketName: antigenmhc-erciyuan
