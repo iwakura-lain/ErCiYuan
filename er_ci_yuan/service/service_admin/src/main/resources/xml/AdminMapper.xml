@@ -35,4 +35,9 @@
         </where>
     </select>
 
+    <select id="getNameList" resultType="string">
+        select oa.name
+        from er_ci_yuan.otaku_admin as oa
+    </select>
+
 </mapper>

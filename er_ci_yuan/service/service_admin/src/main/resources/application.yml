@@ -13,6 +13,10 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   cloud:
+    sentinel:
+      transport:
+        port: 8878 #跟控制台交互的端口，随便指定一个没有使用的即可
+        dashboard: localhost:8858
     nacos:
       discovery:
         server-addr: localhost:8848
@@ -31,6 +35,20 @@ mybatis-plus:
   type-aliases-package: cn.antigenmhc.otaku.service.manager.pojo
   mapper-locations: classpath:/xml/**.xml
 
-service-oss:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#service-oss:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+ribbon:
+  # 同一实例中调用最大重试次数，不包括首次调用，默认为 0
+  MaxAutoRetries: 1
+  # 重试负载均衡中其它实例的次数，不包括首次调用，默认为 1
+  MaxAutoRetriesNextServer: 1
+  # 连接建立的超时时长，默认 1s，单位为 ms
+  ConnectTimeout: 10000
+  # 处理请求的超时时长，默认 1s，单位为 ms
+  ReadTimeout: 10000
+
+feign:
+  sentinel:
+    enabled: true

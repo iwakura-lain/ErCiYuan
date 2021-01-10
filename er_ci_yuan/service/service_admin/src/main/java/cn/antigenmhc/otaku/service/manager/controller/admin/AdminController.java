@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -34,6 +36,7 @@ import java.util.stream.Collectors;
 @Api("管理员管理")
 @RestController
 @RequestMapping("/admin/manager/admin")
+@Slf4j
 public class AdminController {
 
     @Resource
@@ -51,6 +54,7 @@ public class AdminController {
     @ApiOperation("删除管理员")
     @DeleteMapping("delete/{id}")
     public Result deleteOneById(@PathVariable("id") String id){
+        adminService.deleteAvatarByAdminId(id);
         boolean hashRemove = adminService.removeById(id);
         return hashRemove ? Result.ok().setMessage("删除成功") : Result.error().setMessage("删除失败");
     }
@@ -71,6 +75,9 @@ public class AdminController {
     @ApiOperation("新增管理员")
     @PostMapping("add")
     public Result addAdmin(@RequestBody Admin admin){
+        if(adminService.hasEqualsName(admin.getName())){
+            return Result.error().setMessage("重名惹");
+        }
         adminService.save(admin);
         return Result.ok().setMessage("添加成功");
     }
@@ -100,7 +107,7 @@ public class AdminController {
     public Result deleteAdminsByIdList(
             @ApiParam(value = "id列表")
             @RequestBody List<String> ids){
-
+        adminService.deleteAvatarByAdminIds(ids);
         boolean isDeleteSuccess = adminService.removeByIds(ids);
         if(isDeleteSuccess) {
             return Result.ok().setMessage("批量删除成功");
@@ -116,11 +123,19 @@ public class AdminController {
         return Result.ok().setMessage("查询成功").setData("records", records);
     }
 
-    @GetMapping("test")
-    public Result test(){
-        remoteOssFileService.test();
+    @ApiOperation("并发测试")
+    @GetMapping("test-concurrent")
+    public Result testConcurrent(){
+        log.info("2333333333");
         return Result.ok();
     }
 
+    @ApiOperation("服务调用测试")
+    @GetMapping("test-remote")
+    public Result test(){
+        remoteOssFileService.test();
+        log.info("远程调用成功");
+        return Result.ok();
+    }
 }
 

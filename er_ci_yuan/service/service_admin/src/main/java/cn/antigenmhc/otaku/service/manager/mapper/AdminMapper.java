@@ -25,4 +25,6 @@ public interface AdminMapper extends BaseMapper<Admin> {
     IPage<Admin> selectAdminByQuery(Page<?> page, AdminQueryVo queryVo);
 
     List<Admin> getRecordsNameByKey(String key);
+
+    List<String> getNameList();
 }

@@ -1,17 +1,22 @@
 package cn.antigenmhc.otaku.service.oss.service.serviceimpl;
 
 import cn.antigenmhc.otaku.service.oss.service.FileService;
-import cn.antigenmhc.otaku.service.oss.utils.OssProperties;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.model.CannedAccessControlList;
+import com.aliyun.oss.model.DeleteObjectsRequest;
+import com.aliyun.oss.model.DeleteObjectsResult;
 import org.joda.time.DateTime;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,16 +27,18 @@ import java.util.UUID;
 @Service
 public class FileServiceImpl implements FileService {
 
-    @Resource
-    private OssProperties ossProperties;
+    @Value("${aliyun.oss.endPoint}")
+    private String endPoint;
+    @Value("${aliyun.oss.accesskeyId}")
+    private String accesskeyId;
+    @Value("${aliyun.oss.accesskeySecret}")
+    private String accesskeySecret;
+    @Value("${aliyun.oss.bucketName}")
+    private String bucketName;
 
     @Override
     public String upload(InputStream inputStream, String dir, String originFilename) {
 
-        String endPoint = ossProperties.getEndPoint();
-        String accesskeyId = ossProperties.getAccesskeyId();
-        String accesskeySecret = ossProperties.getAccesskeySecret();
-        String bucketName = ossProperties.getBucketName();
         String projectPathName = createFilePathInBucket(dir, originFilename);
 
         OSS ossClient = new OSSClientBuilder().build(
@@ -47,6 +54,7 @@ public class FileServiceImpl implements FileService {
 
         ossClient.putObject(bucketName, projectPathName, inputStream);
 
+        ossClient.shutdown();
         return "https://" + bucketName + "." + endPoint + "/" + projectPathName;
     }
 
@@ -75,4 +83,47 @@ public class FileServiceImpl implements FileService {
         return finalFolderPath;
     }
 
+    @Override
+    public void deleteFile(String url) {
+        OSS ossClient = new OSSClientBuilder().build(
+                endPoint,
+                accesskeyId,
+                accesskeySecret
+        );
+        String objectName = splitUrl(url);
+        ossClient.deleteObject(bucketName, objectName);
+        ossClient.shutdown();
+    }
+
+    /**
+     * 截取传递过来的文件的 url 为 oss 中的路径
+     * @param url：文件的完整 url
+     * @return：截取后文件在 oss 中的路径
+     */
+    private String splitUrl(String url){
+        StringBuilder urlBuild = new StringBuilder(url);
+        String host = "https://" + bucketName + "." + endPoint + "/";
+        return urlBuild.substring(host.length());
+    }
+
+    @Override
+    public void deleteFiles(List<String> urls) {
+        OSS ossClient = new OSSClientBuilder().build(
+                endPoint,
+                accesskeyId,
+                accesskeySecret
+        );
+
+        List<String> splitUrls = new ArrayList<>();
+        //对 url 截取
+        for (String url : urls) {
+            splitUrls.add(splitUrl(url));
+        }
+        //官方文档中用于删除多个文件的对象,setKeys or withKeys 设置删除列表
+        DeleteObjectsRequest deleteObjectsRequest = new DeleteObjectsRequest(bucketName);
+        deleteObjectsRequest.setKeys(splitUrls);
+        ossClient.deleteObjects(deleteObjectsRequest);
+
+        ossClient.shutdown();
+    }
 }

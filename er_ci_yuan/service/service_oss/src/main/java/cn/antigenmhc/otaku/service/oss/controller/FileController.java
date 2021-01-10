@@ -12,6 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: antigenMHC
@@ -43,10 +45,23 @@ public class FileController {
         }
     }
 
-    @ApiOperation("远程调用测试")
+    @ApiOperation("删除文件")
+    @DeleteMapping("delete")
+    public Result deleteFile(@RequestParam String url){
+        fileService.deleteFile(url);
+        return Result.ok().setMessage("删除文件成功");
+    }
+
+    @ApiOperation("批量删除文件")
+    @DeleteMapping("delete-files")
+    public Result deleteFiles(@RequestParam List<String> urls){
+        fileService.deleteFiles(urls);
+        return Result.ok().setMessage("批量删除文件成功");
+    }
+
     @GetMapping("test")
-    public Result test(){
-        log.info("oss test 调用 23333333333");
+    public Result testConcurrent(){
+        log.info("23333333");
         return Result.ok();
     }
 }

@@ -1,8 +1,10 @@
 package cn.antigenmhc.otaku.service.manager.service.impl;
 
+import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.service.manager.pojo.Admin;
 import cn.antigenmhc.otaku.service.manager.mapper.AdminMapper;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.AdminQueryVo;
+import cn.antigenmhc.otaku.service.manager.remote.RemoteOssFileService;
 import cn.antigenmhc.otaku.service.manager.service.AdminService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -14,10 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.sql.Wrapper;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -33,6 +32,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
     @Resource
     private AdminMapper adminMapper;
+
+    @Resource
+    private RemoteOssFileService ossFileService;
 
     @Override
     public IPage<Admin> selectPageByQuery(Page<Admin> adminPage, AdminQueryVo adminQueryVo) {
@@ -84,5 +86,39 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         }
 
         return nameList;
+    }
+
+    @Override
+    public boolean deleteAvatarByAdminId(String id) {
+        Admin admin = baseMapper.selectById(id);
+        if(admin != null){
+            String avatarUrl = admin.getAvatar();
+            if(!StringUtils.isEmptyOrWhitespaceOnly(avatarUrl)){
+                Result res = ossFileService.deleteFile(avatarUrl);
+                return res.getSuccess();
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteAvatarByAdminIds(List<String> ids) {
+        List<String> avatarUrls = new ArrayList<>();
+        for (String id : ids) {
+            Admin admin = baseMapper.selectById(id);
+            if(admin != null){
+                String avatarUrl = admin.getAvatar();
+                if(!StringUtils.isEmptyOrWhitespaceOnly(avatarUrl)){
+                    avatarUrls.add(avatarUrl);
+                }
+            }
+        }
+        ossFileService.deleteFiles(avatarUrls);
+        return true;
+    }
+
+    @Override
+    public boolean hasEqualsName(String name) {
+        return adminMapper.getNameList().contains(name);
     }
 }

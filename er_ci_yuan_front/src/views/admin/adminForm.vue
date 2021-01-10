@@ -94,8 +94,9 @@ export default {
           message: '注册成功',
           type: 'success'
         })
+        this.$router.push({ path: '/admin/list' })
       })
-      this.$router.push({ path: '/admin/list' })
+      this.saveBtnDisabled = false
     },
 
     // 数据更新

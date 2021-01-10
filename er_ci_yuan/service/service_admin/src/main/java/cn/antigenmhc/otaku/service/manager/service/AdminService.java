@@ -34,4 +34,24 @@ public interface AdminService extends IService<Admin> {
      */
     List<Map<String, String>> getRecordsNameByKey(String key);
 
+    /**
+     * 根据 admin 的 id 调用远程接口并将对应的在 oss 中的图片进行删除
+     * @param id：admin id
+     * @return：能否删除
+     */
+    boolean deleteAvatarByAdminId(String id);
+
+    /**
+     * 批量删除 amdin 时调用远程接口批量删除 oss 中关联文件
+     * @param ids：admin id 列表
+     * @return：删除是否成功
+     */
+    boolean deleteAvatarByAdminIds(List<String> ids);
+
+    /**
+     * 判断数据库中与待插入 admin 是否有重名的
+     * @param name：名字
+     * @return：是否和数据库中数据重复
+     */
+    boolean hasEqualsName(String name);
 }

@@ -11,6 +11,10 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
   cloud:
+    sentinel:
+      transport:
+        port: 8878 #跟控制台交互的端口，随便指定一个没有使用的即可
+        dashboard: localhost:8858
     nacos:
       discovery:
         server-addr: localhost:8848
@@ -18,7 +22,7 @@ spring:
 
 aliyun:
   oss:
-    endpoint: oss-cn-hangzhou.aliyuncs.com
-    accesskeyId: xxxxxx
-    accesskeySecret: xxxxxx
+    endPoint: oss-cn-hangzhou.aliyuncs.com
+    accesskeyId: xxx
+    accesskeySecret: xxx
     bucketName: antigenmhc-erciyuan

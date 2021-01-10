@@ -1,6 +1,7 @@
 package cn.antigenmhc.otaku.service.oss.service;
 
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @Author: antigenMHC
@@ -16,4 +17,16 @@ public interface FileService {
      * @return：文件的 url
      */
     String upload(InputStream inputStream, String dir, String originFilename);
+
+    /**
+     * 文件删除接口
+     * @param url：文件 url
+     */
+    void deleteFile(String url);
+
+    /**
+     * 文件批量删除
+     * @param urls：url 列表
+     */
+    void deleteFiles(List<String> urls);
 }
