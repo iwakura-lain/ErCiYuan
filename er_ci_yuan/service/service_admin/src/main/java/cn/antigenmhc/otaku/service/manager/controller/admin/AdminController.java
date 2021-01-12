@@ -36,14 +36,10 @@ import java.util.stream.Collectors;
 @Api("管理员管理")
 @RestController
 @RequestMapping("/admin/manager/admin")
-@Slf4j
 public class AdminController {
 
     @Resource
     private AdminService adminService;
-
-    @Resource
-    private RemoteOssFileService remoteOssFileService;
 
     @ApiOperation("管理员列表")
     @GetMapping("getall")
@@ -121,21 +117,6 @@ public class AdminController {
     public Result getRecordsNameByKey(@PathVariable("key") String key){
         List<Map<String, String>> records = adminService.getRecordsNameByKey(key);
         return Result.ok().setMessage("查询成功").setData("records", records);
-    }
-
-    @ApiOperation("并发测试")
-    @GetMapping("test-concurrent")
-    public Result testConcurrent(){
-        log.info("2333333333");
-        return Result.ok();
-    }
-
-    @ApiOperation("服务调用测试")
-    @GetMapping("test-remote")
-    public Result test(){
-        remoteOssFileService.test();
-        log.info("远程调用成功");
-        return Result.ok();
     }
 }
 

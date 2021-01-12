@@ -2,6 +2,7 @@ package cn.antigenmhc.otaku.service.oss.controller;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
+import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
 import cn.antigenmhc.otaku.service.oss.service.FileService;
 import io.swagger.annotations.*;
@@ -40,7 +41,7 @@ public class FileController {
             return Result.ok().setMessage("文件上传成功").setData("url", url);
         } catch (Exception e) {
             //记录没被统一异常处理过的异常信息
-            log.error(e.getMessage());
+            log.error(ExceptionUtils.getMessage(e));
             throw new IntegrateException(ResultCodeEnum.FILE_UPLOAD_ERROR);
         }
     }
@@ -57,11 +58,5 @@ public class FileController {
     public Result deleteFiles(@RequestParam List<String> urls){
         fileService.deleteFiles(urls);
         return Result.ok().setMessage("批量删除文件成功");
-    }
-
-    @GetMapping("test")
-    public Result testConcurrent(){
-        log.info("23333333");
-        return Result.ok();
     }
 }

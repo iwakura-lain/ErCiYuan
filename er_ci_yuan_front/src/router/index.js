@@ -72,6 +72,32 @@ export const constantRouterMap = [
     ]
   },
 
+  // 动漫分类管理
+  {
+    // 父路径
+    path: '/anime-type',
+    component: Layout,
+    // 父路径默认跳转路径
+    redirect: '/anime-type/list',
+    name: 'animeType',
+    meta: { title: '动漫分类管理' },
+    children: [
+      {
+        // 子路径，完整路径为/父路径/子路径
+        path: 'list',
+        name: 'animeTypeList',
+        component: () => import('@/views/animetype/animeTypelist'),
+        meta: { title: '动漫分类列表' }
+      },
+      {
+        path: 'import',
+        name: 'adminTypeImport',
+        component: () => import('@/views/animetype/importAnimeType'),
+        meta: { title: '动漫分类导入' }
+      }
+    ]
+  },
+
   // 如果上面的路由都不匹配，则匹配 404
   { path: '*', redirect: '/404', hidden: true }
 ]

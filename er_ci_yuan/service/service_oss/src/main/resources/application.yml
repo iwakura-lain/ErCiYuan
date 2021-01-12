@@ -23,6 +23,6 @@ spring:
 aliyun:
   oss:
     endPoint: oss-cn-hangzhou.aliyuncs.com
-    accesskeyId: xxx
-    accesskeySecret: xxx
+    accesskeyId: XXX
+    accesskeySecret: XXX
     bucketName: antigenmhc-erciyuan
