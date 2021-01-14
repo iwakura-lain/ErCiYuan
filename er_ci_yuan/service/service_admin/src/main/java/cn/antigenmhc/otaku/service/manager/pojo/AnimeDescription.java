@@ -28,8 +28,10 @@ public class AnimeDescription extends BasePojo {
 
     private static final long serialVersionUID=1L;
 
+    @ApiModelProperty(value = "ID。跟随 anime 的 ID")
+    @TableId(value = "id", type = IdType.NONE)
+    private String id;
+
     @ApiModelProperty(value = "动漫简介")
     private String description;
-
-
 }

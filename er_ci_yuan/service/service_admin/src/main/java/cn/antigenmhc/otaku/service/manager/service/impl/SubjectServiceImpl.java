@@ -9,6 +9,7 @@ import cn.antigenmhc.otaku.service.manager.service.SubjectService;
 import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -62,9 +63,7 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
         //组装映射关系, 注意重写 AnimeSubjectVo 的 hashcode 和 equals 方法
         for (Subject subject : allSubject) {
             AnimeSubjectVo subjectVo = new AnimeSubjectVo();
-            subjectVo.setId(subject.getId());
-            subjectVo.setTitle(subject.getTitle());
-            subjectVo.setSort(subject.getSort());
+            BeanUtils.copyProperties(subject, subjectVo);
 
             if("0".equals(subject.getParentId())){
                 resMap.put(subjectVo, new ArrayList<>(children));

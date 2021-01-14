@@ -98,6 +98,36 @@ export const constantRouterMap = [
     ]
   },
 
+  // 动漫管理
+  {
+    path: '/anime',
+    component: Layout,
+    redirect: '/anime/list',
+    name: 'Anime',
+    meta: { title: '动漫管理' },
+    children: [
+      {
+        path: 'list',
+        name: 'animeList',
+        component: () => import('@/views/anime/animeList'),
+        meta: { title: '动漫列表' }
+      },
+      {
+        path: 'info',
+        name: 'animeInfo',
+        component: () => import('@/views/anime/animeForm'),
+        meta: { title: '发布动漫' }
+      },
+      {
+        path: 'info/:id',
+        name: 'animeInfoEdit',
+        component: () => import('@/views/anime/animeForm'),
+        meta: { title: '编辑动漫' },
+        hidden: true
+      }
+    ]
+  },
+
   // 如果上面的路由都不匹配，则匹配 404
   { path: '*', redirect: '/404', hidden: true }
 ]

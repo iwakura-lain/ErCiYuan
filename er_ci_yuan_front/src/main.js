@@ -13,6 +13,7 @@ import store from './store'
 import router from './router'
 
 import '@/icons' // icon
+import './assets/icons/iconfont.css'
 import '@/permission' // permission control
 
 /**

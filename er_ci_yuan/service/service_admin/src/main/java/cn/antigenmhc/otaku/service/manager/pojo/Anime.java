@@ -30,6 +30,9 @@ public class Anime extends BasePojo {
 
     private static final long serialVersionUID=1L;
 
+    public static final String ANIME_DRAFT = "Draft";
+    public static final String ANIME_NORMAL = "Normal";
+
     @ApiModelProperty(value = "动漫管理员ID")
     private String adminId;
 
