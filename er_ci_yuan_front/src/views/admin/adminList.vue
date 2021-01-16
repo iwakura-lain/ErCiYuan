@@ -5,7 +5,7 @@
     <el-form :inline="true">
       <el-form-item>
         <el-autocomplete
-          v-model="searchFrom.name"
+          v-model="searchForm.name"
           :fetch-suggestions="querySearch"
           :trigger-on-focus="false"
           class="inline-input"
@@ -14,7 +14,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-select v-model="searchFrom.level" clearable placeholder="头衔">
+        <el-select v-model="searchForm.level" clearable placeholder="头衔">
           <el-option value="1" label="见习魔女"/>
           <el-option value="2" label="灰之魔女"/>
         </el-select>
@@ -22,13 +22,13 @@
 
       <el-form-item label="在册时间">
         <el-date-picker
-          v-model="searchFrom.joinDateBegin"
+          v-model="searchForm.joinDateBegin"
           placeholder="开始时间"
           value-format="yyyy-MM-dd" />
       </el-form-item>
       <el-form-item label="-">
         <el-date-picker
-          v-model="searchFrom.joinDateEnd"
+          v-model="searchForm.joinDateEnd"
           placeholder="结束时间"
           value-format="yyyy-MM-dd" />
       </el-form-item>
@@ -114,7 +114,7 @@ export default {
       // 当前页记录数
       limit: 5,
       // 查询表单对象
-      searchFrom: {},
+      searchForm: {},
       // 加载动画开关
       loading: true,
       // 批量删除数组
@@ -135,18 +135,19 @@ export default {
   },
 
   methods: {
-    // 无 query 条件下的查询专用方法，只用于所有数据的分页
+    // 无 query 条件下，以及可以达到分页条件下的查询的专用方法，
     fetchData() {
-      adminApi.pageList(this.page, this.limit, this.searchFrom).then((response) => {
+      adminApi.pageList(this.page, this.limit, this.searchForm).then((response) => {
         this.adminList = response.data.rows
         this.total = response.data.total
         this.loading = false
       })
     },
-    // 查询专用分页方法，避免和 fetchData() 冲突导致除了第一页以外搜不出数据
+    // 查询专用分页方法，从第一页开始查，避免和 fetchData() 冲突导致除了第一页以外搜不出数据
     fetchDataByQuery() {
-      adminApi.pageList(this.listPage, this.listLimit, this.searchFrom).then((response) => {
+      adminApi.pageList(1, 5, this.searchForm).then((response) => {
         this.total = response.data.total
+        // 如果总记录数达到了可以分页的要求，则计算
         // 记录数可以达到的分页数，以及显示哪个分页，否则不以当前分页页码显示
         if (response.data.total > this.limit) {
           this.page = Math.floor(this.total / this.limit) + 1
@@ -177,7 +178,9 @@ export default {
 
     // 重置查询表单，刷新数据
     resetData() {
-      this.searchFrom = {}
+      this.searchForm = {}
+      this.page = 1
+      this.limit = 5
       this.fetchData()
     },
     // 输入建议

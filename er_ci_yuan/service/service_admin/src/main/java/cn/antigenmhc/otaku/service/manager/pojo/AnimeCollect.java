@@ -34,8 +34,4 @@ public class AnimeCollect extends BasePojo {
 
     @ApiModelProperty(value = "动漫ID")
     private String memberId;
-
-    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
-    @TableLogic
-    private Integer isDeleted;
 }

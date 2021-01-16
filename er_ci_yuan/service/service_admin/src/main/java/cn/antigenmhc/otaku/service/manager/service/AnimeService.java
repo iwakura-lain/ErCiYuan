@@ -2,7 +2,15 @@ package cn.antigenmhc.otaku.service.manager.service;
 
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
 import cn.antigenmhc.otaku.service.manager.pojo.form.AnimeInfoForm;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimePublishVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeQueryVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeVo;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -18,14 +26,52 @@ public interface AnimeService extends IService<Anime> {
      * 保存 / 更新动漫基本信息
      * @param animeInfoForm：表单对象
      * @param saveOrUpdate ：标志位，保存 or 更新
-     * @return：保存后的动漫记录的 id，用于关联前端中下一步要上传的视频
+     * @return ：保存后的动漫记录的 id，用于关联前端中下一步要上传的视频
      */
     String saveOrUpdateAnimeInfo(AnimeInfoForm animeInfoForm, int saveOrUpdate);
 
     /**
      * 根据 id 获取动漫表单，需要组装 description 和 anime 内容
      * @param id：anime id
-     * @return：anime 表单对象
+     * @return ：anime 表单对象
      */
     AnimeInfoForm getAnimeFormById(String id);
+
+    /**
+     * anime 分页方法
+     * @param adminPage：分页对象
+     * @param queryVo：查询条件
+     * @return ： 分页结果
+     */
+    IPage<AnimeVo> selectPageByQuery(Page<AnimeVo> adminPage, AnimeQueryVo queryVo);
+
+    /**
+     * 删除封面
+     * @param id: anime id
+     * @return ：oss文件是否删除成
+     */
+    boolean deleteCoverByAdminId(String id);
+
+    /**
+     * 删除动漫信息及其所有关联的信息
+     * @param id：anime id
+     * @return：是否删除成功
+     */
+    boolean deleteAnimeAllInfoById(String id);
+
+    /**
+     * 组装动漫发布页面的动漫信息
+     * @param id：动漫 id
+     * @return：信息对象
+     */
+    AnimePublishVo getAnimePublishInfoById(String id);
+
+    /**
+     * 根据 id 发布动漫
+     * @param id：id
+     * @return：是否发布成功
+     */
+    boolean publishAnimeInfoById(String id);
+
+    List<Map<String, String>> getRecordsNameByKey(String key);
 }

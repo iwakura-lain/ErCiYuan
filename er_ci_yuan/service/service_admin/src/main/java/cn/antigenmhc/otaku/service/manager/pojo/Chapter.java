@@ -36,6 +36,4 @@ public class Chapter extends BasePojo {
 
     @ApiModelProperty(value = "显示排序")
     private Integer sort;
-
-
 }

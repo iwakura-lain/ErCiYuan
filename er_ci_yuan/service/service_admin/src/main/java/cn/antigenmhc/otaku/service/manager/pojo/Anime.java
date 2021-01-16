@@ -66,8 +66,4 @@ public class Anime extends BasePojo {
 
     @ApiModelProperty(value = "动漫状态 Draft未发布  Normal已发布")
     private String status;
-
-    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
-    @TableLogic
-    private Integer isDeleted;
 }

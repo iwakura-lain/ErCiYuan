@@ -1,18 +1,28 @@
 package cn.antigenmhc.otaku.service.manager.service.impl;
 
-import cn.antigenmhc.otaku.service.manager.mapper.AnimeDescriptionMapper;
-import cn.antigenmhc.otaku.service.manager.pojo.Anime;
-import cn.antigenmhc.otaku.service.manager.mapper.AnimeMapper;
-import cn.antigenmhc.otaku.service.manager.pojo.AnimeDescription;
+import cn.antigenmhc.otaku.common.base.result.Result;
+import cn.antigenmhc.otaku.service.manager.mapper.*;
+import cn.antigenmhc.otaku.service.manager.pojo.*;
 import cn.antigenmhc.otaku.service.manager.pojo.form.AnimeInfoForm;
-import cn.antigenmhc.otaku.service.manager.service.AnimeDescriptionService;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimePublishVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeQueryVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeVo;
+import cn.antigenmhc.otaku.service.manager.remote.RemoteOssFileService;
 import cn.antigenmhc.otaku.service.manager.service.AnimeService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <p>
@@ -28,6 +38,20 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
     @Resource
     private AnimeDescriptionMapper animeDescriptionMapper;
 
+    @Resource
+    private RemoteOssFileService ossFileService;
+
+    @Resource
+    private AnimeDescriptionMapper descriptionMapper;
+    @Resource
+    private VideoMapper videoMapper;
+    @Resource
+    private ChapterMapper chapterMapper;
+    @Resource
+    private CommentMapper commentMapper;
+    @Resource
+    private AnimeCollectMapper animeCollectMapper;
+
     @Transactional(rollbackFor = Exception.class)
     @Override
     public String saveOrUpdateAnimeInfo(AnimeInfoForm animeInfoForm, int saveOrUpdate) {
@@ -36,7 +60,6 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         Anime anime = new Anime();
         BeanUtils.copyProperties(animeInfoForm, anime);
         anime.setStatus(Anime.ANIME_DRAFT);
-        anime.setIsDeleted(0);
         // 判断是执行保存还是更新
         if(saveOrUpdate == 0){
             //执行完 insert 方法后，anime 对象中就有 id 了
@@ -71,5 +94,88 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         AnimeDescription animeDescription = animeDescriptionMapper.selectById(id);
         resForm.setDescription(animeDescription.getDescription());
         return resForm;
+    }
+
+    @Override
+    public IPage<AnimeVo> selectPageByQuery(Page<AnimeVo> animePage, AnimeQueryVo queryVo) {
+        return baseMapper.selectAdminByQuery(animePage, queryVo);
+    }
+
+    @Override
+    public boolean deleteCoverByAdminId(String id) {
+        Anime anime = baseMapper.selectById(id);
+        if(anime != null){
+            String cover = anime.getCover();
+            if(!StringUtils.isEmptyOrWhitespaceOnly(cover)){
+                Result result = ossFileService.deleteFile(cover);
+                return result.getSuccess();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 因为不做数据库中的外键关联，所以为了在应用层实现级联删除
+     * 因此要先删除子表的数据，再删除父表的数据，避免子表中的数据成为数据孤岛
+     * @param id：anime id
+     * @return：删除是否成功
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public boolean deleteAnimeAllInfoById(String id) {
+        descriptionMapper.deleteById(id);
+        //先删除 video
+        QueryWrapper<Video> videoQueryWrapper = new QueryWrapper<>();
+        videoQueryWrapper.eq("anime_id", id);
+        videoMapper.delete(videoQueryWrapper);
+        //再删 chapter
+        QueryWrapper<Chapter> chapterQueryWrapper = new QueryWrapper<>();
+        chapterQueryWrapper.eq("anime_id", id);
+        chapterMapper.delete(chapterQueryWrapper);
+        //再删 comment
+        QueryWrapper<Comment> commentQueryWrapper = new QueryWrapper<>();
+        commentQueryWrapper.eq("anime_id", id);
+        commentMapper.delete(commentQueryWrapper);
+        //再删 animeCollect
+        QueryWrapper<AnimeCollect> collectQueryWrapper = new QueryWrapper<>();
+        collectQueryWrapper.eq("anime_id", id);
+        animeCollectMapper.delete(collectQueryWrapper);
+
+        descriptionMapper.deleteById(id);
+
+        return this.removeById(id);
+    }
+
+    @Override
+    public AnimePublishVo getAnimePublishInfoById(String id) {
+
+        return baseMapper.getAnimePublishInfoById(id);
+    }
+
+    @Override
+    public boolean publishAnimeInfoById(String id) {
+
+        Anime anime = new Anime();
+        anime.setStatus(Anime.ANIME_NORMAL);
+        anime.setId(id);
+        return this.updateById(anime);
+    }
+
+    @Override
+    public List<Map<String, String>> getRecordsNameByKey(String key) {
+        List<Anime> records = baseMapper.getRecordsNameByKey(key);
+
+        List<Map<String, String>> nameList= new LinkedList<>();
+
+        for (Anime record : records) {
+            Map<String, String> tmp = new ConcurrentHashMap<>(1);
+            //element-ui 中输入建议默认渲染 key 为 value 的数据，
+            //如果想要在 key 为其它值的情况下渲染数据，查询 element-ui 文档中
+            // input 组件 -> autoComplete attributes -> value-key
+            tmp.put("value", record.getTitle());
+            nameList.add(tmp);
+        }
+
+        return nameList;
     }
 }

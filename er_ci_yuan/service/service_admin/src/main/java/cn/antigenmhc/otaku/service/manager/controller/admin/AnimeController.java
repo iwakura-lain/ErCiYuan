@@ -3,20 +3,23 @@ package cn.antigenmhc.otaku.service.manager.controller.admin;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
-import cn.antigenmhc.otaku.service.manager.pojo.AnimeDescription;
 import cn.antigenmhc.otaku.service.manager.pojo.form.AnimeInfoForm;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimePublishVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeQueryVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeVo;
 import cn.antigenmhc.otaku.service.manager.service.AnimeDescriptionService;
 import cn.antigenmhc.otaku.service.manager.service.AnimeService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -75,5 +78,58 @@ public class AnimeController {
         //更新时，animeId 可以返回也可以不返回，因为这时候前端已经保存了 animeId 了
         return Result.ok().setData("animeId", animeId).setMessage("更新动漫基本信息成功");
     }
+
+    @ApiOperation("动漫列表分页")
+    @GetMapping("list/{page}/{limit}")
+    public Result listPage(@ApiParam(value = "当前页码", required = true) @PathVariable("page") Long page,
+                           @ApiParam(value = "每页记录数", required = true) @PathVariable("limit") Long limit,
+                           @ApiParam("查询条件") AnimeQueryVo queryVo){
+        Page<AnimeVo> adminPage = new Page<>(page, limit);
+        IPage<AnimeVo> pageModel = animeService.selectPageByQuery(adminPage, queryVo);
+        List<AnimeVo> records = pageModel.getRecords();
+        long total = pageModel.getTotal();
+
+        return Result.ok().setData("total", total).setData("rows", records);
+    }
+
+    @ApiOperation("删除动漫")
+    @DeleteMapping("delete/{id}")
+    public Result deleteAnimeAndCover(@PathVariable("id") String id){
+        animeService.deleteCoverByAdminId(id);
+        boolean removed = animeService.deleteAnimeAllInfoById(id);
+        return removed ? Result.ok().setMessage("删除成功") : Result.error().setMessage("删除失败");
+    }
+
+    @ApiOperation("用于展示发布页面的信息")
+    @GetMapping("get-publish-anime/{id}")
+    public Result getAnimePublishInfo(@PathVariable("id") String id){
+        AnimePublishVo publishInfo = animeService.getAnimePublishInfoById(id);
+
+        if(publishInfo != null){
+            return Result.ok().setData("item", publishInfo);
+        }else{
+            return Result.error().setMessage("不存在该数据");
+        }
+    }
+
+    @ApiOperation("根据id更新对应 anime 的发布状态")
+    @PutMapping("publish-anime/{id}")
+    public Result updateAnimePublishStatus(@PathVariable("id") String id){
+        boolean publishAnime = animeService.publishAnimeInfoById(id);
+
+        if(publishAnime){
+            return Result.ok().setMessage("发布成功");
+        }else{
+            return Result.error().setMessage("不存在该数据");
+        }
+    }
+
+    @ApiOperation("根据关键字匹配，返回输入建议")
+    @GetMapping("list/name/{key}")
+    public Result getRecordsNameByKey(@PathVariable("key") String key){
+        List<Map<String, String>> records = animeService.getRecordsNameByKey(key);
+        return Result.ok().setMessage("查询成功").setData("records", records);
+    }
+
 }
 

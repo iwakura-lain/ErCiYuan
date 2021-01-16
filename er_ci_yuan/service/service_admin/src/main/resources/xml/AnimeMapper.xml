@@ -2,4 +2,92 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.antigenmhc.otaku.service.manager.mapper.AnimeMapper">
 
+    <sql id="columns">
+        oan.id,
+        oan.title,
+        oan.price,
+        oan.cover,
+        oan.buy_count as buyCount,
+        oan.view_count as viewCount,
+        oan.status,
+        oan.gmt_create as gmtCreate,
+        oan.anime_num as animeNum,
+        oad.name as adminName,
+        os1.title as subjectTitle,
+        os2.title as subjectParentTitle
+    </sql>
+    
+    <sql id="ifs">
+        <where>
+            <if test="queryVo.title != null">
+                oan.title like "%"#{queryVo.title}"%"
+            </if>
+            <if test="queryVo.adminId != null">
+                and oan.admin_id = #{queryVo.adminId}
+            </if>
+            <!-- 模糊查询, 从关联后的表中，模糊查询到与
+            查询条件中的 subjectId 对应的 title 相似的记录 -->
+            <if test="queryVo.subjectId != '' and queryVo.subjectId != null">
+                and os1.title like concat('%',
+                    (
+                    select ios.title from er_ci_yuan.otaku_subject as ios
+                    where ios.id = #{queryVo.subjectId}
+                ), '%')
+            </if>
+            <if test="queryVo.subjectParentId != null">
+                and oan.subject_parent_id = #{queryVo.subjectParentId}
+            </if>
+        </where>
+    </sql>
+
+    <sql id="tables">
+        from er_ci_yuan.otaku_anime as oan
+        inner join er_ci_yuan.otaku_admin as oad
+            on oan.admin_id = oad.id
+        inner join er_ci_yuan.otaku_subject as os1
+            on oan.subject_id = os1.id
+        inner join er_ci_yuan.otaku_subject as os2
+            on oan.subject_parent_id = os2.id
+    </sql>
+
+    <select id="selectAdminByQuery"
+            resultType="AnimeVo"
+            parameterType="AnimeQueryVo"
+            >
+        select
+            <include refid="columns"/>
+            <include refid="tables"/>
+            <include refid="ifs"/>
+        order by oan.gmt_create
+    </select>
+
+    <select id="getAnimePublishInfoById"
+            parameterType="string"
+            resultType="AnimePublishVo">
+        select
+            oan.id,
+            oan.title,
+            oan.price,
+            oan.cover,
+            oan.anime_num as animeNum,
+            oad.name as adminName,
+            os1.title as subjectTitle,
+            os2.title as subjectParentTitle
+        <include refid="tables"/>
+        where
+            oan.id = #{id}
+    </select>
+
+    <select id="getRecordsNameByKey"
+            resultType="Anime"
+            parameterType="string"
+            >
+        select oa.title
+        from er_ci_yuan.otaku_anime as oa
+        <where>
+            oa.title like "%"#{key}"%"
+        </where>
+    </select>
+
+
 </mapper>
