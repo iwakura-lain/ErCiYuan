@@ -124,6 +124,13 @@ export const constantRouterMap = [
         component: () => import('@/views/anime/animeForm'),
         meta: { title: '编辑动漫' },
         hidden: true
+      },
+      {
+        path: 'chapter/:id',
+        name: 'animeChapter',
+        component: () => import('@/views/anime/animeForm'),
+        meta: { title: '编辑目录' },
+        hidden: true
       }
     ]
   },

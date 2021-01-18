@@ -21,7 +21,7 @@ import java.util.List;
  */
 public interface AnimeMapper extends BaseMapper<Anime> {
 
-    IPage<AnimeVo> selectAdminByQuery(Page<?> page, AnimeQueryVo queryVo);
+    IPage<AnimeVo> selectAnimeByQuery(Page<?> page, AnimeQueryVo queryVo);
 
     AnimePublishVo getAnimePublishInfoById(String id);
 

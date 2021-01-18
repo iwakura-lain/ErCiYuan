@@ -98,7 +98,7 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
 
     @Override
     public IPage<AnimeVo> selectPageByQuery(Page<AnimeVo> animePage, AnimeQueryVo queryVo) {
-        return baseMapper.selectAdminByQuery(animePage, queryVo);
+        return baseMapper.selectAnimeByQuery(animePage, queryVo);
     }
 
     @Override

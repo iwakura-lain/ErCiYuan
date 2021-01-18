@@ -50,7 +50,7 @@
             on oan.subject_parent_id = os2.id
     </sql>
 
-    <select id="selectAdminByQuery"
+    <select id="selectAnimeByQuery"
             resultType="AnimeVo"
             parameterType="AnimeQueryVo"
             >
@@ -58,7 +58,7 @@
             <include refid="columns"/>
             <include refid="tables"/>
             <include refid="ifs"/>
-        order by oan.gmt_create
+        order by oan.gmt_create desc
     </select>
 
     <select id="getAnimePublishInfoById"
