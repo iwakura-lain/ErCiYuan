@@ -55,23 +55,30 @@ public interface AnimeService extends IService<Anime> {
     /**
      * 删除动漫信息及其所有关联的信息
      * @param id：anime id
-     * @return：是否删除成功
+     * @return ：是否删除成功
      */
     boolean deleteAnimeAllInfoById(String id);
 
     /**
      * 组装动漫发布页面的动漫信息
      * @param id：动漫 id
-     * @return：信息对象
+     * @return ：信息对象
      */
     AnimePublishVo getAnimePublishInfoById(String id);
 
     /**
      * 根据 id 发布动漫
      * @param id：id
-     * @return：是否发布成功
+     * @return ：是否发布成功
      */
     boolean publishAnimeInfoById(String id);
 
     List<Map<String, String>> getRecordsNameByKey(String key);
+
+    /**
+     * 根据 anime id 删除所有属于该 id 的 chapter 以及 video
+     * @param id：anime id
+     * @return ：删除状态
+     */
+    boolean deleteAllChapterAndAllVideoByAnimeId(String id);
 }

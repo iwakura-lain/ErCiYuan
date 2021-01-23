@@ -6,9 +6,11 @@ import cn.antigenmhc.otaku.service.manager.mapper.ChapterMapper;
 import cn.antigenmhc.otaku.service.manager.pojo.Video;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.ChapterVo;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.VideoVo;
+import cn.antigenmhc.otaku.service.manager.remote.RemoteVodFileService;
 import cn.antigenmhc.otaku.service.manager.service.ChapterService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +31,8 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper, Chapter> impl
 
     @Resource
     private VideoMapper videoMapper;
+    @Resource
+    private RemoteVodFileService remoteVodFileService;
 
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -73,5 +77,33 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper, Chapter> impl
         }
 
         return resList;
+    }
+
+    @Override
+    public boolean deleteAllVodByChapterId(String id) {
+        QueryWrapper<Video> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("chapter_id", id);
+        List<Video> videos = videoMapper.selectList(queryWrapper);
+        //存储要删除的vod和video的id
+        List<String> vodIds = new ArrayList<>();
+        List<String> videoIds = new ArrayList<>();
+        //获取 vod 视频以及视频id
+        for (Video video : videos) {
+            //由于阿里云限制一次最多删除20个视频，因此如果大于等于20则需要分批删除
+            vodIds.add(video.getVideoSourceId());
+            if(vodIds.size() >= 20){
+                remoteVodFileService.deleteVodFile(String.join(",", vodIds));
+                vodIds.clear();
+            }
+            videoIds.add(video.getId());
+        }
+        //清尾删除，健壮性判断
+        if(vodIds.size() != 0){
+            remoteVodFileService.deleteVodFile(String.join(",", vodIds));
+        }
+        if(videoIds.size() != 0){
+            videoMapper.deleteBatchIds(videoIds);
+        }
+        return true;
     }
 }

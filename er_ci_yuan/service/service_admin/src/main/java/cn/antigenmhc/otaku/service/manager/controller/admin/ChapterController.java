@@ -63,7 +63,8 @@ public class ChapterController {
     @ApiOperation("删除季度")
     @DeleteMapping("delete/{id}")
     public Result deleteOneById(@PathVariable("id") String id){
-        //chapterService.deleteVodByChapterId(id);
+        //批量删除属于该季下的所有视频以及视频信息
+        chapterService.deleteAllVodByChapterId(id);
         boolean hashRemove = chapterService.removeChapterAndVideoById(id);
         return hashRemove ? Result.ok().setMessage("删除成功") : Result.error().setMessage("删除失败");
     }

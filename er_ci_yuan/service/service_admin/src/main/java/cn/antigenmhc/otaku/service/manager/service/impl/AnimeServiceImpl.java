@@ -8,6 +8,7 @@ import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimePublishVo;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeQueryVo;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeVo;
 import cn.antigenmhc.otaku.service.manager.remote.RemoteOssFileService;
+import cn.antigenmhc.otaku.service.manager.remote.RemoteVodFileService;
 import cn.antigenmhc.otaku.service.manager.service.AnimeService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +42,8 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
 
     @Resource
     private RemoteOssFileService ossFileService;
+    @Resource
+    private RemoteVodFileService remoteVodFileService;
 
     @Resource
     private AnimeDescriptionMapper descriptionMapper;
@@ -177,5 +181,36 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         }
 
         return nameList;
+    }
+
+    @Override
+    public boolean deleteAllChapterAndAllVideoByAnimeId(String id) {
+
+        //查询出属于 animeId 下的视频，并从远端开始删除，并删除子结点信息
+        QueryWrapper<Video> videoQueryWrapper = new QueryWrapper<>();
+        videoQueryWrapper.eq("anime_id", id);
+        List<Video> videos = videoMapper.selectList(videoQueryWrapper);
+        List<String> vodIds = new ArrayList<>();
+        List<String> videoIds = new ArrayList<>();
+        //获取 vod 视频以及视频id
+        videos.forEach(video->{
+            vodIds.add(video.getVideoSourceId());
+            if(vodIds.size() >= 20){
+                remoteVodFileService.deleteVodFile(String.join(",", vodIds));
+                vodIds.clear();
+            }
+            videoIds.add(video.getId());
+        });
+        //删除
+        if(vodIds.size() != 0){
+            remoteVodFileService.deleteVodFile(String.join(",", vodIds));
+        }
+        if(videoIds.size() != 0){
+            videoMapper.deleteBatchIds(videoIds);
+        }
+
+        //这里不用删除chapter的信息，chapter的信息在删除anime时进行了
+
+        return true;
     }
 }

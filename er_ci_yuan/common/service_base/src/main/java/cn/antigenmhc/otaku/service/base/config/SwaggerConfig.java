@@ -57,6 +57,18 @@ public class SwaggerConfig {
                 .build();
     }
 
+    @Bean
+    public Docket vodApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("vodApi")
+                .apiInfo(apiInfo("vod管理", "vod管理接口"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.vod.controller"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
     private ApiInfo apiInfo(String title, String desc){
         //作者信息
         Contact contact = new Contact("antigenMHC",

@@ -94,7 +94,10 @@ public class AnimeController {
 
     @ApiOperation("删除动漫")
     @DeleteMapping("delete/{id}")
-    public Result deleteAnimeAndCover(@PathVariable("id") String id){
+    public Result deleteAnime(@PathVariable("id") String id){
+        //批量删除该动漫下的所有视频，季度信息，视频信息
+        animeService.deleteAllChapterAndAllVideoByAnimeId(id);
+        //删除oss中的封面
         animeService.deleteCoverByAdminId(id);
         boolean removed = animeService.deleteAnimeAllInfoById(id);
         return removed ? Result.ok().setMessage("删除成功") : Result.error().setMessage("删除失败");

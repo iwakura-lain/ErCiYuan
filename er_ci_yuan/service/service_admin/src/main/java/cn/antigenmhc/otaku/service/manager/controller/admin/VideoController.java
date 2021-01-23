@@ -62,7 +62,7 @@ public class VideoController {
     @ApiOperation("删除视频")
     @DeleteMapping("delete/{id}")
     public Result deleteOneById(@PathVariable("id") String id){
-        //chapterService.deleteVodByChapterId(id);
+        videoService.deleteVodByVideoId(id);
         boolean hashRemove = videoService.removeById(id);
         return hashRemove ? Result.ok().setMessage("删除成功") : Result.error().setMessage("删除失败");
     }

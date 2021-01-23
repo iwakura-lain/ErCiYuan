@@ -1,0 +1,28 @@
+server:
+  port: 8170
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-vod
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  cloud:
+    sentinel:
+      transport:
+        port: 8878 #跟控制台交互的端口，随便指定一个没有使用的即可
+        dashboard: localhost:8858
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+
+aliyun:
+  vod:
+    accesskeyId: xxx
+    accesskeySecret: xxx
+    templateGroupId: xxx #模板组id
+    workflowId: xxx #工作流id

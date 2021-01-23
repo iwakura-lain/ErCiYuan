@@ -81,5 +81,6 @@ public class SubjectController {
         subjectService.updateById(subject);
         return Result.ok().setMessage("修改成功");
     }
+
 }
 

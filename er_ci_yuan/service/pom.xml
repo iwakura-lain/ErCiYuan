@@ -20,6 +20,8 @@
         <module>service_admin</module>
         <!-- oss 模块 -->
         <module>service_oss</module>
+        <!-- vod 模块 -->
+        <module>service_vod</module>
     </modules>
 
     <dependencies>
@@ -48,6 +50,11 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <!--mybatis-plus-->

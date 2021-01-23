@@ -22,6 +22,7 @@ public class AnimeSubjectVo implements Serializable {
     private String id;
     private String title;
     private Integer sort;
+    private String parentId;
     private List<AnimeSubjectVo> childrenSubject = new ArrayList<>();
 
     @Override

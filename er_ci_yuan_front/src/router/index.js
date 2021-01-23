@@ -35,7 +35,7 @@ export const constantRouterMap = [
     children: [{
       path: 'dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '次元管理局' }
+      meta: { title: '次元管理局', icon: 'home' }
     }]
   },
 
@@ -47,26 +47,26 @@ export const constantRouterMap = [
     // 父路径默认跳转路径
     redirect: '/admin/list',
     name: 'admin',
-    meta: { title: '魔法统筹协会' },
+    meta: { title: '魔法统筹协会', icon: 'adminHome', affix: true },
     children: [
       {
         // 子路径，完整路径为/父路径/子路径
         path: 'list',
         name: 'adminList',
         component: () => import('@/views/admin/adminList'),
-        meta: { title: '在职魔女' }
+        meta: { title: '在职魔女', icon: 'mohoxi', affix: true }
       },
       {
         path: 'create',
         name: 'adminCreate',
         component: () => import('@/views/admin/adminForm'),
-        meta: { title: '注册魔女' }
+        meta: { title: '注册魔女', icon: 'addAdmin', affix: true }
       },
       {
         path: 'edit/:id',
         name: 'adminEdit',
         component: () => import('@/views/admin/adminForm'),
-        meta: { title: '魔女更新' },
+        meta: { title: '魔女更新', affix: true },
         hidden: true
       }
     ]
@@ -80,20 +80,20 @@ export const constantRouterMap = [
     // 父路径默认跳转路径
     redirect: '/anime-type/list',
     name: 'animeType',
-    meta: { title: '动漫分类管理' },
+    meta: { title: '动漫分类管理', icon: 'typeList', affix: true },
     children: [
       {
         // 子路径，完整路径为/父路径/子路径
         path: 'list',
         name: 'animeTypeList',
         component: () => import('@/views/animetype/animeTypelist'),
-        meta: { title: '动漫分类列表' }
+        meta: { title: '动漫分类列表', icon: 'animeTypeList', affix: true }
       },
       {
         path: 'import',
         name: 'adminTypeImport',
         component: () => import('@/views/animetype/importAnimeType'),
-        meta: { title: '动漫分类导入' }
+        meta: { title: '动漫分类导入', icon: 'import', affix: true }
       }
     ]
   },
@@ -104,19 +104,19 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/anime/list',
     name: 'Anime',
-    meta: { title: '动漫管理' },
+    meta: { title: '动漫管理', icon: 'anime', affix: true },
     children: [
       {
         path: 'list',
         name: 'animeList',
         component: () => import('@/views/anime/animeList'),
-        meta: { title: '动漫列表' }
+        meta: { title: '动漫列表', icon: 'animeList', affix: true }
       },
       {
         path: 'info',
         name: 'animeInfo',
         component: () => import('@/views/anime/animeForm'),
-        meta: { title: '发布动漫' }
+        meta: { title: '发布动漫', icon: 'animePublish', affix: true }
       },
       {
         path: 'info/:id',

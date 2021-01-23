@@ -68,7 +68,7 @@ public class FileServiceImpl implements FileService {
      * 3.对于用户上传的图片，可能其中会有乱七八糟的字符，
      * 故这里统一使用 UUID 生成随机字符串来替代源文件名，只需要与源文件的扩展名拼接即可
      * @param originFilename : 源文件名
-     * @return: 拼接后的真正的文件名
+     * @return : 拼接后的真正的文件名
      */
     private String createFilePathInBucket(String module, String originFilename){
 
@@ -98,7 +98,7 @@ public class FileServiceImpl implements FileService {
     /**
      * 截取传递过来的文件的 url 为 oss 中的路径
      * @param url：文件的完整 url
-     * @return：截取后文件在 oss 中的路径
+     * @return ：截取后文件在 oss 中的路径
      */
     private String splitUrl(String url){
         StringBuilder urlBuild = new StringBuilder(url);
