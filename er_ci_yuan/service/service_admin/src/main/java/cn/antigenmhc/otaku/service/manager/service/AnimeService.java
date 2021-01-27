@@ -2,9 +2,7 @@ package cn.antigenmhc.otaku.service.manager.service;
 
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
 import cn.antigenmhc.otaku.service.manager.pojo.form.AnimeInfoForm;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimePublishVo;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeQueryVo;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.*;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -81,4 +79,26 @@ public interface AnimeService extends IService<Anime> {
      * @return ：删除状态
      */
     boolean deleteAllChapterAndAllVideoByAnimeId(String id);
+
+    /**
+     * 根据查询条件返回动漫列表
+     * @param siteAnimeQueryVo：查询条件封装的对象
+     * @return ：动漫列表
+     */
+    List<Anime> siteSelectAnimeListByQuery(SiteAnimeQueryVo siteAnimeQueryVo);
+
+    /**
+     * 前台动漫展示分页
+     * @param animePage：分页对象
+     * @param queryVo：筛选条件对象
+     * @return ：分页结果
+     */
+    IPage<Anime> siteSelectPageByQuery(Page<Anime> animePage, SiteAnimeQueryVo queryVo);
+
+    /**
+     *
+     * @param animeId
+     * @return
+     */
+    SiteAnimeInfoVo siteSelectAnimeInfoAndUpdateViewCount(String animeId);
 }

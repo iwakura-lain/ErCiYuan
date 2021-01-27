@@ -22,6 +22,8 @@
         <module>service_oss</module>
         <!-- vod 模块 -->
         <module>service_vod</module>
+        <!-- 内容管理模块 -->
+        <module>service_cms</module>
     </modules>
 
     <dependencies>

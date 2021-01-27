@@ -29,7 +29,7 @@ import java.util.Map;
  * @author antigenmhc
  * @since 2020-11-30
  */
-@Api("动漫管理")
+@Api(description = "动漫管理")
 @RestController
 @RequestMapping("/admin/manager/anime")
 @Slf4j

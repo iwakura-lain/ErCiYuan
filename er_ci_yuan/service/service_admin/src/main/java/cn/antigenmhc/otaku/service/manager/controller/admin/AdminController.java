@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
  * @author antigenmhc
  * @since 2020-11-30
  */
-@Api("管理员管理")
+@Api(description = "管理员管理")
 @RestController
 @RequestMapping("/admin/manager/admin")
 public class AdminController {

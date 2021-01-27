@@ -28,7 +28,7 @@ import java.util.List;
  * @author antigenmhc
  * @since 2020-11-30
  */
-@Api("动漫类别管理")
+@Api(description = "动漫类别管理")
 @RestController
 @RequestMapping("/admin/manager/subject")
 @Slf4j

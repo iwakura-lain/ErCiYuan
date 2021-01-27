@@ -24,7 +24,7 @@ import java.util.List;
  * @author antigenmhc
  * @since 2020-11-30
  */
-@Api("季度目录管理")
+@Api(description = "季度目录管理")
 @RestController
 @RequestMapping("/admin/manager/chapter")
 @Slf4j

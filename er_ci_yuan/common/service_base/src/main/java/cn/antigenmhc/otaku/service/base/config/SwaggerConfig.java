@@ -37,9 +37,21 @@ public class SwaggerConfig {
     public Docket adminApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("adminApi")
-                .apiInfo(apiInfo("admin管理", "admin管理接口"))
+                .apiInfo(apiInfo("后台管理", "admin管理接口"))
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.manager.controller"))
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.manager.controller.admin"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
+    public Docket siteApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("siteApi")
+                .apiInfo(apiInfo("前台网站接口", "前台网站的api"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.manager.controller.site_api"))
                 //请求路径过滤
                 .paths(PathSelectors.any())
                 .build();
@@ -52,6 +64,18 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo("文件管理", "文件管理接口"))
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.oss.controller"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
+    public Docket cmsApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("cmsApi")
+                .apiInfo(apiInfo("内容管理", "内容管理接口"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.cms.controller"))
                 //请求路径过滤
                 .paths(PathSelectors.any())
                 .build();

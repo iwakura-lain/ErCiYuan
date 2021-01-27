@@ -1,6 +1,7 @@
 package cn.antigenmhc.otaku.service.vod.service;
 
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @Author: antigenMHC
@@ -25,9 +26,9 @@ public interface VodService {
     boolean deleteVideo(String vodId);
 
     /**
-     *
-     * @param vodIds
-     * @return
+     * 获得播放地址
+     * @param vodId：播放路径 id
+     * @return ：播放地址
      */
-    boolean deleteVideos(String vodIds);
+    List<String> getPlayUrl(String vodId) throws Exception;
 }

@@ -1,12 +1,11 @@
 package cn.antigenmhc.otaku.service.manager.service.impl;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
+import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
 import cn.antigenmhc.otaku.service.manager.mapper.*;
 import cn.antigenmhc.otaku.service.manager.pojo.*;
 import cn.antigenmhc.otaku.service.manager.pojo.form.AnimeInfoForm;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimePublishVo;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeQueryVo;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.*;
 import cn.antigenmhc.otaku.service.manager.remote.RemoteOssFileService;
 import cn.antigenmhc.otaku.service.manager.remote.RemoteVodFileService;
 import cn.antigenmhc.otaku.service.manager.service.AnimeService;
@@ -212,5 +211,25 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         //这里不用删除chapter的信息，chapter的信息在删除anime时进行了
 
         return true;
+    }
+
+    @Override
+    public List<Anime> siteSelectAnimeListByQuery(SiteAnimeQueryVo siteAnimeQueryVo) {
+        return baseMapper.siteSelectAnimeListByQuery(siteAnimeQueryVo);
+    }
+
+    @Override
+    public IPage<Anime> siteSelectPageByQuery(Page<Anime> animePage, SiteAnimeQueryVo queryVo) {
+        return baseMapper.siteSelectPageByQuery(animePage, queryVo);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public SiteAnimeInfoVo siteSelectAnimeInfoAndUpdateViewCount(String animeId) {
+        Anime anime = baseMapper.selectById(animeId);
+        anime.setViewCount(anime.getViewCount()+1);
+        baseMapper.updateById(anime);
+
+        return baseMapper.siteSelectAnimeInfo(animeId);
     }
 }

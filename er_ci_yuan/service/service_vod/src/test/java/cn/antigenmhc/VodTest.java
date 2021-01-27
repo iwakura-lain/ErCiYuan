@@ -40,7 +40,7 @@ public class VodTest {
         GetPlayInfoRequest request = new GetPlayInfoRequest();
         //设置请求参数 request.setXXX();
         //设置要获取那一个 video 的播放地址
-        request.setVideoId("1f1fede3c19e4dfb90d94d315777f0a4");
+        request.setVideoId("a0bf3e842af340c592fd74485300e9b3");
         //获取响应信息
         return client.getAcsResponse(request);
     }

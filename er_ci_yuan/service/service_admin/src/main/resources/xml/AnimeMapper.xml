@@ -90,4 +90,113 @@
     </select>
 
 
+    <select id="siteSelectAnimeListByQuery"
+            parameterType="SiteAnimeQueryVo"
+            resultType="Anime">
+        select oa.id, admin_id, subject_id, subject_parent_id, title, price, anime_num, cover, buy_count, view_count, version, status, gmt_create, gmt_modified
+        from er_ci_yuan.otaku_anime as oa
+        <where>
+            <trim suffixOverrides=" and">
+                <if test="subjectParentId != '' and subjectParentId != null">
+                    oa.subject_parent_id = #{subjectParentId} and
+                </if>
+                <if test="subjectId != '' and subjectId != null">
+                    oa.subject_id = #{subjectId} and
+                </if>
+                oa.status = 'Normal' and
+            </trim>
+            <trim prefix="order by" suffixOverrides=",">
+                <if test="hasViewSort == 1">
+                    oa.view_count desc,
+                </if>
+                <if test="hasGmtModifiedSort == 1">
+                    oa.gmt_modified desc,
+                </if>
+                <if test="hasGmtCreateSort == 1">
+                    oa.gmt_create desc
+                </if>
+            </trim>
+        </where>
+    </select>
+
+    <select id="siteSelectPageByQuery"
+            parameterType="SiteAnimeQueryVo"
+            resultType="Anime">
+        select oa.id, admin_id, subject_id, subject_parent_id, title, price, anime_num, cover, buy_count, view_count, version, status, gmt_create, gmt_modified
+        from er_ci_yuan.otaku_anime as oa
+        <where>
+            <trim suffixOverrides=" and">
+                <if test="queryVo.subjectParentId != '' and queryVo.subjectParentId != null">
+                    oa.subject_parent_id = #{queryVo.subjectParentId} and
+                </if>
+                <if test="queryVo.subjectId != '' and queryVo.subjectId != null">
+                    oa.subject_id = #{queryVo.subjectId} and
+                </if>
+                oa.status = 'Normal' and
+            </trim>
+            <trim prefix="order by" suffixOverrides=",">
+                <if test="queryVo.hasViewSort == 1">
+                    oa.view_count desc,
+                </if>
+                <if test="queryVo.hasViewSort == -1">
+                    oa.view_count ,
+                </if>
+                <if test="queryVo.hasGmtModifiedSort == 1">
+                    oa.gmt_modified desc,
+                </if>
+                <if test="queryVo.hasGmtModifiedSort == -1">
+                    oa.gmt_modified ,
+                </if>
+                <if test="queryVo.hasAnimeNumSort == 1">
+                    oa.anime_num desc
+                </if>
+                <if test="queryVo.hasAnimeNumSort == -1">
+                    oa.anime_num
+                </if>
+            </trim>
+        </where>
+    </select>
+
+
+    <select id="siteSelectAnimeInfo"
+            parameterType="string"
+            resultType="SiteAnimeInfoVo">
+        select
+            oa.id,
+            oa.title,
+            oa.price,
+            oa.anime_num as animeNum,
+            oa.cover,
+            oa.view_count as viewCount,
+            oadesc.description,
+            oad.id as adminId,
+            oad.name as adminName,
+            oad.intro,
+            oad.avatar,
+            os1.id as subjectLevelOneId,
+            os1.title as subjectLevelOne,
+            os2.id as subjectLevelTwoId,
+            os2.title as subjectLevelTwo
+        from
+                er_ci_yuan.otaku_anime as oa
+             inner join
+                er_ci_yuan.otaku_admin as oad
+             on oa.admin_id = oad.id
+
+             inner join
+                er_ci_yuan.otaku_subject as os1
+             on oa.subject_parent_id = os1.id
+
+             inner join
+                er_ci_yuan.otaku_subject as os2
+             on oa.subject_id = os2.id
+
+             inner join
+                er_ci_yuan.otaku_anime_description as oadesc
+             on oadesc.id = oa.id
+
+        where oa.id = #{animeId}
+        and status = 'Normal'
+    </select>
+
 </mapper>

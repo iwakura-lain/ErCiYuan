@@ -1,9 +1,14 @@
 package cn.antigenmhc.otaku.service.manager.service.impl;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
+import cn.antigenmhc.otaku.service.manager.mapper.AnimeMapper;
+import cn.antigenmhc.otaku.service.manager.mapper.VideoMapper;
 import cn.antigenmhc.otaku.service.manager.pojo.Admin;
 import cn.antigenmhc.otaku.service.manager.mapper.AdminMapper;
+import cn.antigenmhc.otaku.service.manager.pojo.Anime;
+import cn.antigenmhc.otaku.service.manager.pojo.Video;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.AdminQueryVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.SiteAdminInfoVo;
 import cn.antigenmhc.otaku.service.manager.remote.RemoteOssFileService;
 import cn.antigenmhc.otaku.service.manager.service.AdminService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -11,11 +16,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.cj.util.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.sql.Wrapper;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,6 +35,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
     @Resource
     private AdminMapper adminMapper;
+    @Resource
+    private AnimeMapper animeMapper;
 
     @Resource
     private RemoteOssFileService ossFileService;
@@ -120,5 +125,18 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Override
     public boolean hasEqualsName(String name) {
         return adminMapper.getNameList().contains(name);
+    }
+
+    @Override
+    public SiteAdminInfoVo getSiteAdminInfoById(String id) {
+        SiteAdminInfoVo siteAdminInfoVo = new SiteAdminInfoVo();
+
+        Admin admin = baseMapper.selectById(id);
+        siteAdminInfoVo.setAdmin(admin);
+
+        List<Anime> animeList = animeMapper.selectList(new QueryWrapper<Anime>().eq("admin_id", id));
+        siteAdminInfoVo.setAnimeList(animeList);
+
+        return siteAdminInfoVo;
     }
 }

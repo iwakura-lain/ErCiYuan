@@ -2,9 +2,7 @@ package cn.antigenmhc.otaku.service.manager.mapper;
 
 import cn.antigenmhc.otaku.service.manager.pojo.Admin;
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimePublishVo;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeQueryVo;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeVo;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.*;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -26,4 +24,10 @@ public interface AnimeMapper extends BaseMapper<Anime> {
     AnimePublishVo getAnimePublishInfoById(String id);
 
     List<Anime> getRecordsNameByKey(String key);
+
+    List<Anime> siteSelectAnimeListByQuery(SiteAnimeQueryVo siteAnimeQueryVo);
+
+    IPage<Anime> siteSelectPageByQuery(Page<Anime> animePage, SiteAnimeQueryVo queryVo);
+
+    SiteAnimeInfoVo siteSelectAnimeInfo(String animeId);
 }

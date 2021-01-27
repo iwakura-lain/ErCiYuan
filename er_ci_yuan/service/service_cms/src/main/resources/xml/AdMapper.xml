@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.antigenmhc.otaku.service.cms.mapper.AdMapper">
+
+    <select id="selectPageByQueryWrapper" resultType="AdVo">
+        SELECT
+          a.id,
+          a.title,
+          a.sort,
+          t.title AS type
+        FROM cms_ad a
+        LEFT JOIN cms_ad_type t ON a.type_id = t.id
+        ${ew.customSqlSegment}
+    </select>
+</mapper>

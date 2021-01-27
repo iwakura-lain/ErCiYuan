@@ -1,0 +1,30 @@
+{
+  "id": "2323896",
+  "name": "erCiYuan",
+  "font_family": "iconfont",
+  "css_prefix_text": "el-icon-ali-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "960",
+      "name": "上传",
+      "font_class": "shangchuan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4427392",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "5121491",
+      "name": "发布",
+      "font_class": "fabu",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    }
+  ]
+}
