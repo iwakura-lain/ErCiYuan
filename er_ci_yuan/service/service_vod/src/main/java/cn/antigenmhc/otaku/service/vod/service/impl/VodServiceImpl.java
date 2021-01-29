@@ -47,7 +47,7 @@ public class VodServiceImpl implements VodService {
                 accessKeySecret,
                 title, originalFileName,
                 inputStream);
-        //request.setTemplateGroupId(templateGroupId);
+        request.setTemplateGroupId(templateGroupId);
         //request.setWorkflowId(workflowId);
 
         UploadVideoImpl uploader = new UploadVideoImpl();

@@ -11,8 +11,12 @@
         <div>
           <!-- /无数据提示 开始-->
           <section v-if="items.length === 0" class="no-data-wrap">
-            <em class="icon30 no-data-ico">&nbsp;</em>
-            <span class="c-666 fsize14 ml10 vam">没有相关数据</span>
+            <img
+              src="~/assets/img/noData.png"
+              style="width:150px; height:150px; display: inline"
+              class="img-responsive">
+            <br>
+            <span class="c-666 fsize14 ml10 vam">没有相关动漫</span>
           </section>
           <!-- /无数据提示 结束-->
 

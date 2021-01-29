@@ -10,8 +10,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.mysql.cj.util.StringUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -31,16 +32,8 @@ public class AdServiceImpl extends ServiceImpl<AdMapper, Ad> implements AdServic
     private OssFileService ossFileService;
 
     @Override
-    public IPage<AdVo> selectPage(Long page, Long limit) {
-
-        QueryWrapper<AdVo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderByAsc("a.type_id", "a.sort");
-
-        Page<AdVo> pageParam = new Page<>(page, limit);
-
-        List<AdVo> records = baseMapper.selectPageByQueryWrapper(pageParam, queryWrapper);
-        pageParam.setRecords(records);
-        return pageParam;
+    public IPage<AdVo> selectPage(Page<AdVo> page) {
+        return baseMapper.selectPage(page);
     }
 
     @Override
@@ -48,13 +41,21 @@ public class AdServiceImpl extends ServiceImpl<AdMapper, Ad> implements AdServic
         Ad ad = baseMapper.selectById(id);
         if(ad != null) {
             String imagesUrl = ad.getImageUrl();
-            if(!StringUtils.isEmpty(imagesUrl)){
+            if(!StringUtils.isEmptyOrWhitespaceOnly(imagesUrl)){
                 //删除图片
-                Result r = ossFileService.removeFile(imagesUrl);
+                Result r = ossFileService.deleteFile(imagesUrl);
                 return r.getSuccess();
             }
         }
         return false;
     }
 
+    @Cacheable(value = "index", key = "'selectListByTypeId'")
+    @Override
+    public List<Ad> selectListByTypeId(String adTypeId) {
+        QueryWrapper<Ad> adQueryWrapper = new QueryWrapper<>();
+        adQueryWrapper.eq("type_id", adTypeId);
+        adQueryWrapper.orderByAsc("sort");
+        return baseMapper.selectList(adQueryWrapper);
+    }
 }

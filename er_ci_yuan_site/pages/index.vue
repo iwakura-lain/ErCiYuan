@@ -4,14 +4,9 @@
     <!-- 幻灯片 开始 -->
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background: #040B1B;">
-          <a target="_blank" href="/">
-            <img src="~/assets/photo/banner/1525939573202.jpg" alt="首页banner">
-          </a>
-        </div>
-        <div class="swiper-slide" style="background: #040B1B;">
-          <a target="_blank" href="/">
-            <img src="~/assets/photo/banner/1525939573202.jpg" alt="首页banner">
+        <div v-for="(item, index) in slidWindowResponse" :key="index" :style="'background:'+item.color" style="height:700px" class="swiper-slide">
+          <a :href="item.linkUrl" target="_blank">
+            <img :src="item.imageUrl" :alt="item.title" height="700px">
           </a>
         </div>
       </div>
@@ -22,7 +17,7 @@
     <!-- 幻灯片 结束 -->
 
     <div id="aCoursesList">
-      <!-- 网校课程 开始 -->
+      <!-- 动漫开始 -->
       <div>
         <section class="container">
           <header class="comm-title">
@@ -33,237 +28,43 @@
           <div>
             <article class="comm-anime-list">
               <ul id="bna" class="of">
-                <li>
+                <li v-for="(anime, index) in animeList" :key="index">
                   <div class="cc-l-wrap">
                     <section class="anime-img">
                       <img
-                        src="~/assets/photo/anime/01.jpg"
+                        :src="anime.cover"
+                        :alt="anime.title"
                         class="img-responsive"
-                        alt="听力口语"
                       >
                       <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
+                        <a :href="'/anime/'+anime.id" title="开始观看" class="comm-btn c-btn-1">开始观看</a>
                       </div>
                     </section>
                     <h3 class="hLh30 txtOf mt10">
-                      <a href="#" title="听力口语" class="anime-title fsize18 c-333">听力口语</a>
+                      <a :href="'/anime/'+anime.id" :title="anime.title" class="anime-title fsize18 c-333">{{ anime.title }}</a>
                     </h3>
                     <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
+                      <span class="fr jgTag">
+                        <i style="font-size:16px;" class="c-blue fsize12 f-fA">更新至 {{ anime.animeNum }} 集</i>
                       </span>
                       <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">114514次观看</i>
-                        |
-                        <i class="c-999 f-fA">114514评论</i>
+                        <i style="font-size:19px;" class="c-999 f-fA">播放量：{{ anime.viewCount }}</i>
                       </span>
                     </section>
                   </div>
                 </li>
-                <li>
-                  <div class="cc-l-wrap">
-                    <section class="anime-img">
-                      <img
-                        src="~/assets/photo/anime/02.jpg"
-                        class="img-responsive"
-                        alt="Java精品课程"
-                      >
-                      <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-                      </div>
-                    </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a href="#" title="Java精品课程" class="anime-title fsize18 c-333">Java精品课程</a>
-                    </h3>
-                    <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
-                      </span>
-                      <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">501人学习</i>
-                        |
-                        <i class="c-999 f-fA">501评论</i>
-                      </span>
-                    </section>
-                  </div>
-                </li>
-                <li>
-                  <div class="cc-l-wrap">
-                    <section class="anime-img">
-                      <img
-                        src="~/assets/photo/anime/03.jpg"
-                        class="img-responsive"
-                        alt="C4D零基础"
-                      >
-                      <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-                      </div>
-                    </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a href="#" title="C4D零基础" class="anime-title fsize18 c-333">C4D零基础</a>
-                    </h3>
-                    <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
-                      </span>
-                      <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">300人学习</i>
-                        |
-                        <i class="c-999 f-fA">300评论</i>
-                      </span>
-                    </section>
-                  </div>
-                </li>
-                <li>
-                  <div class="cc-l-wrap">
-                    <section class="anime-img">
-                      <img
-                        src="~/assets/photo/anime/04.jpg"
-                        class="img-responsive"
-                        alt="数学给宝宝带来的兴趣"
-                      >
-                      <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-                      </div>
-                    </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a href="#" title="数学给宝宝带来的兴趣" class="anime-title fsize18 c-333">数学给宝宝带来的兴趣</a>
-                    </h3>
-                    <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
-                      </span>
-                      <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">256人学习</i>
-                        |
-                        <i class="c-999 f-fA">256评论</i>
-                      </span>
-                    </section>
-                  </div>
-                </li>
-                <li>
-                  <div class="cc-l-wrap">
-                    <section class="anime-img">
-                      <img
-                        src="~/assets/photo/anime/05.jpg"
-                        class="img-responsive"
-                        alt="零基础入门学习Python课程学习"
-                      >
-                      <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-                      </div>
-                    </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a
-                        href="#"
-                        title="零基础入门学习Python课程学习"
-                        class="anime-title fsize18 c-333"
-                      >零基础入门学习Python课程学习</a>
-                    </h3>
-                    <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
-                      </span>
-                      <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">137人学习</i>
-                        |
-                        <i class="c-999 f-fA">137评论</i>
-                      </span>
-                    </section>
-                  </div>
-                </li>
-                <li>
-                  <div class="cc-l-wrap">
-                    <section class="anime-img">
-                      <img
-                        src="~/assets/photo/anime/06.jpg"
-                        class="img-responsive"
-                        alt="MySql从入门到精通"
-                      >
-                      <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-                      </div>
-                    </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a href="#" title="MySql从入门到精通" class="anime-title fsize18 c-333">MySql从入门到精通</a>
-                    </h3>
-                    <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
-                      </span>
-                      <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">125人学习</i>
-                        |
-                        <i class="c-999 f-fA">125评论</i>
-                      </span>
-                    </section>
-                  </div>
-                </li>
-                <li>
-                  <div class="cc-l-wrap">
-                    <section class="anime-img">
-                      <img
-                        src="~/assets/photo/anime/07.jpg"
-                        class="img-responsive"
-                        alt="搜索引擎优化技术"
-                      >
-                      <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-                      </div>
-                    </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a href="#" title="搜索引擎优化技术" class="anime-title fsize18 c-333">搜索引擎优化技术</a>
-                    </h3>
-                    <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
-                      </span>
-                      <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">123人学习</i>
-                        |
-                        <i class="c-999 f-fA">123评论</i>
-                      </span>
-                    </section>
-                  </div>
-                </li>
-                <li>
-                  <div class="cc-l-wrap">
-                    <section class="anime-img">
-                      <img
-                        src="~/assets/photo/anime/08.jpg"
-                        class="img-responsive"
-                        alt="20世纪西方音乐"
-                      >
-                      <div class="cc-mask">
-                        <a href="#" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-                      </div>
-                    </section>
-                    <h3 class="hLh30 txtOf mt10">
-                      <a href="#" title="20世纪西方音乐" class="anime-title fsize18 c-333">20世纪西方音乐</a>
-                    </h3>
-                    <section class="mt10 hLh20 of">
-                      <span class="fr jgTag bg-blue">
-                        <i class="c-fff fsize12 f-fA">免费</i>
-                      </span>
-                      <span class="fl jgAttr c-ccc f-fA">
-                        <i class="c-999 f-fA">34人学习</i>
-                        |
-                        <i class="c-999 f-fA">34评论</i>
-                      </span>
-                    </section>
-                  </div>
-                </li>
+
               </ul>
               <div class="clear"/>
             </article>
             <section class="tac pt20">
-              <a href="#" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
+              <a href="/anime" title="全部动漫" class="comm-btn c-btn-2">全部动漫</a>
             </section>
           </div>
         </section>
       </div>
-      <!-- /网校课程 结束 -->
-      <!-- 网校名师 开始 -->
+      <!-- /动漫结束 -->
+      <!-- 制作方开始 -->
       <div>
         <section class="container">
           <header class="comm-title">
@@ -274,15 +75,15 @@
           <div>
             <article class="i-admin-list">
               <ul class="of">
-                <li>
+                <li v-for="(admin, index) in adminList" :key="index">
                   <section class="i-admin-wrap">
                     <div class="i-admin-pic">
-                      <a href="/maker/1" title="陈伟霆">
-                        <img alt="陈伟霆" src="~/assets/photo/maker/04.jpg" width="142">
+                      <a :href="'/maker/'+admin.id" :title="admin.name">
+                        <img :alt="admin.name" :src="admin.avatar" width="142">
                       </a>
                     </div>
                     <div class="mt10 hLh30 txtOf tac">
-                      <a href="/maker/1" title="陈伟霆" class="fsize18 c-666">陈伟霆</a>
+                      <a :href="'/maker/'+admin.id" :title="admin.name" class="fsize18 c-666">{{ admin.name }}</a>
                     </div>
                   </section>
                 </li>
@@ -290,7 +91,7 @@
               <div class="clear"/>
             </article>
             <section class="tac pt20">
-              <a href="maker" title="全部讲师" class="comm-btn c-btn-2">全部讲师</a>
+              <a href="/maker" title="全部制作方" class="comm-btn c-btn-2">全部制作方</a>
             </section>
           </div>
         </section>
@@ -301,7 +102,20 @@
 </template>
 
 <script>
+import indexApi from '~/api/index'
+
 export default {
+
+  async asyncData() {
+    const slidWindowResponse = await indexApi.getSlidWindow()
+    const listResponse = await indexApi.getList()
+    return {
+      slidWindowResponse: slidWindowResponse.data.items,
+      animeList: listResponse.data.animes,
+      adminList: listResponse.data.admins
+    }
+  },
+
   data() {
     return {
       swiperOption: {

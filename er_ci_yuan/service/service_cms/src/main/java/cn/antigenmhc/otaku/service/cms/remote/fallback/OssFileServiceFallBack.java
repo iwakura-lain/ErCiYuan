@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class OssFileServiceFallBack implements OssFileService {
 
     @Override
-    public Result removeFile(String url) {
+    public Result deleteFile(String url) {
         log.info("熔断保护");
         return Result.error().setMessage("调用超时");
     }

@@ -9,21 +9,21 @@
       </h1>
       <div class="h-r-nsl">
         <ul class="nav">
-          <router-link to="/" tag="li" active-class="current" exact>
-            <a>首页</a>
-          </router-link>
-          <router-link to="/anime" tag="li" active-class="current">
+          <div>
+            <a :href="'/'">首页</a>
+          </div>
+          <nuxt-link to="/anime" tag="li" active-class="current">
             <a>动漫</a>
-          </router-link>
-          <router-link to="/maker" tag="li" active-class="current">
+          </nuxt-link>
+          <nuxt-link to="/maker" tag="li" active-class="current">
             <a>制作方</a>
-          </router-link>
-          <router-link to="/article" tag="li" active-class="current">
+          </nuxt-link>
+          <nuxt-link to="/article" tag="li" active-class="current">
             <a>资源</a>
-          </router-link>
-          <router-link to="/question" tag="li" active-class="current">
+          </nuxt-link>
+          <nuxt-link to="/question" tag="li" active-class="current">
             <a>讨论</a>
-          </router-link>
+          </nuxt-link>
         </ul>
         <!-- / nav -->
         <ul class="h-r-login">

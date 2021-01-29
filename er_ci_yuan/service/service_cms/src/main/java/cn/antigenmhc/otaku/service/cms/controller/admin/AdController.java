@@ -6,6 +6,7 @@ import cn.antigenmhc.otaku.service.cms.pojo.Ad;
 import cn.antigenmhc.otaku.service.cms.pojo.vo.AdVo;
 import cn.antigenmhc.otaku.service.cms.service.AdService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -52,8 +53,8 @@ public class AdController {
     @GetMapping("list/{page}/{limit}")
     public Result listPage(@ApiParam(value = "当前页码", required = true) @PathVariable Long page,
                       @ApiParam(value = "每页记录数", required = true) @PathVariable Long limit) {
-
-        IPage<AdVo> pageModel = adService.selectPage(page, limit);
+        Page<AdVo> adminPage = new Page<>(page, limit);
+        IPage<AdVo> pageModel = adService.selectPage(adminPage);
         List<AdVo> records = pageModel.getRecords();
         long total = pageModel.getTotal();
         return Result.ok().setData("total", total).setData("rows", records);

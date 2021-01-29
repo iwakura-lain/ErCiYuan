@@ -7,6 +7,8 @@
 }
 .nav li.current a,
 .nav li a:hover,
+.nav div.current a,
+.nav div a:hover,
 .h-r-login li a:hover,
 .h-r-login li a:hover,
 .c-tab-title a.current,

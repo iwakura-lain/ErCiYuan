@@ -135,6 +135,44 @@ export const constantRouterMap = [
     ]
   },
 
+  // 内容管理
+  {
+    path: '/ad',
+    component: Layout,
+    redirect: '/ad/list',
+    name: 'Ad',
+    meta: { title: '内容管理', icon: 'content' },
+    children: [
+      {
+        path: 'list',
+        name: 'AdList',
+        component: () => import('@/views/ad/list'),
+        meta: { title: '推荐管理', icon: 'ad' }
+      },
+      {
+        path: 'create',
+        name: 'AdCreate',
+        component: () => import('@/views/ad/form'),
+        meta: { title: '添加推荐' },
+        hidden: true
+      },
+      {
+        path: 'edit/:id',
+        name: 'AdEdit',
+        component: () => import('@/views/ad/form'),
+        meta: { title: '编辑推荐' },
+        hidden: true
+      },
+
+      {
+        path: 'type-list',
+        name: 'AdTypeList',
+        component: () => import('@/views/adType/list'),
+        meta: { title: '推荐位', icon: 'adType' }
+      }
+    ]
+  },
+
   // 如果上面的路由都不匹配，则匹配 404
   { path: '*', redirect: '/404', hidden: true }
 ]

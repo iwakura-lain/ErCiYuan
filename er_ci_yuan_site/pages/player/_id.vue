@@ -1,8 +1,7 @@
 <template>
   <div style="background-color:black;">
-    <div id="dplayer">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/dplayer/1.26.0/DPlayer.min.js"/>
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dplayer/1.26.0/DPlayer.min.js"/>
+    <div id="dplayer"/>
   </div>
 </template>
 
@@ -20,13 +19,10 @@ export default {
     const baseUrl = urls[0].substring(0, urls[0].lastIndexOf('/'))
     // 视频不同清晰度的 url
     const ldUrl = urls[0]
-    const fdUrl = urls[1]
-    console.log(baseUrl)
     return {
       vid: vid,
       baseUrl: baseUrl,
-      ldUrl: ldUrl,
-      fdUrl: fdUrl
+      ldUrl: ldUrl
     }
   },
 
@@ -40,18 +36,14 @@ export default {
       lang: 'zh-cn',
       hotkey: true,
       preload: 'auto',
-      volume: 0.2,
+      volume: 0.05,
       screenshot: true,
       mutex: true,
       video: {
         quality: [
           {
-            name: '流畅',
+            name: '超清',
             url: this.ldUrl
-          },
-          {
-            name: '标清',
-            url: this.fdUrl
           }
         ],
         defaultQuality: 0

@@ -15,6 +15,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -231,5 +232,20 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         baseMapper.updateById(anime);
 
         return baseMapper.siteSelectAnimeInfo(animeId);
+    }
+
+    @Cacheable(value = "index", key = "'getAnimeListToIndex'")
+    @Override
+    public List<Anime> getAnimeListToIndex() {
+        QueryWrapper<Anime> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderByDesc("view_count");
+        queryWrapper.eq("status", Anime.ANIME_NORMAL);
+        List<Anime> animeList = baseMapper.selectList(queryWrapper);
+
+        if(animeList.size() <= 8){
+            return animeList;
+        }else{
+            return animeList.subList(0, 8);
+        }
     }
 }

@@ -24,5 +24,5 @@ aliyun:
   vod:
     accesskeyId: xxx
     accesskeySecret: xxx
-    templateGroupId: xxx #模板组id
-    workflowId: xxx #工作流id
+    templateGroupId: 518b7cd572ef50933887a3b17f82f0f8 #模板组id
+    workflowId: 74110fbf5980017417df2891682a66cc #工作流id

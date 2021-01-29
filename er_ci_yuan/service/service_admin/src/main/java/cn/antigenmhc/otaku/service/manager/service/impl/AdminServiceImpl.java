@@ -16,6 +16,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.cj.util.StringUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -138,5 +139,19 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         siteAdminInfoVo.setAnimeList(animeList);
 
         return siteAdminInfoVo;
+    }
+
+    @Cacheable(value = "index", key = "'getAdminListToIndex'")
+    @Override
+    public List<Admin> getAdminListToIndex() {
+        QueryWrapper<Admin> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderByAsc("sort");
+        List<Admin> adminList = baseMapper.selectList(queryWrapper);
+
+        if(adminList.size() <= 4){
+            return adminList;
+        }else{
+            return adminList.subList(0, 4);
+        }
     }
 }

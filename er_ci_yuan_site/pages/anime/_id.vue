@@ -32,7 +32,8 @@
               <span class="c-fff fsize24">{{ animeInfo.title }}</span>
             </h2>
             <section class="c-attr-jg">
-              <b class="c-blue2" style="font-size:24px;">{{ animeInfo.price === 0 ? '免费观看':'带会员限定' }}</b>
+              <b v-if="Number(animeInfo.price) === 0" class="c-blue2" style="font-size:24px;">免费观看</b>
+              <b v-else class="c-blue2" style="font-size:24px;">${{ animeInfo.price }}</b>
             </section>
             <section class="c-attr-mt c-attr-undis">
               <span class="c-fff fsize14">制作方：{{ animeInfo.adminName }}&nbsp;&nbsp;&nbsp;</span>
@@ -67,7 +68,7 @@
             <li>
               <p>&nbsp;</p>
               <aside>
-                <span style="color: #4169E1" class="c-fff f-fM">观看量</span>
+                <span style="color: #4169E1" class="c-fff f-fM">播放量</span>
                 <br>
                 <h6 style="color: #4169E1" class="c-fff f-fM mt10">{{ animeInfo.viewCount }}</h6>
               </aside>

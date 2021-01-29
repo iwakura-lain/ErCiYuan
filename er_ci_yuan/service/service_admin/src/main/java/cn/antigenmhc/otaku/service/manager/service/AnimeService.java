@@ -96,9 +96,15 @@ public interface AnimeService extends IService<Anime> {
     IPage<Anime> siteSelectPageByQuery(Page<Anime> animePage, SiteAnimeQueryVo queryVo);
 
     /**
-     *
-     * @param animeId
-     * @return
+     * 返回 anime 详细数据，并更新浏览量
+     * @param animeId：anime id
+     * @return ：详细数据
      */
     SiteAnimeInfoVo siteSelectAnimeInfoAndUpdateViewCount(String animeId);
+
+    /**
+     * 获取在首页展示的动漫列表
+     * @return ：返回数据，小于 8 条则返回去全部，大于 8 条则返回 top8
+     */
+    List<Anime> getAnimeListToIndex();
 }

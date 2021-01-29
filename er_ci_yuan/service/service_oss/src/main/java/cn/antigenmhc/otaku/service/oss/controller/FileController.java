@@ -59,4 +59,11 @@ public class FileController {
         fileService.deleteFiles(urls);
         return Result.ok().setMessage("批量删除文件成功");
     }
+
+    @ApiOperation("删除文件")
+    @DeleteMapping("delete-ad/{url}")
+    public Result deleteFileByAd(@PathVariable("url") String url){
+        fileService.deleteFile(url);
+        return Result.ok().setMessage("删除文件成功");
+    }
 }

@@ -62,4 +62,10 @@ public interface AdminService extends IService<Admin> {
      * @return ：组装后的对象
      */
     SiteAdminInfoVo getSiteAdminInfoById(String id);
+
+    /**
+     * 获取在首页展示的制作方列表
+     * @return ：返回数据，小于 4 条则返回全部，大于 4 条则返回 top4
+     */
+    List<Admin> getAdminListToIndex();
 }
