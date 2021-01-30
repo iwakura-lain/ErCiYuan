@@ -49,7 +49,8 @@ public class VodServiceImpl implements VodService {
                 inputStream);
         request.setTemplateGroupId(templateGroupId);
         //request.setWorkflowId(workflowId);
-
+        //不在控制台打印上传进度
+        request.setPrintProgress(false);
         UploadVideoImpl uploader = new UploadVideoImpl();
         UploadStreamResponse response = uploader.uploadStream(request);
 

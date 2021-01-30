@@ -24,6 +24,10 @@
         <module>service_vod</module>
         <!-- 内容管理模块 -->
         <module>service_cms</module>
+        <!-- sms 模块 -->
+        <module>service_sms</module>
+        <!-- 用户中心 -->
+        <module>service_ucenter</module>
     </modules>
 
     <dependencies>

@@ -107,4 +107,11 @@ public interface AnimeService extends IService<Anime> {
      * @return ：返回数据，小于 8 条则返回去全部，大于 8 条则返回 top8
      */
     List<Anime> getAnimeListToIndex();
+
+    /**
+     * 搜索提示
+     * @param title：标题
+     * @return ：提示列表
+     */
+    List<Map<String,String>> getAnimeByTitle(String title);
 }

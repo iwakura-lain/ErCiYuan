@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: antigenMHC
@@ -47,6 +48,7 @@ public class ApiAnimeController {
     @ApiOperation("前台动漫列表分页")
     @GetMapping("list")
     public Result listPage(@ApiParam("查询条件") SiteAnimeQueryVo queryVo){
+        System.out.println(queryVo.getTitle());
         Page<Anime> animePage = new Page<>(queryVo.getPage(), queryVo.getSize());
         IPage<Anime> pageModel = animeService.siteSelectPageByQuery(animePage, queryVo);
         List<Anime> records = pageModel.getRecords();
@@ -61,6 +63,22 @@ public class ApiAnimeController {
         SiteAnimeInfoVo animeInfoVo = animeService.siteSelectAnimeInfoAndUpdateViewCount(animeId);
         List<ChapterVo> nestedList = chapterService.getNestedList(animeId);
         return Result.ok().setData("item", animeInfoVo).setData("chapterList", nestedList).setMessage("获取成功");
+    }
+
+    @ApiOperation("搜索提示")
+    @GetMapping("auto-list")
+    public Result getAnimeByTitle(String title){
+        System.out.println("233333333"+title);
+        List<Map<String,String>> reList = animeService.getAnimeByTitle(title);
+        return Result.ok().setData("animes", reList);
+    }
+
+    @ApiOperation("搜索提示")
+    @GetMapping("auto-list/{title}")
+    public Result getAnimeByTitle2(@PathVariable String title){
+        System.out.println("233333333"+title);
+        List<Map<String,String>> reList = animeService.getAnimeByTitle(title);
+        return Result.ok().setData("animes", reList);
     }
 
 }

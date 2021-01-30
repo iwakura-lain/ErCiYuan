@@ -9,7 +9,7 @@
       </h1>
       <div class="h-r-nsl">
         <ul class="nav">
-          <div>
+          <div style="color:red;">
             <a :href="'/'">首页</a>
           </div>
           <nuxt-link to="/anime" tag="li" active-class="current">
@@ -62,12 +62,22 @@
           <!-- /未登录显示第1 li；登录后显示第2，3 li -->
         </ul>
         <aside class="h-r-search">
-          <form action="#" method="post">
+          <form action="anime">
             <label class="h-r-s-box">
-              <input type="text" placeholder="搜索动漫" name="queryCourse.courseName" value>
-              <button type="submit" class="s-btn">
+              <el-autocomplete
+                v-model="title"
+                :fetch-suggestions="querySearch"
+                :trigger-on-focus="false"
+                class="inline-input"
+                placeholder="搜索动漫"
+              />
+              <nuxt-link
+                :to="{path: '/anime', query:{title}}"
+                type="submit"
+                class="s-btn"
+              >
                 <em class="icon18">&nbsp;</em>
-              </button>
+              </nuxt-link>
             </label>
           </form>
         </aside>
@@ -80,3 +90,25 @@
   </header>
   <!-- /公共头 -->
 </template>
+
+<script>
+import animeApi from '~/api/anime.js'
+
+export default {
+  data() {
+    return {
+      title: ''
+    }
+  },
+
+  methods: {
+    // 输入建议
+    querySearch(queryString, callback) {
+      console.log(queryString)
+      animeApi.searchAutoComplete(queryString).then(response => {
+        callback(response.data.animes)
+      })
+    }
+  }
+}
+</script>

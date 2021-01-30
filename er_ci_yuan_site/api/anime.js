@@ -29,5 +29,12 @@ export default{
       url: `/api/site/anime/anime-info/${id}`,
       method: 'get'
     })
+  },
+
+  searchAutoComplete(title) {
+    return request({
+      url: `/api/site/anime/auto-list/${title}`,
+      method: 'get'
+    })
   }
 }

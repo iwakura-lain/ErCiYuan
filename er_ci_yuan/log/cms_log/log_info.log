@@ -1,0 +1,132 @@
+2021-01-30 00:04:30 |INFO  |http-nio-8160-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 00:04:30 |INFO  |http-nio-8160-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 00:04:30 |INFO  |http-nio-8160-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 00:04:30 |INFO  |http-nio-8160-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 12:12:39 |INFO  |http-nio-8160-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 12:12:39 |INFO  |http-nio-8160-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 12:12:39 |INFO  |http-nio-8160-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 12:12:39 |INFO  |http-nio-8160-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 12:55:03 |INFO  |http-nio-8160-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 12:55:03 |INFO  |http-nio-8160-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 12:55:03 |INFO  |http-nio-8160-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 12:55:03 |INFO  |http-nio-8160-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 13:06:24 |INFO  |http-nio-8160-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 13:06:24 |INFO  |http-nio-8160-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 13:06:24 |INFO  |http-nio-8160-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 13:06:24 |INFO  |http-nio-8160-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 13:33:05 |INFO  |http-nio-8160-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 13:33:05 |INFO  |http-nio-8160-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 13:33:05 |INFO  |http-nio-8160-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 13:33:05 |INFO  |http-nio-8160-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 13:43:51 |INFO  |http-nio-8160-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 13:43:51 |INFO  |http-nio-8160-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 13:43:51 |INFO  |http-nio-8160-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 13:43:51 |INFO  |http-nio-8160-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 13:44:31 |INFO  |http-nio-8160-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 13:44:31 |INFO  |http-nio-8160-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 13:44:31 |INFO  |http-nio-8160-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 13:44:31 |INFO  |http-nio-8160-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 13:45:16 |INFO  |http-nio-8160-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 13:45:16 |INFO  |http-nio-8160-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 13:45:16 |INFO  |http-nio-8160-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 13:45:16 |INFO  |http-nio-8160-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 13:47:45 |INFO  |http-nio-8160-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 13:47:45 |INFO  |http-nio-8160-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 13:47:45 |INFO  |http-nio-8160-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 13:47:45 |INFO  |http-nio-8160-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 13:51:53 |INFO  |http-nio-8160-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 13:51:53 |INFO  |http-nio-8160-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 13:51:53 |INFO  |http-nio-8160-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 13:51:53 |INFO  |http-nio-8160-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:09:14 |INFO  |http-nio-8160-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:09:14 |INFO  |http-nio-8160-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:09:14 |INFO  |http-nio-8160-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:09:14 |INFO  |http-nio-8160-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:15:17 |INFO  |http-nio-8160-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:15:17 |INFO  |http-nio-8160-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:15:17 |INFO  |http-nio-8160-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:15:17 |INFO  |http-nio-8160-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:15:39 |INFO  |http-nio-8160-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:15:39 |INFO  |http-nio-8160-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:15:39 |INFO  |http-nio-8160-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:15:39 |INFO  |http-nio-8160-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:16:44 |INFO  |http-nio-8160-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:16:44 |INFO  |http-nio-8160-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:16:44 |INFO  |http-nio-8160-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:16:44 |INFO  |http-nio-8160-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:19:00 |INFO  |http-nio-8160-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:19:00 |INFO  |http-nio-8160-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:19:00 |INFO  |http-nio-8160-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:19:00 |INFO  |http-nio-8160-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:19:33 |INFO  |http-nio-8160-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:19:33 |INFO  |http-nio-8160-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:19:33 |INFO  |http-nio-8160-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:19:33 |INFO  |http-nio-8160-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:22:05 |INFO  |http-nio-8160-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:22:05 |INFO  |http-nio-8160-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:22:05 |INFO  |http-nio-8160-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:22:05 |INFO  |http-nio-8160-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:25:30 |INFO  |http-nio-8160-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:25:30 |INFO  |http-nio-8160-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:25:30 |INFO  |http-nio-8160-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:25:30 |INFO  |http-nio-8160-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:30:02 |INFO  |http-nio-8160-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:30:02 |INFO  |http-nio-8160-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:30:02 |INFO  |http-nio-8160-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:30:02 |INFO  |http-nio-8160-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:36:35 |INFO  |http-nio-8160-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:36:35 |INFO  |http-nio-8160-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:36:35 |INFO  |http-nio-8160-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:36:35 |INFO  |http-nio-8160-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:36:51 |INFO  |http-nio-8160-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:36:51 |INFO  |http-nio-8160-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:36:51 |INFO  |http-nio-8160-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:36:51 |INFO  |http-nio-8160-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:37:03 |INFO  |http-nio-8160-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:37:03 |INFO  |http-nio-8160-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:37:03 |INFO  |http-nio-8160-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:37:03 |INFO  |http-nio-8160-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:37:30 |INFO  |http-nio-8160-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:37:30 |INFO  |http-nio-8160-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:37:30 |INFO  |http-nio-8160-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:37:30 |INFO  |http-nio-8160-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:43:54 |INFO  |http-nio-8160-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:43:54 |INFO  |http-nio-8160-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:43:54 |INFO  |http-nio-8160-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:43:54 |INFO  |http-nio-8160-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:44:48 |INFO  |http-nio-8160-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:44:48 |INFO  |http-nio-8160-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:44:48 |INFO  |http-nio-8160-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:44:48 |INFO  |http-nio-8160-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 14:45:40 |INFO  |http-nio-8160-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 14:45:40 |INFO  |http-nio-8160-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 14:45:40 |INFO  |http-nio-8160-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 14:45:40 |INFO  |http-nio-8160-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 15:11:13 |INFO  |http-nio-8160-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 15:11:13 |INFO  |http-nio-8160-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 15:11:13 |INFO  |http-nio-8160-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 15:11:13 |INFO  |http-nio-8160-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 15:20:35 |INFO  |http-nio-8160-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 15:20:35 |INFO  |http-nio-8160-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 15:20:35 |INFO  |http-nio-8160-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 15:20:35 |INFO  |http-nio-8160-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 15:21:12 |INFO  |http-nio-8160-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 15:21:12 |INFO  |http-nio-8160-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 15:21:12 |INFO  |http-nio-8160-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 15:21:12 |INFO  |http-nio-8160-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 15:21:20 |INFO  |http-nio-8160-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 15:21:20 |INFO  |http-nio-8160-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 15:21:20 |INFO  |http-nio-8160-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 15:21:20 |INFO  |http-nio-8160-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 15:21:42 |INFO  |http-nio-8160-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 15:21:42 |INFO  |http-nio-8160-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 15:21:42 |INFO  |http-nio-8160-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 15:21:42 |INFO  |http-nio-8160-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 15:21:57 |INFO  |http-nio-8160-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 15:21:57 |INFO  |http-nio-8160-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 15:21:57 |INFO  |http-nio-8160-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 15:21:57 |INFO  |http-nio-8160-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-30 15:22:59 |INFO  |http-nio-8160-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-30 15:22:59 |INFO  |http-nio-8160-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8160/api/site/ad/list/1 GET
+2021-01-30 15:22:59 |INFO  |http-nio-8160-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.cms.controller.site_api.ApiAdController.getListByTypeId
+2021-01-30 15:22:59 |INFO  |http-nio-8160-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1

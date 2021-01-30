@@ -18,6 +18,7 @@ public class SiteAnimeQueryVo implements Serializable {
     private int hasAnimeNumSort;
     private int hasViewSort;
     private int hasGmtModifiedSort;
+    private String title;
     private int page;
     private int size;
 }

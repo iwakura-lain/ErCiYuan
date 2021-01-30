@@ -1,0 +1,36 @@
+2021-01-24 21:18:26 |INFO  |http-nio-8180-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【DELETE】删除开始 -------------
+2021-01-24 21:18:26 |INFO  |http-nio-8180-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/delete-files DELETE
+2021-01-24 21:18:26 |INFO  |http-nio-8180-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.deleteFiles
+2021-01-24 21:18:26 |INFO  |http-nio-8180-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-01-24 21:18:34 |INFO  |http-nio-8180-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【DELETE】删除开始 -------------
+2021-01-24 21:18:34 |INFO  |http-nio-8180-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/delete-files DELETE
+2021-01-24 21:18:34 |INFO  |http-nio-8180-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.deleteFiles
+2021-01-24 21:18:34 |INFO  |http-nio-8180-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-01-24 21:18:38 |INFO  |http-nio-8180-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【DELETE】删除开始 -------------
+2021-01-24 21:18:38 |INFO  |http-nio-8180-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/delete-files DELETE
+2021-01-24 21:18:38 |INFO  |http-nio-8180-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.deleteFiles
+2021-01-24 21:18:38 |INFO  |http-nio-8180-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-01-24 21:18:41 |INFO  |http-nio-8180-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【DELETE】删除开始 -------------
+2021-01-24 21:18:41 |INFO  |http-nio-8180-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/delete-files DELETE
+2021-01-24 21:18:41 |INFO  |http-nio-8180-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.deleteFiles
+2021-01-24 21:18:41 |INFO  |http-nio-8180-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-01-24 21:18:44 |INFO  |http-nio-8180-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【DELETE】删除开始 -------------
+2021-01-24 21:18:44 |INFO  |http-nio-8180-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/delete-files DELETE
+2021-01-24 21:18:44 |INFO  |http-nio-8180-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.deleteFiles
+2021-01-24 21:18:44 |INFO  |http-nio-8180-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-01-24 21:23:00 |INFO  |http-nio-8180-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-01-24 21:23:00 |INFO  |http-nio-8180-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8180/admin/oss/file/upload POST
+2021-01-24 21:23:00 |INFO  |http-nio-8180-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-01-24 21:23:00 |INFO  |http-nio-8180-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-24 21:57:59 |INFO  |http-nio-8180-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-01-24 21:57:59 |INFO  |http-nio-8180-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8180/admin/oss/file/upload POST
+2021-01-24 21:57:59 |INFO  |http-nio-8180-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-01-24 21:57:59 |INFO  |http-nio-8180-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-01-24 22:04:36 |INFO  |http-nio-8180-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-01-24 22:04:36 |INFO  |http-nio-8180-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8180/admin/oss/file/upload POST
+2021-01-24 22:04:36 |INFO  |http-nio-8180-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-01-24 22:04:36 |INFO  |http-nio-8180-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-01-24 22:04:45 |INFO  |http-nio-8180-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-01-24 22:04:45 |INFO  |http-nio-8180-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8180/admin/oss/file/upload POST
+2021-01-24 22:04:45 |INFO  |http-nio-8180-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-01-24 22:04:45 |INFO  |http-nio-8180-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1

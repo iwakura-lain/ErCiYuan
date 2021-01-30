@@ -1,0 +1,192 @@
+2021-01-27 00:01:33 |INFO  |http-nio-8081-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 00:01:33 |INFO  |http-nio-8081-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 00:01:33 |INFO  |http-nio-8081-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 00:01:33 |INFO  |http-nio-8081-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 00:02:12 |INFO  |http-nio-8081-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 00:02:12 |INFO  |http-nio-8081-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 00:02:12 |INFO  |http-nio-8081-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 00:02:12 |INFO  |http-nio-8081-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 01:02:18 |INFO  |http-nio-8081-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 01:02:18 |INFO  |http-nio-8081-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 01:02:18 |INFO  |http-nio-8081-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 01:02:18 |INFO  |http-nio-8081-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 01:02:20 |INFO  |http-nio-8081-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 01:02:20 |INFO  |http-nio-8081-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 01:02:20 |INFO  |http-nio-8081-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 01:02:20 |INFO  |http-nio-8081-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 10:25:12 |INFO  |http-nio-8081-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 10:25:12 |INFO  |http-nio-8081-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 10:25:12 |INFO  |http-nio-8081-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 10:25:12 |INFO  |http-nio-8081-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/admin/manager/admin/getall GET
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.AdminController.getAll
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/admin/manager/subject/nested-list GET
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.SubjectController.nestedAnimeSubjectList
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/admin/manager/anime/list/1/5 GET
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.AnimeController.listPage
+2021-01-27 14:54:48 |INFO  |http-nio-8081-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 16:08:22 |INFO  |http-nio-8081-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 16:08:22 |INFO  |http-nio-8081-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 16:08:22 |INFO  |http-nio-8081-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 16:08:22 |INFO  |http-nio-8081-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 16:09:01 |INFO  |http-nio-8081-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 16:09:01 |INFO  |http-nio-8081-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 16:09:01 |INFO  |http-nio-8081-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 16:09:01 |INFO  |http-nio-8081-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 16:09:19 |INFO  |http-nio-8081-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 16:09:19 |INFO  |http-nio-8081-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 16:09:19 |INFO  |http-nio-8081-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 16:09:19 |INFO  |http-nio-8081-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 16:11:41 |INFO  |http-nio-8081-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 16:11:41 |INFO  |http-nio-8081-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 16:11:41 |INFO  |http-nio-8081-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 16:11:41 |INFO  |http-nio-8081-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 16:12:17 |INFO  |http-nio-8081-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 16:12:17 |INFO  |http-nio-8081-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 16:12:17 |INFO  |http-nio-8081-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 16:12:17 |INFO  |http-nio-8081-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 16:12:21 |INFO  |http-nio-8081-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 16:12:21 |INFO  |http-nio-8081-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 16:12:21 |INFO  |http-nio-8081-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 16:12:21 |INFO  |http-nio-8081-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 16:13:02 |INFO  |http-nio-8081-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 16:13:02 |INFO  |http-nio-8081-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 16:13:02 |INFO  |http-nio-8081-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 16:13:02 |INFO  |http-nio-8081-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:19:04 |INFO  |http-nio-8081-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:19:04 |INFO  |http-nio-8081-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:19:04 |INFO  |http-nio-8081-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:19:04 |INFO  |http-nio-8081-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:19:42 |INFO  |http-nio-8081-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:19:42 |INFO  |http-nio-8081-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:19:42 |INFO  |http-nio-8081-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:19:42 |INFO  |http-nio-8081-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:22:13 |INFO  |http-nio-8081-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:22:13 |INFO  |http-nio-8081-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:22:13 |INFO  |http-nio-8081-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:22:13 |INFO  |http-nio-8081-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:22:49 |INFO  |http-nio-8081-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:22:49 |INFO  |http-nio-8081-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:22:49 |INFO  |http-nio-8081-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:22:49 |INFO  |http-nio-8081-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:23:02 |INFO  |http-nio-8081-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:23:02 |INFO  |http-nio-8081-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:23:02 |INFO  |http-nio-8081-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:23:02 |INFO  |http-nio-8081-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:25:21 |INFO  |http-nio-8081-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:25:21 |INFO  |http-nio-8081-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/admin/manager/subject/nested-list GET
+2021-01-27 17:25:21 |INFO  |http-nio-8081-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.SubjectController.nestedAnimeSubjectList
+2021-01-27 17:25:21 |INFO  |http-nio-8081-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:30:06 |INFO  |http-nio-8081-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:30:06 |INFO  |http-nio-8081-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:30:06 |INFO  |http-nio-8081-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:30:06 |INFO  |http-nio-8081-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:32:49 |INFO  |http-nio-8081-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:32:49 |INFO  |http-nio-8081-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:32:49 |INFO  |http-nio-8081-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:32:49 |INFO  |http-nio-8081-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 17:47:45 |INFO  |http-nio-8081-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 17:47:45 |INFO  |http-nio-8081-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 17:47:45 |INFO  |http-nio-8081-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 17:47:45 |INFO  |http-nio-8081-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 18:21:38 |INFO  |http-nio-8081-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:21:38 |INFO  |http-nio-8081-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 18:21:38 |INFO  |http-nio-8081-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 18:21:38 |INFO  |http-nio-8081-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 18:44:50 |INFO  |http-nio-8081-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:44:50 |INFO  |http-nio-8081-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 18:44:50 |INFO  |http-nio-8081-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 18:44:50 |INFO  |http-nio-8081-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 18:45:04 |INFO  |http-nio-8081-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:45:04 |INFO  |http-nio-8081-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 18:45:04 |INFO  |http-nio-8081-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 18:45:04 |INFO  |http-nio-8081-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/list GET
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.listPage
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/subject/nested-list GET
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiSubjectController.getNestedList
+2021-01-27 18:48:26 |INFO  |http-nio-8081-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/list GET
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.listPage
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/subject/nested-list GET
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiSubjectController.getNestedList
+2021-01-27 18:48:29 |INFO  |http-nio-8081-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 18:48:30 |INFO  |http-nio-8081-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:48:30 |INFO  |http-nio-8081-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1353342987448139778 GET
+2021-01-27 18:48:30 |INFO  |http-nio-8081-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 18:48:30 |INFO  |http-nio-8081-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 18:48:54 |INFO  |http-nio-8081-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 18:48:54 |INFO  |http-nio-8081-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 18:48:54 |INFO  |http-nio-8081-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 18:48:54 |INFO  |http-nio-8081-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:02:57 |INFO  |http-nio-8081-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 19:02:57 |INFO  |http-nio-8081-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/admin/manager/admin/list/1/5 GET
+2021-01-27 19:02:57 |INFO  |http-nio-8081-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.AdminController.listPage
+2021-01-27 19:02:57 |INFO  |http-nio-8081-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:06:22 |INFO  |http-nio-8081-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 19:06:22 |INFO  |http-nio-8081-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350309157980160002 GET
+2021-01-27 19:06:22 |INFO  |http-nio-8081-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 19:06:22 |INFO  |http-nio-8081-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:07:29 |INFO  |http-nio-8081-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 19:07:29 |INFO  |http-nio-8081-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350309157980160002 GET
+2021-01-27 19:07:29 |INFO  |http-nio-8081-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 19:07:29 |INFO  |http-nio-8081-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:30:39 |INFO  |http-nio-8081-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 19:30:39 |INFO  |http-nio-8081-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 19:30:39 |INFO  |http-nio-8081-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 19:30:39 |INFO  |http-nio-8081-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:34:42 |INFO  |http-nio-8081-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 19:34:42 |INFO  |http-nio-8081-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 19:34:42 |INFO  |http-nio-8081-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 19:34:42 |INFO  |http-nio-8081-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:39:56 |INFO  |http-nio-8081-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 19:39:56 |INFO  |http-nio-8081-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 19:39:56 |INFO  |http-nio-8081-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 19:39:56 |INFO  |http-nio-8081-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:41:39 |INFO  |http-nio-8081-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 19:41:39 |INFO  |http-nio-8081-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 19:41:39 |INFO  |http-nio-8081-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 19:41:39 |INFO  |http-nio-8081-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:43:58 |INFO  |http-nio-8081-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 19:43:58 |INFO  |http-nio-8081-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 19:43:58 |INFO  |http-nio-8081-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 19:43:58 |INFO  |http-nio-8081-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:57:18 |INFO  |http-nio-8081-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 19:57:18 |INFO  |http-nio-8081-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 19:57:18 |INFO  |http-nio-8081-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 19:57:18 |INFO  |http-nio-8081-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 19:58:09 |INFO  |http-nio-8081-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】操作开始 -------------
+2021-01-27 19:58:09 |INFO  |http-nio-8081-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8081/user/info GET
+2021-01-27 19:58:09 |INFO  |http-nio-8081-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.admin.LoginController.info
+2021-01-27 19:58:09 |INFO  |http-nio-8081-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 20:03:42 |INFO  |http-nio-8081-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 20:03:42 |INFO  |http-nio-8081-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350308978929516545 GET
+2021-01-27 20:03:42 |INFO  |http-nio-8081-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 20:03:42 |INFO  |http-nio-8081-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 20:03:48 |INFO  |http-nio-8081-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 20:03:48 |INFO  |http-nio-8081-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1353342987448139778 GET
+2021-01-27 20:03:48 |INFO  |http-nio-8081-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 20:03:48 |INFO  |http-nio-8081-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 20:05:05 |INFO  |http-nio-8081-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 20:05:05 |INFO  |http-nio-8081-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1350309157980160002 GET
+2021-01-27 20:05:05 |INFO  |http-nio-8081-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 20:05:05 |INFO  |http-nio-8081-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-01-27 20:09:47 |INFO  |http-nio-8081-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-01-27 20:09:47 |INFO  |http-nio-8081-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8081/api/site/anime/anime-info/1353342987448139778 GET
+2021-01-27 20:09:47 |INFO  |http-nio-8081-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.manager.controller.site_api.ApiAnimeController.getAnimeInfoById
+2021-01-27 20:09:47 |INFO  |http-nio-8081-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1

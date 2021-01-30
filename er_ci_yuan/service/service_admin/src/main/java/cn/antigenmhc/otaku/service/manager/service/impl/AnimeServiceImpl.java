@@ -14,17 +14,16 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.cj.util.StringUtils;
+import org.apache.commons.collections4.collection.SynchronizedCollection;
 import org.springframework.beans.BeanUtils;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * <p>
@@ -247,5 +246,24 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         }else{
             return animeList.subList(0, 8);
         }
+    }
+
+    @Override
+    public List<Map<String,String>> getAnimeByTitle(String title) {
+        QueryWrapper<Anime> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("title", title);
+        queryWrapper.select("title");
+        List<Anime> animeList = baseMapper.selectList(queryWrapper);
+        List<Map<String, String>> res = new LinkedList<>();
+        List<Map<String, String>> list = Collections.synchronizedList(res);
+
+        for (Anime anime : animeList) {
+            Map<String, String> tmp = new ConcurrentHashMap<>(1);
+            tmp.put("value",anime.getTitle());
+            list.add(new ConcurrentHashMap<>(tmp));
+            tmp.clear();
+        }
+
+        return res;
     }
 }

@@ -39,7 +39,7 @@ module.exports = {
 
   plugins: [
     { src: '~/plugins/nuxt-swiper-plugin.js', ssr: false },
-    { src: '~/plugins/element-ui-plugin.js', ssr: false }
+    { src: '~/plugins/element-ui-plugin.js', ssr: true }
   ]
 }
 

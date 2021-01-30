@@ -28,11 +28,13 @@
             type="text"
             placeholder="验证码">
           <i class="iconfont icon-yanzhengma"/>
-          <a
+          <el-button
+            :disabled="disable"
+            size="small"
+            type="primary"
             href="javascript:"
-            type="button"
-            style="position:absolute;right: 10px;top: 15px;"
-            @click="getCodeFun()">{{ codeText }}</a>
+            style="position:absolute;right: 0px;top: 15px;"
+            @click="getCodeFun()">{{ codeText }}</el-button>
         </div>
         <div class="input-prepend">
           <input
@@ -49,11 +51,11 @@
             @click="submitRegister()">
         </div>
         <p class="sign-up-msg">
-          点击 “注册” 即表示您同意并愿意遵守简书
+          点击 “注册” 即表示您同意并愿意遵守
           <br>
-          <a target="_blank" href="http://www.jianshu.com/p/c44d171298ce">用户协议</a>
+          <a target="_blank" href="http://www.jianshu.com/p/c44d171298ce">契约</a>
           和
-          <a target="_blank" href="http://www.jianshu.com/p/2ov8x3">隐私政策</a> 。
+          <a target="_blank" href="http://www.jianshu.com/p/2ov8x3">保密条例</a> 。
         </p>
       </form>
       <!-- 更多注册方式 -->
@@ -71,37 +73,61 @@
 <script>
 import '~/assets/css/sign.css'
 import '~/assets/css/iconfont.css'
+import registerApi from '~/api/register'
 
 export default {
   layout: 'sign',
   data() {
     return {
-      member: {
-        mobile: '',
-        code: '',
-        nickname: '',
-        password: ''
-      },
+      member: {},
       sending: false, // 是否发送验证码
       second: 60, // 倒计时间
-      codeText: '获取验证码'
+      codeText: '获取验证码',
+      disable: false
     }
   },
   methods: {
     // 获取验证码
     getCodeFun() {
-
+      // 防止多次点击
+      if (this.disable) return
+      this.disable = true
+      registerApi.sendSms(this.member.mobile).then(response => {
+        // 倒计时
+        this.timeDown()
+        this.$message.success(response.message)
+      }).catch(() => {
+        this.disable = false
+      })
     },
 
     // 倒计时
     timeDown() {
-
+      this.codeText = this.second
+      const timer = setInterval(() => {
+        this.codeText--
+        if (this.codeText < 1) {
+          clearInterval(timer)
+          this.codeText = '获取验证码'
+          this.second = 60
+          this.sending = false
+          this.disable = false
+        }
+      }, 1000)
     },
 
     // 注册
     submitRegister() {
-
+      registerApi.register(this.member).then((response) => {
+        this.$message.success(response.message)
+        this.$router.push({ path: 'login' })
+      }).catch(error => {
+        this.$message.error(error.message)
+      })
     }
   }
 }
 </script>
+<style scoped>
+
+</style>

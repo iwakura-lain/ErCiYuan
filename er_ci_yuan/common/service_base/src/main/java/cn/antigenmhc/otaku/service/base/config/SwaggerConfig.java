@@ -70,6 +70,30 @@ public class SwaggerConfig {
     }
 
     @Bean
+    public Docket memberApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("memberApi")
+                .apiInfo(apiInfo("用户管理", "用户管理接口"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.ucenter.controller"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
+    public Docket smsApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("smsAPi")
+                .apiInfo(apiInfo("sms短信", "sms接口"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.sms.controller"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
     public Docket cmsApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("cmsApi")

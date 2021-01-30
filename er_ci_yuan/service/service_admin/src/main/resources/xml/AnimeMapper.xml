@@ -132,6 +132,9 @@
                 <if test="queryVo.subjectId != '' and queryVo.subjectId != null">
                     oa.subject_id = #{queryVo.subjectId} and
                 </if>
+                <if test="queryVo.title != '' and queryVo.title != null">
+                    oa.title like "%"#{queryVo.title}"%" and
+                </if>
                 oa.status = 'Normal' and
             </trim>
             <trim prefix="order by" suffixOverrides=",">

@@ -10,7 +10,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>cms</groupId>
+    <groupId>er_ci_yuan</groupId>
     <artifactId>service_cms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
@@ -27,6 +27,7 @@
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
+                <filtering>false</filtering>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>

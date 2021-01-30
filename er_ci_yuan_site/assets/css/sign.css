@@ -29,20 +29,25 @@ a{
 }
 
 .sign {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
     height: 100%;
-    min-height: 750px;
+    min-height: 660px;
     text-align: center;
     font-size: 14px;
-    background-color: #f1f1f1;
+    background-image: url('../img/loginbg3.png');
 }
 
 /*表单样式*/
 .sign .main{
-    background-color: #FFFFFF;
+    background-color:  rgba(247, 244, 244, 0.8);
     width: 400px;
     padding: 50px;
     margin: 60px auto 0 auto;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    box-shadow: 0 0 8px rgba(0,0,0,0.8);
     border-radius: 5px;
 }
 
@@ -67,13 +72,13 @@ a{
 }
 
 .sign .title a:hover{
-    border-bottom: 2px solid #3BB149;
+    border-bottom: 2px solid #65aaeb;
 }
 
 .sign .title .active{
     font-weight: 700;
-    color: #3BB149;
-    border-bottom: 2px solid #3BB149;
+    color: #5dd8ee;
+    border-bottom: 2px solid #2475df;
 }
 
 .sign .title span{
@@ -131,11 +136,11 @@ a{
     border: none;
     border-radius: 25px;
     color: #FFFFFF;
-    background-color: #42c02c;
+    background-color: #6fc1f8;
     cursor: pointer;
 }
 .sign .sign-up-button:hover{
-    background-color: #3db922;
+    background-color: #1287d4;
 }
 
 .sign .sign-in-button{

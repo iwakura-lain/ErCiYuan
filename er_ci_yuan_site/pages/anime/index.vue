@@ -102,7 +102,7 @@
                 </a>
 
                 <a
-                  v-if="searchObj.hasGmtModifiedSort === -1"
+                  v-if="searchObj.hasGmtModifiedSort == -1"
                   title="最近更新"
                   href="javascript:void(0);"
                   @click="searchByGmtDescSort()">最近更新
@@ -154,7 +154,7 @@
                     </div>
                   </section>
                   <h3 style="text-align:center;" class="hLh30 txtOf mt10">
-                    <a :href="'/anime/'+item.id" :title="item.title" class="anime-title fsize18 c-333">{{ item.title.substring(1, item.title.length-1) }}</a>
+                    <a :href="'/anime/'+item.id" :title="item.title" class="anime-title fsize18 c-333">{{ item.title }}</a>
                   </h3>
                   <section class="mt10 hLh20 of">
                     <span style="border-radius:10%" class="fr jgTag bg-blue">
@@ -198,6 +198,7 @@ export default {
     searchObj.subjectParentId = query.subjectParentId || ''
     searchObj.subjectId = query.subjectId || ''
     // 状态，1为从高到低，-1为从低到高
+    searchObj.title = query.title || ''
     searchObj.hasAnimeNumSort = query.hasAnimeNumSort || 0
     searchObj.hasViewSort = query.hasViewSort || 0
     searchObj.hasGmtModifiedSort = query.hasGmtModifiedSort || 0
@@ -230,12 +231,18 @@ export default {
   methods: {
     // 选择一级类别事件
     searchObjLevelOne(subjectParentId) {
-      window.location = 'anime?subjectParentId=' + subjectParentId
+      const paramsObj = {
+        title: this.searchObj.title,
+        subjectParentId: subjectParentId
+      }
+      const params = queryString.stringify(paramsObj)
+      window.location = 'anime?' + params
     },
 
     // 选择二级类别事件
     searchObjLevelTwo(subjectId) {
       const paramsObj = {
+        title: this.searchObj.title,
         subjectId: subjectId,
         subjectParentId: this.searchObj.subjectParentId
       }
@@ -245,6 +252,8 @@ export default {
 
     searchByViewSort() {
       const paramsObj = {
+        title: this.searchObj.title,
+
         subjectId: this.searchObj.subjectId,
         subjectParentId: this.searchObj.subjectParentId,
         hasViewSort: -1
@@ -255,6 +264,7 @@ export default {
 
     searchByGmtSort() {
       const paramsObj = {
+        title: this.searchObj.title,
         subjectId: this.searchObj.subjectId,
         subjectParentId: this.searchObj.subjectParentId,
         hasGmtModifiedSort: -1
@@ -265,6 +275,7 @@ export default {
 
     searchByAnimeNumSort() {
       const paramsObj = {
+        title: this.searchObj.title,
         subjectId: this.searchObj.subjectId,
         subjectParentId: this.searchObj.subjectParentId,
         hasAnimeNumSort: -1
@@ -275,6 +286,7 @@ export default {
 
     searchByViewDescSort() {
       const paramsObj = {
+        title: this.searchObj.title,
         subjectId: this.searchObj.subjectId,
         subjectParentId: this.searchObj.subjectParentId,
         hasViewSort: 1
@@ -285,6 +297,7 @@ export default {
 
     searchByGmtDescSort() {
       const paramsObj = {
+        title: this.searchObj.title,
         subjectId: this.searchObj.subjectId,
         subjectParentId: this.searchObj.subjectParentId,
         hasGmtModifiedSort: 1
@@ -295,6 +308,7 @@ export default {
 
     searchByAnimeNumDescSort() {
       const paramsObj = {
+        title: this.searchObj.title,
         subjectId: this.searchObj.subjectId,
         subjectParentId: this.searchObj.subjectParentId,
         hasAnimeNumSort: 1

@@ -70,7 +70,7 @@
                     </div>
                   </section>
                   <h3 class="hLh30 txtOf mt10">
-                    <a :title="item.title" :href="'/anime/1'+item.id" class="anime-title fsize18 c-333">{{ item.title.substring(1, item.title.length-1) }}</a>
+                    <a :title="item.title" :href="'/anime/1'+item.id" class="anime-title fsize18 c-333">{{ item.title }}</a>
                   </h3>
                 </div>
               </li>
