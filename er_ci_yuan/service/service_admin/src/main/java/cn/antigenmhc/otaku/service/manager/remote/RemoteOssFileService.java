@@ -33,6 +33,4 @@ public interface RemoteOssFileService {
     @DeleteMapping("/admin/oss/file/delete-files")
     Result deleteFiles(@RequestParam List<String> urls);
 
-    @GetMapping("/admin/oss/file/test")
-    Result test();
 }

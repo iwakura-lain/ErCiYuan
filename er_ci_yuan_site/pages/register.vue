@@ -62,8 +62,22 @@
       <div class="more-sign">
         <h6>社交帐号直接注册</h6>
         <ul>
-          <li><a id="weixin" class="weixin" href="http://localhost:8150/api/ucenter/wx/login"><i class="iconfont icon-weixin"/></a></li>
-          <li><a id="qq" class="qq" target="_blank" href="#"><i class="iconfont icon-qq"/></a></li>
+          <li>
+            <a
+              id="weixin"
+              class="weixin"
+              href="http://localhost:8140/api/vx/login/authorize">
+              <img width="35" height="35" src="~/assets/img/wechat.png">
+            </a>
+          </li>
+          <li>
+            <a
+              id="github"
+              class="github"
+              href="http://localhost:8140/api/github/login/authorize">
+              <img width="30" height="30" src="~/assets/img/github.png">
+            </a>
+          </li>
         </ul>
       </div>
     </div>

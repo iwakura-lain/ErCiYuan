@@ -334,7 +334,7 @@ input.iw80 {width: 80px;}
 .sbox_more a.sina {
   background: url('/edu/center/images/common/layout_css_sprites2.png') -112px -74px;
 }
-.sbox_more a.qq {
+.sbox_more a.github {
   background: url('/edu/center/images/common/layout_css_sprites2.png') -10px -280px;
 }
 .sbox_more a.wechat {
@@ -343,7 +343,7 @@ input.iw80 {width: 80px;}
 .sbox_more a.sina:hover {
   background: url('/edu/center/images/common/layout_css_sprites2.png') -154px -174px;
 }
-.sbox_more a.qq:hover {
+.sbox_more a.github:hover {
   background: url('/edu/center/images/common/layout_css_sprites2.png') -76px -280px;
 }
 .wechat_bg {position: relative;}

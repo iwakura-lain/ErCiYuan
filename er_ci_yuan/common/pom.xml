@@ -58,7 +58,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
-    </dependencies>
 
+        <!-- spring session，基于外置的 redis 进行 session 同步 -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

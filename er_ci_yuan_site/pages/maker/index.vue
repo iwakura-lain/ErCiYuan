@@ -26,12 +26,12 @@
               <li v-for="(item, index) in items" :key="index" >
                 <section class="i-admin-wrap">
                   <div class="i-admin-pic">
-                    <a :title="item.name" :href="'/maker/'+item.id">
+                    <nuxt-link :title="item.name" :to="'/maker/'+item.id">
                       <img :src="item.avatar" :alt="item.name" style="border-radius:0%" width="142">
-                    </a>
+                    </nuxt-link>
                   </div>
                   <div class="mt10 hLh30 txtOf tac">
-                    <a :title="item.name" :href="'/maker/'+item.id" class="fsize18 c-666">{{ item.name }}</a>
+                    <nuxt-link :title="item.name" :to="'/maker/'+item.id" class="fsize18 c-666">{{ item.name }}</nuxt-link>
                   </div>
                   <div class="hLh30 txtOf tac">
                     <span class="fsize14 c-999" >{{ item.career }}</span>

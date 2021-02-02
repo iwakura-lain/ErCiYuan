@@ -31,11 +31,29 @@
         </div>
       </form>
       <!-- 更多登录方式 -->
+
       <div class="more-sign">
         <h6>社交帐号登录</h6>
+        Tip：
+        使用 GitHub 登录默认没有手机号，登陆后请到用户中心进行设置
+        <br>GitHub 极其慢，不建议使用(除非你挂着梯子)
         <ul>
-          <li><a id="weixin" class="weixin" href="http://localhost:8150/api/ucenter/wx/login"><i class="iconfont icon-weixin"/></a></li>
-          <li><a id="qq" class="qq" target="_blank" href="#"><i class="iconfont icon-qq"/></a></li>
+          <li>
+            <a
+              id="weixin"
+              class="weixin"
+              href="http://localhost:8140/api/gitee/login/authorize">
+              <img width="35" height="35" src="~/assets/img/wechat.png">
+            </a>
+          </li>
+          <li>
+            <a
+              id="github"
+              class="github"
+              href="http://localhost:8140/api/github/login/authorize">
+              <img width="30" height="30" src="~/assets/img/github.png">
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -45,6 +63,8 @@
 <script>
 import '~/assets/css/sign.css'
 import '~/assets/css/iconfont.css'
+import cookie from 'js-cookie'
+import loginApi from '~/api/login'
 
 export default {
   layout: 'sign',
@@ -61,7 +81,14 @@ export default {
   methods: {
     // 登录
     submitLogin() {
-
+      // 调用登录接口
+      loginApi.login(this.user).then(response => {
+        // jwt 写入 cookie, domain 就是各个子网站之间的顶级域名
+        // 这里设置的 cookie 的 path 默认为 /
+        cookie.set('jwt_token', response.data.token, { domain: 'localhost' })
+        // 跳转到首页
+        window.location.href = '/'
+      })
     }
   }
 }

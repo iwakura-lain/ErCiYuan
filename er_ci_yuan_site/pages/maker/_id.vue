@@ -66,11 +66,11 @@
                   <section class="anime-img">
                     <img :alt="item.title" :src="item.cover" class="img-responsive">
                     <div class="cc-mask">
-                      <a :href="'/anime/'+item.id" title="开始观看" class="comm-btn c-btn-1">开始观看</a>
+                      <nuxt-link :to="'/anime/'+item.id" title="开始观看" class="comm-btn c-btn-1">开始观看</nuxt-link>
                     </div>
                   </section>
                   <h3 class="hLh30 txtOf mt10">
-                    <a :title="item.title" :href="'/anime/1'+item.id" class="anime-title fsize18 c-333">{{ item.title }}</a>
+                    <nuxt-link :title="item.title" :to="'/anime/'+item.id" class="anime-title fsize18 c-333">{{ item.title }}</nuxt-link>
                   </h3>
                 </div>
               </li>

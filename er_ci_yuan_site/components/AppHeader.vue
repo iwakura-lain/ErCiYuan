@@ -27,7 +27,7 @@
         </ul>
         <!-- / nav -->
         <ul class="h-r-login">
-          <li id="no-login">
+          <li v-if="!userInfo" id="no-login">
             <a href="/login" title="登录">
               <i>🧙</i>
               <span style="color: rgb(94, 206, 235)" class="vam ml5">登录</span>
@@ -39,25 +39,18 @@
             </a>
           </li>
           <!-- 注意undis将当前节点隐藏了 -->
-          <li id="is-login-one" class="mr10 undis">
-            <a id="headerMsgCountId" href="#" title="消息">
-              <em class="icon18 news-icon">&nbsp;</em>
-            </a>
-            <q class="red-point">&nbsp;</q>
-          </li>
-          <!-- 注意undis将当前节点隐藏了 -->
-          <li id="is-login-two" class="h-r-user undis">
+          <li v-if="userInfo" id="is-login-two" class="h-r-user">
             <a href="/ucenter" title>
               <img
-                src="~/assets/img/avatar-boy.gif"
-                width="30"
-                height="30"
+                :src="userInfo.avatar"
+                width="100px"
+                height="100px"
                 class="vam picImg"
                 alt
               >
-              <span id="userName" class="vam disIb">登录的用户名</span>
+              <span id="userName" class="vam disIb">{{ userInfo.nickname }}</span>
             </a>
-            <a href="javascript:void(0)" title="退出" class="ml5">退出</a>
+            <a href="javascript:void(0)" title="退出" class="ml5" @click="logout()">退出</a>
           </li>
           <!-- /未登录显示第1 li；登录后显示第2，3 li -->
         </ul>
@@ -92,22 +85,59 @@
 </template>
 
 <script>
-import animeApi from '~/api/anime.js'
+import animeApi from '~/api/anime'
+import loginApi from '~/api/login'
+import cookie from 'js-cookie'
 
 export default {
   data() {
     return {
-      title: ''
+      userInfo: null,
+      title: '',
+      refreshToken: null
+    }
+  },
+
+  created() {
+    this.getUserInfo()
+  },
+
+  mounted() {
+    // url token获取
+    this.token = this.$route.query.token
+    if (this.token) {
+      // 将token存在cookie中
+      cookie.set('jwt_token', this.token, { domain: 'localhost' })
+      // 跳转页面：擦除url中的token
+      // 注意：window对象在created方法中无法被访问，因此要写在mounted中
+      window.location = '/'
     }
   },
 
   methods: {
     // 输入建议
     querySearch(queryString, callback) {
-      console.log(queryString)
       animeApi.searchAutoComplete(queryString).then(response => {
         callback(response.data.animes)
       })
+    },
+
+    getUserInfo() {
+      if (!cookie.get('jwt_token')) {
+        return
+      }
+      loginApi.getLoginInfo().then(response => {
+        this.userInfo = response.data.userInfo
+        this.refreshToken = response.data.token
+        if (this.refreshToken) {
+          cookie.set('jwt_token', this.refreshToken, { domain: 'localhost' })
+        }
+      })
+    },
+
+    logout() {
+      cookie.set('jwt_token', '')
+      window.location.href = '/'
     }
   }
 }

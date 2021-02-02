@@ -150,11 +150,15 @@
                   <section class="anime-img">
                     <img :alt="item.title" :src="item.cover" style="height: 177px; box-shadow: 300px 300px 500px #6495ED;" class="img-responsive">
                     <div class="cc-mask">
-                      <a :href="'/anime/'+item.id" title="开始观看" class="comm-btn c-btn-1">开始观看</a>
+                      <a :href="'/anime/'+item.id" title="开始观看" class="comm-btn c-btn-1">
+                        开始观看
+                      </a>
                     </div>
                   </section>
                   <h3 style="text-align:center;" class="hLh30 txtOf mt10">
-                    <a :href="'/anime/'+item.id" :title="item.title" class="anime-title fsize18 c-333">{{ item.title }}</a>
+                    <a :href="'/anime/'+item.id" :title="item.title" class="anime-title fsize18 c-333">
+                      {{ item.title }}
+                    </a>
                   </h3>
                   <section class="mt10 hLh20 of">
                     <span style="border-radius:10%" class="fr jgTag bg-blue">
@@ -178,7 +182,7 @@
     <el-pagination
       :current-page="pages"
       :total="total"
-      :page-size="searchObj.size"
+      :page-size="size"
       style="padding: 30px 0; text-align: center"
       layout="prev, pager, next, jumper, ->"
       @current-change="changeCurrentPage"
@@ -203,7 +207,7 @@ export default {
     searchObj.hasViewSort = query.hasViewSort || 0
     searchObj.hasGmtModifiedSort = query.hasGmtModifiedSort || 0
     searchObj.page = query.page || 1
-    searchObj.size = 2
+    searchObj.size = 8
     // 动漫列表
     const animeListResponse = await animeApi.pageList(searchObj)
     const animeList = animeListResponse.data.items
@@ -223,7 +227,8 @@ export default {
       animeList: animeList,
       levelTwoSubjectList: levelTwoSubjectList,
       searchObj: searchObj,
-      pages: searchObj.page,
+      pages: Number.parseInt(searchObj.page),
+      size: Number.parseInt(searchObj.size),
       total: total
     }
   },
@@ -319,8 +324,10 @@ export default {
 
     // 改变页码
     changeCurrentPage(page) {
+      console.log(page)
       this.searchObj.page = page
       const paramsObj = {
+        title: this.searchObj.title,
         subjectId: this.searchObj.subjectId,
         subjectParentId: this.searchObj.subjectParentId
       }

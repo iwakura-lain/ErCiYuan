@@ -10,13 +10,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>cn.antigenmhc.service_base</groupId>
+    <groupId>er_ci_yuan</groupId>
     <artifactId>service_base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
-            <groupId>cn.antigenmhc.common_utils</groupId>
+            <groupId>er_ci_yuan</groupId>
             <artifactId>common_util</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -29,6 +29,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
 
     </dependencies>

@@ -32,12 +32,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>cn.antigenmhc.service_base</groupId>
+            <groupId>er_ci_yuan</groupId>
             <artifactId>service_base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>cn.antigenmhc.common_utils</groupId>
+            <groupId>er_ci_yuan</groupId>
             <artifactId>common_util</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

@@ -28,8 +28,4 @@ public class RemoteOssFileServiceFallBack implements RemoteOssFileService {
         return Result.error().setMessage("oss 的批量文件删除接口挂掉了");
     }
 
-    @Override
-    public Result test() {
-        return Result.error();
-    }
 }

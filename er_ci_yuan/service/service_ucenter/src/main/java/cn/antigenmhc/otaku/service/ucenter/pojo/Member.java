@@ -28,6 +28,12 @@ public class Member extends BasePojo {
     @ApiModelProperty(value = "微信openid")
     private String openid;
 
+    @ApiModelProperty(value = "github id")
+    private String githubId;
+
+    @ApiModelProperty(value = "github id")
+    private String giteeId;
+
     @ApiModelProperty(value = "手机号")
     private String mobile;
 
@@ -57,6 +63,4 @@ public class Member extends BasePojo {
     @TableField("is_deleted")
     @TableLogic
     private Boolean deleted;
-
-
 }

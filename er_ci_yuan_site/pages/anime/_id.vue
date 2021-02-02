@@ -182,7 +182,8 @@ import animeApi from '~/api/anime'
 
 export default {
   async asyncData(page) {
-    const animeResponse = await animeApi.animeInfo(page.route.params.id)
+    const id = page.route.params.id
+    const animeResponse = await animeApi.animeInfo(id)
     const animeInfo = animeResponse.data.item
     const chapterList = animeResponse.data.chapterList
     return {

@@ -10,7 +10,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>cn.antigenmhc.security</groupId>
+    <groupId>er_ci_yuan</groupId>
     <artifactId>security</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 

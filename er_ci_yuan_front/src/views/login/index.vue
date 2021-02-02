@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-      <h3 class="title">二刺螈の后台</h3>
+      <h3 class="title">米♂奇♂妙♂妙♂污</h3>
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -112,6 +112,12 @@ $light_gray:#eee;
 
 /* reset element-ui css */
 .login-container {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-image: url('https://antigenmhc-erciyuan.oss-cn-hangzhou.aliyuncs.com/avatar/2021/01/28/2018-08-28.png');
   .el-input {
     display: inline-block;
     height: 47px;

@@ -106,7 +106,7 @@ import indexApi from '~/api/index'
 
 export default {
 
-  async asyncData() {
+  async asyncData(page) {
     const slidWindowResponse = await indexApi.getSlidWindow()
     const listResponse = await indexApi.getList()
     return {

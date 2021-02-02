@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "element-ui": "^2.4.6",
+    "js-cookie": "^2.2.0",
     "nuxt": "^2.0.0",
     "querystring": "^0.2.0",
     "vue-awesome-swiper": "^3.1.3",

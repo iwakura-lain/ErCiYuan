@@ -51,3 +51,26 @@ mybatis-plus:
 member:
   #用户默认头像
   defaultAvatar: https://antigenmhc-erciyuan.oss-cn-hangzhou.aliyuncs.com/avatar/2021/01/09/b317673c-e06c-44cc-8f8f-8e0e9ae9cd17.jpg
+
+github:
+  oauth2:
+    #换成自己的
+    clientId: xxx
+    clientSecret: xxx
+    #这个是固定的
+    authorizeUrl: https://github.com/login/oauth/authorize
+    #github 的回调接口，可以使用内网穿透进行转发
+    redirectUrl : xxx
+    #这个也是固定的
+    accessTokenUrl: https://github.com/login/oauth/access_token
+    #这个也是固定的
+    userInfoUrl: https://api.github.com/user
+
+gitee:
+  oauth2:
+    clientId: xxx
+    clientSecret: xxx
+    redirectUrl: xxx
+    authorizeUrl: https://gitee.com/oauth/authorize
+    accessTokenUrl: https://gitee.com/oauth/token
+    userInfoUrl: https://gitee.com/api/v5/user

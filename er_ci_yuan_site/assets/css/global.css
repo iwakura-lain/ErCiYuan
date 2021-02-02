@@ -103,8 +103,8 @@ a.current-2 .lh-p-icon{background-position:0 -254px}
 .sf-lr-wrap a.wb-sf:hover{background:url(../img/wb-icon-hover-32.png) no-repeat 50% 50%}
 .sf-lr-wrap a.wx-sf{background:url(../img/wx-icon-32.png) no-repeat 50% 50%}
 .sf-lr-wrap a.wx-sf:hover{background:url(../img/wx-icon-hover-32.png) no-repeat 50% 50%}
-.sf-lr-wrap a.qq-sf{background:url(../img/qq-icon-32.png) no-repeat 50% 50%}
-.sf-lr-wrap a.qq-sf:hover{background:url(../img/qq-icon-hover-32.png) no-repeat 50% 50%}
+.sf-lr-wrap a.github-sf{background:url(../img/github.png) no-repeat 50% 50%}
+.sf-lr-wrap a.github-sf:hover{background:url(../img/github.png) no-repeat 50% 50%}
 .i-box{background-color:#fff;border:1px solid #f0f0f0;padding:0 15px 20px;overflow:hidden}
 .blue-btn,.comm-btn,.goBack-btn,.order-submit{border:1px solid;border-radius:16px;display:inline-block;text-align:center;height:32px;line-height:32px;padding:0 12px}
 .comm-btn{padding: 0 8px;}
@@ -151,7 +151,7 @@ a.current-2 .lh-p-icon{background-position:0 -254px}
 .h-r-login,.h-r-search{float:right;padding-top:15px}
 .h-r-login li{float:left;margin-left:10px;position:relative}
 .h-r-login li a{cursor:pointer;line-height:50px;color:#666;font-size:16px;transition:.3s;-webkit-transition:.3s}
-.h-r-login li.h-r-user a img{border-radius:50%;width:30px;height:30px}
+.h-r-login li.h-r-user a img{border-radius:50%;width:40px;height:40px}
 .h-r-login li.h-r-user span{max-width:120px;height:17px;font-size:16px;line-height:16px;overflow:hidden}
 .red-point{position:absolute;right:-4px;top:8px;display:block;width:8px;height:8px;border-radius:50%;background:#cb2020;text-indent:-9999px}
 .h-r-search{margin:10px 20px 0 0}
