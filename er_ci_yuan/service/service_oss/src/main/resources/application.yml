@@ -19,7 +19,6 @@ spring:
       discovery:
         server-addr: localhost:8848
 
-
 aliyun:
   oss:
     endPoint: oss-cn-hangzhou.aliyuncs.com

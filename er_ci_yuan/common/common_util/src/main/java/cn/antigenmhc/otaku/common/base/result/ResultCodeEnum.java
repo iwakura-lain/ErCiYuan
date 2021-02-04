@@ -48,6 +48,7 @@ public enum ResultCodeEnum {
     ORDER_EXIST_ERROR(false, 25003, "动漫已购买"),
 
     GATEWAY_ERROR(false, 26000, "服务不能访问"),
+    FEIGN_REMOTE_FAIL(false, 26001, "远程服务调用失败"),
 
     CODE_ERROR(false, 28000, "验证码错误"),
 

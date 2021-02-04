@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.antigenmhc.otaku.service.manager.mapper.AnimeCollectMapper">
-
+    <select id="getAnimeCollectList"
+            resultType="AnimeCollectVo"
+            parameterType="string">
+        select
+             oac.id,
+             oac.gmt_create,
+             oan.id as animeId,
+             oan.cover,
+             oan.title,
+             oad.name as adminName,
+             oan.price
+        from
+             er_ci_yuan.otaku_anime_collect as oac
+                inner join
+             er_ci_yuan.otaku_anime as oan
+                on oac.anime_id = oan.id
+                inner join
+             er_ci_yuan.otaku_admin as oad
+                on oan.admin_id = oad.id
+        where oac.member_id = #{memberId}
+    </select>
 </mapper>

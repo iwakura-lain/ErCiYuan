@@ -2,6 +2,7 @@ package cn.antigenmhc.otaku.service.manager.service.impl;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
+import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
 import cn.antigenmhc.otaku.service.manager.mapper.*;
 import cn.antigenmhc.otaku.service.manager.pojo.*;
 import cn.antigenmhc.otaku.service.manager.pojo.form.AnimeInfoForm;
@@ -265,5 +266,10 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         }
 
         return res;
+    }
+
+    @Override
+    public AnimeDto getAnimeDtoByAnimeId(String animeId) {
+        return baseMapper.getAnimeDtoByAnimeId(animeId);
     }
 }

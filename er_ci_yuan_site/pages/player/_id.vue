@@ -49,7 +49,7 @@ export default {
         defaultQuality: 0
       },
       danmaku: {
-        id: this.baseUrl,
+        id: this.ldUrl,
         api: 'http://192.168.224.129:1207/' // 这里填写弹幕地址
       }
     })

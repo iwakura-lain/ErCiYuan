@@ -5,7 +5,7 @@ spring:
     username: root
     password: root
   application:
-    name: service-admin
+    name: service-ucenter
   #激活环境
   profiles:
     active: dev
@@ -50,7 +50,7 @@ mybatis-plus:
 
 member:
   #用户默认头像
-  defaultAvatar: https://antigenmhc-erciyuan.oss-cn-hangzhou.aliyuncs.com/avatar/2021/01/09/b317673c-e06c-44cc-8f8f-8e0e9ae9cd17.jpg
+  defaultAvatar: https://antigenmhc-erciyuan.oss-cn-hangzhou.aliyuncs.com/avatar/2021/01/28/thumb-1920-688669.png
 
 github:
   oauth2:
@@ -60,7 +60,7 @@ github:
     #这个是固定的
     authorizeUrl: https://github.com/login/oauth/authorize
     #github 的回调接口，可以使用内网穿透进行转发
-    redirectUrl : xxx
+    redirectUrl : http://localhost:8140/api/gitee/login/callback
     #这个也是固定的
     accessTokenUrl: https://github.com/login/oauth/access_token
     #这个也是固定的
@@ -70,7 +70,7 @@ gitee:
   oauth2:
     clientId: xxx
     clientSecret: xxx
-    redirectUrl: xxx
+    redirectUrl: http://localhost:8140/api/gitee/login/callback
     authorizeUrl: https://gitee.com/oauth/authorize
     accessTokenUrl: https://gitee.com/oauth/token
     userInfoUrl: https://gitee.com/api/v5/user

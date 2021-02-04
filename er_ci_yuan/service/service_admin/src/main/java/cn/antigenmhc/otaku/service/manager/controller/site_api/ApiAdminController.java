@@ -19,7 +19,7 @@ import java.util.List;
  * @Date: 2021/1/24 19:42
  * @Version: 1.0
  **/
-@Api("前台制作人展示")
+@Api(description = "前台制作人展示")
 @RestController
 @RequestMapping("/api/site/admin")
 public class ApiAdminController {

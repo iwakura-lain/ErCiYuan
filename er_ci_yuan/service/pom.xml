@@ -28,6 +28,8 @@
         <module>service_sms</module>
         <!-- 用户中心 -->
         <module>service_ucenter</module>
+        <!-- 订单模块 -->
+        <module>service_trade</module>
     </modules>
 
     <dependencies>

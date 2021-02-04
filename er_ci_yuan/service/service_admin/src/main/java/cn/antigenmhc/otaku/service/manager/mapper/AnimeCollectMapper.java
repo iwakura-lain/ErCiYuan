@@ -1,7 +1,10 @@
 package cn.antigenmhc.otaku.service.manager.mapper;
 
 import cn.antigenmhc.otaku.service.manager.pojo.AnimeCollect;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeCollectVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface AnimeCollectMapper extends BaseMapper<AnimeCollect> {
 
+    List<AnimeCollectVo> getAnimeCollectList(String memberId);
 }

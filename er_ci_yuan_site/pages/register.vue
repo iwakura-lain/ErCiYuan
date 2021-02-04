@@ -60,14 +60,17 @@
       </form>
       <!-- 更多注册方式 -->
       <div class="more-sign">
-        <h6>社交帐号直接注册</h6>
+        <h6>社交帐号登录</h6>
+        Tip: GitHub 可能会很慢，不建议使用
+        <br>
+        <br>
         <ul>
           <li>
             <a
               id="weixin"
               class="weixin"
               href="http://localhost:8140/api/vx/login/authorize">
-              <img width="35" height="35" src="~/assets/img/wechat.png">
+              <img width="35" height="35" src="~/assets/img/gitee.png">
             </a>
           </li>
           <li>

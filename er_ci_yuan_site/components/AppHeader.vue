@@ -40,7 +40,7 @@
           </li>
           <!-- 注意undis将当前节点隐藏了 -->
           <li v-if="userInfo" id="is-login-two" class="h-r-user">
-            <a href="/ucenter" title>
+            <nuxt-link :to="'/ucenter'" title>
               <img
                 :src="userInfo.avatar"
                 width="100px"
@@ -49,7 +49,7 @@
                 alt
               >
               <span id="userName" class="vam disIb">{{ userInfo.nickname }}</span>
-            </a>
+            </nuxt-link>
             <a href="javascript:void(0)" title="退出" class="ml5" @click="logout()">退出</a>
           </li>
           <!-- /未登录显示第1 li；登录后显示第2，3 li -->

@@ -1,4 +1,4 @@
-package cn.antigenmhc.otaku.service.base.utils;
+package cn.antigenmhc.otaku.common.base.utils;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

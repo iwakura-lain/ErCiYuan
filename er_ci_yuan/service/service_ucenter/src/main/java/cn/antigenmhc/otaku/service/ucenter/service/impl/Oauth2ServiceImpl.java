@@ -1,11 +1,10 @@
 package cn.antigenmhc.otaku.service.ucenter.service.impl;
 
-import cn.antigenmhc.otaku.common.base.utils.JwtInfo;
-import cn.antigenmhc.otaku.service.base.utils.RedisUtil;
+import cn.antigenmhc.otaku.common.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.ucenter.mapper.MemberMapper;
 import cn.antigenmhc.otaku.service.ucenter.pojo.Member;
-import cn.antigenmhc.otaku.service.ucenter.utils.JwtUtil;
 import cn.antigenmhc.otaku.service.ucenter.service.Oauth2Service;
+import cn.antigenmhc.otaku.service.ucenter.utils.JwtUtilEx;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,9 +46,9 @@ public class Oauth2ServiceImpl implements Oauth2Service {
         if(one != null){
             //缓存中是否存在，如果不存在则创建
             if(StringUtils.isEmpty((String)redisUtil.get(one.getId()))){
-                redisUtil.set(one.getId(),createJwtToken(one),60*60*24*10);
+                redisUtil.set(one.getId(), JwtUtilEx.createJwtToken(one),60*60*24*10);
             }
-            return createJwtToken(one);
+            return JwtUtilEx.createJwtToken(one);
         }
         //如果不存在，则设置基本信息后创建token并返回
         Member member = new Member();
@@ -62,16 +61,21 @@ public class Oauth2ServiceImpl implements Oauth2Service {
         }
         member.setNickname(name);
         memberMapper.insert(member);
-        redisUtil.set(member.getId(),createJwtToken(member),60*60*24*10);
+        redisUtil.set(member.getId(), JwtUtilEx.createJwtToken(member), 60*60*24*10);
 
-        return createJwtToken(member);
+        return JwtUtilEx.createJwtToken(member);
     }
 
-    private String createJwtToken(Member member){
-        JwtInfo jwtInfo = new JwtInfo();
-        jwtInfo.setAvatar(member.getAvatar());
-        jwtInfo.setNickname(member.getNickname());
-        jwtInfo.setId(member.getId());
-        return JwtUtil.getJwtToken(jwtInfo, 180);
+    @Override
+    public boolean fetchCallBackState(String code, String state) {
+        if(com.mysql.cj.util.StringUtils.isEmptyOrWhitespaceOnly(code) ||
+                com.mysql.cj.util.StringUtils.isEmptyOrWhitespaceOnly(state)){
+            return false;
+        }
+        String redisState = (String)redisUtil.get((String) redisUtil.get(state));
+        if(!redisState.equals(state)){
+            return false;
+        }
+        return true;
     }
 }

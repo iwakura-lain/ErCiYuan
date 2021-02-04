@@ -1,5 +1,6 @@
 package cn.antigenmhc.otaku.service.manager.service;
 
+import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
 import cn.antigenmhc.otaku.service.manager.pojo.form.AnimeInfoForm;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.*;
@@ -114,4 +115,11 @@ public interface AnimeService extends IService<Anime> {
      * @return ：提示列表
      */
     List<Map<String,String>> getAnimeByTitle(String title);
+
+    /**
+     * 创建 animeDto 对象，返回给订单模块
+     * @param animeId：animeId
+     * @return ：animeDto
+     */
+    AnimeDto getAnimeDtoByAnimeId(String animeId);
 }

@@ -1,14 +1,11 @@
 package cn.antigenmhc.otaku.service.ucenter.controller.api;
 
-import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
-import cn.antigenmhc.otaku.common.base.utils.JwtInfo;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
-import cn.antigenmhc.otaku.service.base.utils.RedisUtil;
+import cn.antigenmhc.otaku.common.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.ucenter.properties.GithubOauth2Properties;
 import cn.antigenmhc.otaku.service.ucenter.service.GithubLoginService;
 import cn.antigenmhc.otaku.service.ucenter.service.Oauth2Service;
-import cn.antigenmhc.otaku.service.ucenter.utils.Oauth2FetchCallBackUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +31,8 @@ public class ApiGitHubController {
     private GithubLoginService githubLoginService;
     @Resource
     private RedisUtil redisUtil;
+    @Resource
+    private Oauth2Service oauth2Service;
 
     /**
      * 让用户跳转到 GitHub
@@ -64,7 +63,7 @@ public class ApiGitHubController {
     public String callback(@RequestParam("code") String code,
                            @RequestParam("state") String state) {
 
-        if(!Oauth2FetchCallBackUtil.fetchCallBackState(code, state, redisUtil)){
+        if(!oauth2Service.fetchCallBackState(code, state)){
             log.error("非法回调");
             throw new IntegrateException(ResultCodeEnum.ILLEGAL_CALLBACK_REQUEST_ERROR);
         }
@@ -73,9 +72,15 @@ public class ApiGitHubController {
         String accessToken = githubLoginService.getAccessToken(code);
         // token换userInfo
         String userInfo = githubLoginService.getUserInfo(accessToken);
-        // 关联保存，并返回数据
-        String token = githubLoginService.saveGithubIdAndUserInfo(userInfo);
-        return "redirect:http://localhost:3000?token=" + token;
+        // 关联保存，并返回数据;
+        // 如果该数据已经关联了手机号等信息，则携带token跳转到首页
+        // 否则携带 oauth2 的 id 跳转到信息补全页
+        String token = githubLoginService.getJwtTokenOrOauthId(userInfo);
+        //如果数据已经绑定了，则跳转到首页
+        if(token.contains(".")){
+            return "redirect:http://localhost:3000?token=" + token;
+        }
+        return "redirect:http://localhost:3000/bind?type=github&id=" + token;
     }
 }
 

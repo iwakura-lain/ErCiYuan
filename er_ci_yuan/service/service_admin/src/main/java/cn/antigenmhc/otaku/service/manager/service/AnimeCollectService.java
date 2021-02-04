@@ -1,7 +1,10 @@
 package cn.antigenmhc.otaku.service.manager.service;
 
 import cn.antigenmhc.otaku.service.manager.pojo.AnimeCollect;
+import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeCollectVo;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface AnimeCollectService extends IService<AnimeCollect> {
 
+    boolean isCollect(String animeId, String memberId);
+
+    boolean addCollectAnime(String animeId, String memberId);
+
+    boolean deleteCollectAnime(String animeId, String memberId);
+
+    List<AnimeCollectVo> getAnimeCollectList(String memberId);
 }

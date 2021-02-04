@@ -4,7 +4,7 @@ import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
 import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
-import cn.antigenmhc.otaku.service.base.utils.RedisUtil;
+import cn.antigenmhc.otaku.common.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.sms.service.SmsService;
 import cn.antigenmhc.otaku.common.base.utils.FormUtils;
 import cn.antigenmhc.otaku.service.sms.utils.RandomUtils;

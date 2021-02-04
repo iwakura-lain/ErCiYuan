@@ -1,14 +1,9 @@
-package cn.antigenmhc.otaku.service.ucenter.utils;
+package cn.antigenmhc.otaku.common.base.utils;
 
-import cn.antigenmhc.otaku.common.base.utils.JwtInfo;
-import cn.antigenmhc.otaku.service.base.utils.RedisUtil;
-import cn.antigenmhc.otaku.service.ucenter.pojo.Member;
 import io.jsonwebtoken.*;
 import org.joda.time.DateTime;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
 import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.DatatypeConverter;
@@ -20,7 +15,6 @@ import java.util.Date;
  * @Date: 2021/1/30 12:28
  * @Version: 1.0
  **/
-@Component
 public class JwtUtil {
 
     public static final String APP_SECRET = "ukc8BDbRigUDaY6pZFfWus2jZWLPHO";
@@ -116,60 +110,4 @@ public class JwtUtil {
         return jwtInfo;
     }
 
-    public static String checkTokenExpireTimeAndGetNew(
-            HttpServletRequest request,
-            RedisUtil redisUtil){
-        String token = request.getHeader("token");
-        Jws<Claims> claimsJws = null;
-        Claims claims;
-        Member member;
-        try {
-            //得到 DefaultJwtParser
-            long expireTime = Jwts.parser()
-                    //设置签名的秘钥
-                    .setSigningKey(APP_SECRET)
-                    .parseClaimsJws(token)
-                    .getBody().getExpiration().getTime();
-            long diff = expireTime - System.currentTimeMillis();
-            System.out.println(diff);
-            claimsJws = Jwts.parser().setSigningKey(getKeyInstance()).parseClaimsJws(token);
-            claims = claimsJws.getBody();
-            member = new Member();
-            member.setId((String) claims.get("id"));
-            member.setAvatar((String) claims.get("avatar"));
-            member.setNickname((String) claims.get("nickname"));
-            //如果有效期小于5分钟，则不建议继续使用该 jwt，颁发新的 jwt
-            if (diff < ADVANCE_EXPIRE_TIME && diff > 0) {
-                String jwtInfo = (String)redisUtil.get((String) claims.get("id"));
-                if(StringUtils.isEmpty(jwtInfo)){
-                    return null;
-                }
-                return createJwtToken(member);
-            }
-        // jwt 过期异常
-        } catch (ExpiredJwtException e) {
-            // 如果是正常过期 ( jwt 过期了，但是 redis 中还有数据, 同样也生成一个新的 token 返回 )
-            claims = e.getClaims();
-            String jwtTokenInRedis = (String) redisUtil.get((String) claims.get("id"));
-            if(!StringUtils.isEmpty(jwtTokenInRedis)){
-                member = new Member();
-                member.setId((String) claims.get("id"));
-                member.setAvatar((String) claims.get("avatar"));
-                member.setNickname((String) claims.get("nickname"));
-                return createJwtToken(member);
-            }
-            return null;
-        } catch (Exception e){
-            return null;
-        }
-        return null;
-    }
-
-    private static String createJwtToken(Member member){
-        JwtInfo jwtInfo = new JwtInfo();
-        jwtInfo.setAvatar(member.getAvatar());
-        jwtInfo.setNickname(member.getNickname());
-        jwtInfo.setId(member.getId());
-        return JwtUtil.getJwtToken(jwtInfo, 180);
-    }
 }

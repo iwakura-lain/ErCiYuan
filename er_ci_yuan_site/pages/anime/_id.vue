@@ -17,13 +17,13 @@
           animeInfo.subjectLevelTwoId"
           class="c-333 fsize14">{{ animeInfo.subjectLevelTwo }}</a>
       </section>
-      <!-- /课程所属分类 结束 -->
+      <!-- /动漫所属分类 结束 -->
 
       <!-- 动漫基本信息 开始 -->
       <div>
         <article class="c-v-pic-wrap" style="height: 357px;">
           <section id="videoPlay" class="p-h-video-box">
-            <img :src="animeInfo.cover" :alt="animeInfo.title" class="dis c-v-pic">
+            <img :src="animeInfo.cover" :alt="animeInfo.title" width="640" height="360" class="dis c-v-pic">
           </section>
         </article>
         <aside class="c-attr-wrap">
@@ -33,19 +33,36 @@
             </h2>
             <section class="c-attr-jg">
               <b v-if="Number(animeInfo.price) === 0" class="c-blue2" style="font-size:24px;">免费观看</b>
-              <b v-else class="c-blue2" style="font-size:24px;">${{ animeInfo.price }}</b>
+              <b v-else class="c-blue2" style="font-size:24px;">💰{{ animeInfo.price }} 软妹币</b>
             </section>
             <section class="c-attr-mt c-attr-undis">
               <span class="c-fff fsize14">制作方：{{ animeInfo.adminName }}&nbsp;&nbsp;&nbsp;</span>
             </section>
             <section class="c-attr-mt of">
-              <span class="ml10 vam">
-                <em class="icon18 scIcon"/>
-                <a class="c-fff vam" title="收藏" href="#" >收藏</a>
+              <span v-if="!isCollect" class="ml10 vam" @click="addCollectAnime(animeInfo.id)">
+                👺
+                <el-button style="cursor:pointer" type="success" class="c-fff vam" title="收藏" >收藏</el-button>
+              </span>
+              <span v-if="isCollect" class="ml10 vam">
+                🤡
+                <el-button style="cursor:pointer" type="warning" class="c-fff vam" title="取消收藏" @click="deleteCollectAnime(animeInfo.id)" >取消收藏</el-button>
               </span>
             </section>
-            <section class="c-attr-mt">
-              <a href="#" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
+            <section v-if="isBuy || animeInfo.price === 0" class="c-attr-mt">
+              <a
+                href="javascript:(0)"
+                title="立即观看"
+                class="comm-btn c-btn-3"
+              >立即观看
+              </a>
+            </section>
+            <section v-else class="c-attr-mt">
+              <a
+                href="javascript:(0)"
+                title="立即购买"
+                class="comm-btn c-btn-3"
+                @click="createOrder(animeInfo.id)">立即购买
+              </a>
             </section>
           </section>
         </aside>
@@ -85,7 +102,7 @@
             <div class="i-box">
               <div>
                 <section id="c-i-tabTitle" class="c-infor-tabTitle c-tab-title">
-                  <a name="c-i" class="current" title="课程详情">课程详情</a>
+                  <a name="c-i" class="current" title="动漫介绍">动漫介绍</a>
                 </section>
               </div>
               <article class="ml10 mr10 pt20">
@@ -126,9 +143,23 @@
                                 v-for="(video, index) in item.childrenVideo"
                                 :key="index"
                                 class="lh-menu-second ml30">
-                                <a :href="'/player/'+video.videoSourceId" :title="video.title" target="_blacnk" >
-                                  <span v-if="video.free === true" class="fr">
+                                <a
+                                  v-if="video.videoSourceId !== null && (isBuy || animeInfo.price === 0 || video.free)"
+                                  :href="'/player/'+video.videoSourceId"
+                                  :title="video.title"
+                                  target="_blacnk" >
+                                  <span class="fr">
                                     <i class="free-icon vam mr10">免费观看</i>
+                                  </span>
+                                  <em class="lh-menu-i-2 icon16 mr5">&nbsp;</em>{{ video.title }}
+                                </a>
+                                <a
+                                  v-else-if="video.videoSourceId !== null"
+                                  :title="video.title"
+                                  href="javascript:void(0)"
+                                >
+                                  <span class="fr">
+                                    <i class="free-icon vam mr10">请先购买</i>
                                   </span>
                                   <em class="lh-menu-i-2 icon16 mr5">&nbsp;</em>{{ video.title }}
                                 </a>
@@ -153,14 +184,13 @@
               </section>
               <section class="stud-act-list">
                 <ul style="height: auto;">
-                  <li style="padding-left: 0px" >
+                  <li style="padding-left: 0px; height: auto" >
                     <div class="u-face">
                       <a :href="'/maker/'+animeInfo.adminId" target="_blank">
                         <img :src="animeInfo.avatar" style="border-radius: 0%" width="100" height="20" alt>
                       </a>
                     </div>
-                    <br><br>
-                    <section class="hLh20 txtOf">
+                    <section style="padding-top:30px">
                       <span class="c-999">{{ animeInfo.intro }}</span>
                     </section>
                   </li>
@@ -179,6 +209,9 @@
 
 <script>
 import animeApi from '~/api/anime'
+import orderApi from '~/api/order'
+import collectApi from '~/api/collect'
+import cookie from 'js-cookie'
 
 export default {
   async asyncData(page) {
@@ -189,6 +222,43 @@ export default {
     return {
       animeInfo: animeInfo,
       chapterList: chapterList
+    }
+  },
+
+  data() {
+    return {
+      isBuy: false,
+      isCollect: false
+    }
+  },
+
+  created() {
+    const token = cookie.get('jwt_token')
+    if (!token) return
+    orderApi.isBuy(this.animeInfo.id).then(response => {
+      this.isBuy = response.data.isBuy
+    })
+    collectApi.isCollect(this.animeInfo.id).then(response => {
+      this.isCollect = response.data.isCollect
+    })
+  },
+
+  methods: {
+    createOrder(animeId) {
+      orderApi.createOrder(animeId).then(response => {
+        // 跳转到订单页
+        this.$router.push({ path: '/order/' + response.data.orderId })
+      })
+    },
+
+    addCollectAnime(animeId) {
+      collectApi.addCollect(animeId)
+      this.$router.push({ path: '/ucenter/collect' })
+    },
+
+    deleteCollectAnime(animeId) {
+      collectApi.removeById(animeId)
+      this.$router.push({ path: '/ucenter/collect' })
     }
   }
 }

@@ -1,6 +1,7 @@
 package cn.antigenmhc.otaku.service.manager.controller.site_api;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
+import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
 import cn.antigenmhc.otaku.service.manager.pojo.Admin;
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.AdminQueryVo;
@@ -28,7 +29,7 @@ import java.util.Map;
  * @Date: 2021/1/25 17:09
  * @Version: 1.0
  **/
-@Api("前台动漫展示")
+@Api(description = "前台动漫展示")
 @RestController
 @RequestMapping("/api/site/anime")
 public class ApiAnimeController {
@@ -66,19 +67,17 @@ public class ApiAnimeController {
     }
 
     @ApiOperation("搜索提示")
-    @GetMapping("auto-list")
-    public Result getAnimeByTitle(String title){
-        System.out.println("233333333"+title);
+    @GetMapping("auto-list/{title}")
+    public Result getAnimeByTitle2(@PathVariable String title){
         List<Map<String,String>> reList = animeService.getAnimeByTitle(title);
         return Result.ok().setData("animes", reList);
     }
 
-    @ApiOperation("搜索提示")
-    @GetMapping("auto-list/{title}")
-    public Result getAnimeByTitle2(@PathVariable String title){
-        System.out.println("233333333"+title);
-        List<Map<String,String>> reList = animeService.getAnimeByTitle(title);
-        return Result.ok().setData("animes", reList);
+    @ApiOperation("根据课程id，取出 AnimeDto")
+    @GetMapping("inner/get-anime-dto/{animeId}")
+    public AnimeDto getAnimeDtoByAnimeId(@PathVariable("animeId") String animeId){
+        AnimeDto animeDto = animeService.getAnimeDtoByAnimeId(animeId);
+        return animeDto;
     }
 
 }

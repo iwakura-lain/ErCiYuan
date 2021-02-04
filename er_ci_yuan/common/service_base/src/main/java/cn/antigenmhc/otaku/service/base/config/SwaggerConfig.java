@@ -70,6 +70,18 @@ public class SwaggerConfig {
     }
 
     @Bean
+    public Docket tradeApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("tradeApi")
+                .apiInfo(apiInfo("订单", "订单接口"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.trade.controller"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
     public Docket memberApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("memberApi")

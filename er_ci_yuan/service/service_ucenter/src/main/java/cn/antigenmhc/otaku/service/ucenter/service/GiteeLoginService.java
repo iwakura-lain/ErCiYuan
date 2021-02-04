@@ -10,5 +10,5 @@ public interface GiteeLoginService {
 
     String getUserInfo(String accessToken);
 
-    String getJwtToken(String userInfo);
+    String getJwtTokenOrOauthId(String userInfo);
 }

@@ -150,15 +150,15 @@
                   <section class="anime-img">
                     <img :alt="item.title" :src="item.cover" style="height: 177px; box-shadow: 300px 300px 500px #6495ED;" class="img-responsive">
                     <div class="cc-mask">
-                      <a :href="'/anime/'+item.id" title="开始观看" class="comm-btn c-btn-1">
+                      <nuxt-link :to="'/anime/'+item.id" title="开始观看" class="comm-btn c-btn-1">
                         开始观看
-                      </a>
+                      </nuxt-link>
                     </div>
                   </section>
                   <h3 style="text-align:center;" class="hLh30 txtOf mt10">
-                    <a :href="'/anime/'+item.id" :title="item.title" class="anime-title fsize18 c-333">
+                    <nuxt-link :to="'/anime/'+item.id" :title="item.title" class="anime-title fsize18 c-333">
                       {{ item.title }}
-                    </a>
+                    </nuxt-link>
                   </h3>
                   <section class="mt10 hLh20 of">
                     <span style="border-radius:10%" class="fr jgTag bg-blue">

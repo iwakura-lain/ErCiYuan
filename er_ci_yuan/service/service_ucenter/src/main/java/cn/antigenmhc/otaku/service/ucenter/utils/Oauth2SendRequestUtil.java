@@ -1,9 +1,6 @@
 package cn.antigenmhc.otaku.service.ucenter.utils;
 
-import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
-import org.apache.tomcat.util.json.JSONParser;
-import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,7 +14,7 @@ import java.util.HashMap;
  * @Date: 2021/2/1 13:31
  * @Version: 1.0
  **/
-public class Oauth2Utils {
+public class Oauth2SendRequestUtil {
 
     public static String getAccessToken(String url){
         // 构建请求头
@@ -27,7 +24,7 @@ public class Oauth2Utils {
         // 构建请求实体
         HttpEntity<String> requestEntity = new HttpEntity<>(requestHeaders);
         RestTemplate restTemplate = new RestTemplate();
-        // post 请求方式
+        // post 请求方式，并获取响应实体
         ResponseEntity<String> response = restTemplate.postForEntity(url, requestEntity, String.class);
         String responseStr = response.getBody();
 
@@ -43,7 +40,7 @@ public class Oauth2Utils {
         HttpHeaders requestHeaders = new HttpHeaders();
         // 指定响应返回json格式
         requestHeaders.add("accept", "application/json");
-        // AccessToken放在请求头中
+        // AccessToken 放在请求头中
         requestHeaders.add("Authorization", "token " + accessToken);
         // 构建请求实体
         HttpEntity<String> requestEntity = new HttpEntity<>(requestHeaders);

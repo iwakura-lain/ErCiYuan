@@ -16,5 +16,13 @@ export default{
       method: 'post',
       data: member
     })
+  },
+  registerByOauth2(member, id, type) {
+    return request({
+      baseURL: 'http://localhost:8140',
+      url: `/api/site/member/register/${id}/${type}`,
+      method: 'post',
+      data: member
+    })
   }
 }

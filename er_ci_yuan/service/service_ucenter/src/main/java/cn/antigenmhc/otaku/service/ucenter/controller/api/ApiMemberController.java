@@ -4,16 +4,17 @@ import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
 import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
 import cn.antigenmhc.otaku.common.base.utils.JwtInfo;
-import cn.antigenmhc.otaku.service.base.utils.RedisUtil;
-import cn.antigenmhc.otaku.service.ucenter.utils.JwtUtil;
+import cn.antigenmhc.otaku.service.base.dto.MemberDto;
+import cn.antigenmhc.otaku.common.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
 import cn.antigenmhc.otaku.service.ucenter.pojo.vo.LoginVo;
 import cn.antigenmhc.otaku.service.ucenter.pojo.vo.RegisterVo;
+import cn.antigenmhc.otaku.service.ucenter.pojo.vo.UpdateVo;
 import cn.antigenmhc.otaku.service.ucenter.service.MemberService;
+import cn.antigenmhc.otaku.service.ucenter.utils.JwtUtilEx;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,18 +58,41 @@ public class ApiMemberController {
         try {
             //检查是否是濒死 jwt (剩余存活时间小于5min)，如果是的话，则生成新的 jwt
             //同时，如果 jwt 是正常过期 (jwt 过期，redis 中还有，则也生成一个新的 jwt)
-            String token = JwtUtil.checkTokenExpireTimeAndGetNew(request, redisUtil);
+            String token = JwtUtilEx.checkTokenExpireTimeAndGetNew(request, redisUtil);
             if(!StringUtils.isEmpty(token)){
-                JwtInfo userInfo = JwtUtil.getMemberByJwtToken(token);
+                JwtInfo userInfo = JwtUtilEx.getMemberByJwtToken(token);
                 return Result.ok().setData("token", token).setData("userInfo", userInfo);
             }
-            JwtInfo userInfo = JwtUtil.getMemberByJwtToken(jwtToken);
-
+            JwtInfo userInfo = JwtUtilEx.getMemberByJwtToken(jwtToken);
             return Result.ok().setData("userInfo", userInfo);
         }catch (Exception e){
             log.error(ExceptionUtils.getMessage(e));
             throw new IntegrateException(ResultCodeEnum.FETCH_USERINFO_ERROR);
         }
     }
+
+    @ApiOperation("更新用户信息")
+    @PostMapping("auth/update-member")
+    public Result updateMember(@RequestBody UpdateVo updateVo){
+        String jwt = memberService.updateMemberInfo(updateVo);
+        return Result.ok().setData("token", jwt);
+    }
+
+    @ApiOperation("会员注册 by-Oauth2")
+    @PostMapping("register/{id}/{type}")
+    public Result registerByOauth2(@RequestBody RegisterVo registerVo,
+                                   @PathVariable("id") String oauthId,
+                                   @PathVariable("type") String type){
+        memberService.registerByOauth2(registerVo, oauthId, type);
+        return Result.ok().setMessage("注册成功");
+    }
+
+    @ApiOperation("根据 id 获取会员信息，组装 MemberDto")
+    @GetMapping("inner/get-member-dto/{memberId}")
+    public MemberDto getMemberDtoByMemberId(@PathVariable("memberId") String memberId){
+        MemberDto memberDto = memberService.getMemberDtoByMemberId(memberId);
+        return memberDto;
+    }
+
 
 }

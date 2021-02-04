@@ -28,5 +28,5 @@ public interface GithubLoginService {
      * @param userInfo：github 那边返回的用户信息，根据 accessToken获取到的
      * @return ：jwt_token
      */
-    String saveGithubIdAndUserInfo(String userInfo);
+    String getJwtTokenOrOauthId(String userInfo);
 }

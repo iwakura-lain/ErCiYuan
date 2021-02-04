@@ -18,7 +18,7 @@ import java.util.List;
  * @Date: 2021/1/25 20:59
  * @Version: 1.0
  **/
-@Api("前台分类展示")
+@Api(description = "前台分类展示")
 @RestController
 @RequestMapping("/api/site/subject")
 public class ApiSubjectController {

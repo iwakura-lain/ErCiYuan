@@ -1,4 +1,104 @@
-2021-02-01 14:22:10 |INFO  |http-nio-8170-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
-2021-02-01 14:22:10 |INFO  |http-nio-8170-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/a6fe4d5378db4b4fa5b3dc89f9b4c8f1 GET
-2021-02-01 14:22:10 |INFO  |http-nio-8170-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
-2021-02-01 14:22:10 |INFO  |http-nio-8170-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:23:07 |INFO  |http-nio-8170-exec-1 |DirectJDKLog.java:173 |org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] |Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-03 16:23:07 |INFO  |http-nio-8170-exec-1 |FrameworkServlet.java:525 |org.springframework.web.servlet.DispatcherServlet |Initializing Servlet 'dispatcherServlet'
+2021-02-03 16:23:07 |INFO  |http-nio-8170-exec-1 |FrameworkServlet.java:547 |org.springframework.web.servlet.DispatcherServlet |Completed initialization in 28 ms
+2021-02-03 16:23:07 |INFO  |http-nio-8170-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:23:07 |INFO  |http-nio-8170-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/a0bf3e842af340c592fd74485300e9b3 GET
+2021-02-03 16:23:07 |INFO  |http-nio-8170-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:23:07 |INFO  |http-nio-8170-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:24:31 |INFO  |main |SpringApplication.java:655 |cn.antigenmhc.otaku.service.vod.VodApplication |The following profiles are active: dev
+2021-02-03 16:24:32 |INFO  |main |RepositoryConfigurationDelegate.java:249 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-02-03 16:24:32 |INFO  |main |RepositoryConfigurationDelegate.java:127 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-02-03 16:24:32 |INFO  |main |RepositoryConfigurationDelegate.java:187 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Finished Spring Data repository scanning in 8ms. Found 0 Redis repository interfaces.
+2021-02-03 16:24:32 |INFO  |main |GenericScope.java:295 |org.springframework.cloud.context.scope.GenericScope |BeanFactory id=864605e0-63a5-3be1-9a2a-098efce342d3
+2021-02-03 16:24:32 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 16:24:32 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'spring.cloud.sentinel-com.alibaba.cloud.sentinel.SentinelProperties' of type [com.alibaba.cloud.sentinel.SentinelProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 16:24:33 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration' of type [com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration$$EnhancerBySpringCGLIB$$a103f778] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-03 16:24:33 |INFO  |main |TomcatWebServer.java:92 |org.springframework.boot.web.embedded.tomcat.TomcatWebServer |Tomcat initialized with port(s): 8170 (http)
+2021-02-03 16:24:33 |INFO  |main |DirectJDKLog.java:173 |org.apache.coyote.http11.Http11NioProtocol |Initializing ProtocolHandler ["http-nio-8170"]
+2021-02-03 16:24:33 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.StandardService |Starting service [Tomcat]
+2021-02-03 16:24:33 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.StandardEngine |Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-02-03 16:24:33 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] |Initializing Spring embedded WebApplicationContext
+2021-02-03 16:24:33 |INFO  |main |ServletWebServerApplicationContext.java:284 |org.springframework.web.context.ContextLoader |Root WebApplicationContext: initialization completed in 1807 ms
+2021-02-03 16:24:33 |INFO  |main |SentinelWebAutoConfiguration.java:96 |com.alibaba.cloud.sentinel.SentinelWebAutoConfiguration |[Sentinel Starter] register Sentinel CommonFilter with urlPatterns: [/*].
+2021-02-03 16:24:34 |INFO  |main |PropertySourcedRequestMappingHandlerMapping.java:69 |springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping |Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-02-03 16:24:34 |INFO  |main |URLConfigurationSource.java:122 |com.netflix.config.sources.URLConfigurationSource |To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-03 16:24:34 |INFO  |main |URLConfigurationSource.java:122 |com.netflix.config.sources.URLConfigurationSource |To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-03 16:24:34 |INFO  |main |ExecutorConfigurationSupport.java:171 |org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor |Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-03 16:24:37 |INFO  |main |ExecutorConfigurationSupport.java:171 |org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler |Initializing ExecutorService
+2021-02-03 16:24:42 |INFO  |main |DocumentationPluginsBootstrapper.java:151 |springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper |Context refreshed
+2021-02-03 16:24:42 |INFO  |main |DocumentationPluginsBootstrapper.java:154 |springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper |Found 8 custom documentation plugin(s)
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-03 16:24:42 |INFO  |main |DirectJDKLog.java:173 |org.apache.coyote.http11.Http11NioProtocol |Starting ProtocolHandler ["http-nio-8170"]
+2021-02-03 16:24:42 |INFO  |main |TomcatWebServer.java:204 |org.springframework.boot.web.embedded.tomcat.TomcatWebServer |Tomcat started on port(s): 8170 (http) with context path ''
+2021-02-03 16:24:42 |INFO  |main |NacosServiceRegistry.java:62 |com.alibaba.cloud.nacos.registry.NacosServiceRegistry |nacos registry, service-vod 192.168.211.193:8170 register finished
+2021-02-03 16:24:45 |INFO  |main |StartupInfoLogger.java:61 |cn.antigenmhc.otaku.service.vod.VodApplication |Started VodApplication in 19.36 seconds (JVM running for 21.862)
+2021-02-03 16:24:49 |INFO  |http-nio-8170-exec-1 |DirectJDKLog.java:173 |org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] |Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-03 16:24:49 |INFO  |http-nio-8170-exec-1 |FrameworkServlet.java:525 |org.springframework.web.servlet.DispatcherServlet |Initializing Servlet 'dispatcherServlet'
+2021-02-03 16:24:49 |INFO  |http-nio-8170-exec-1 |FrameworkServlet.java:547 |org.springframework.web.servlet.DispatcherServlet |Completed initialization in 9 ms
+2021-02-03 16:24:50 |INFO  |http-nio-8170-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:24:50 |INFO  |http-nio-8170-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/a0bf3e842af340c592fd74485300e9b3 GET
+2021-02-03 16:24:50 |INFO  |http-nio-8170-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:24:50 |INFO  |http-nio-8170-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:27:08 |INFO  |http-nio-8170-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【DELETE】删除开始 -------------
+2021-02-03 16:27:08 |INFO  |http-nio-8170-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/admin/vod/file/delete/a0bf3e842af340c592fd74485300e9b3 DELETE
+2021-02-03 16:27:08 |INFO  |http-nio-8170-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.admin.VodController.deleteVideo
+2021-02-03 16:27:08 |INFO  |http-nio-8170-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-02-03 16:27:10 |INFO  |http-nio-8170-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【DELETE】删除开始 -------------
+2021-02-03 16:27:10 |INFO  |http-nio-8170-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/admin/vod/file/delete/a0bf3e842af340c592fd74485300e9b3 DELETE
+2021-02-03 16:27:10 |INFO  |http-nio-8170-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.admin.VodController.deleteVideo
+2021-02-03 16:27:10 |INFO  |http-nio-8170-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-02-03 16:27:41 |INFO  |http-nio-8170-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-03 16:27:41 |INFO  |http-nio-8170-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8170/admin/vod/file/upload POST
+2021-02-03 16:27:41 |INFO  |http-nio-8170-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.admin.VodController.uploadVideo
+2021-02-03 16:27:41 |INFO  |http-nio-8170-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:27:56 |INFO  |http-nio-8170-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:27:56 |INFO  |http-nio-8170-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/6d18dad9406540279a064fbb23c3093b GET
+2021-02-03 16:27:56 |INFO  |http-nio-8170-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:27:56 |INFO  |http-nio-8170-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:28:31 |INFO  |http-nio-8170-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:28:31 |INFO  |http-nio-8170-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/6d18dad9406540279a064fbb23c3093b GET
+2021-02-03 16:28:31 |INFO  |http-nio-8170-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:28:31 |INFO  |http-nio-8170-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:29:50 |INFO  |http-nio-8170-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:29:50 |INFO  |http-nio-8170-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/6d18dad9406540279a064fbb23c3093b GET
+2021-02-03 16:29:50 |INFO  |http-nio-8170-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:29:50 |INFO  |http-nio-8170-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:30:06 |INFO  |http-nio-8170-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:30:06 |INFO  |http-nio-8170-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/6d18dad9406540279a064fbb23c3093b GET
+2021-02-03 16:30:06 |INFO  |http-nio-8170-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:30:06 |INFO  |http-nio-8170-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-02-03 16:31:54 |INFO  |http-nio-8170-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:31:54 |INFO  |http-nio-8170-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/6d18dad9406540279a064fbb23c3093b GET
+2021-02-03 16:31:54 |INFO  |http-nio-8170-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:31:54 |INFO  |http-nio-8170-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:32:04 |INFO  |http-nio-8170-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:32:04 |INFO  |http-nio-8170-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/6d18dad9406540279a064fbb23c3093b GET
+2021-02-03 16:32:04 |INFO  |http-nio-8170-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:32:04 |INFO  |http-nio-8170-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:41:25 |INFO  |http-nio-8170-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:41:25 |INFO  |http-nio-8170-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/null GET
+2021-02-03 16:41:25 |INFO  |http-nio-8170-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:41:25 |INFO  |http-nio-8170-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 16:43:05 |INFO  |http-nio-8170-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 16:43:05 |INFO  |http-nio-8170-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/null GET
+2021-02-03 16:43:05 |INFO  |http-nio-8170-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 16:43:05 |INFO  |http-nio-8170-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 17:11:03 |INFO  |http-nio-8170-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 17:11:03 |INFO  |http-nio-8170-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/null GET
+2021-02-03 17:11:03 |INFO  |http-nio-8170-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 17:11:03 |INFO  |http-nio-8170-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 17:18:12 |INFO  |http-nio-8170-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-03 17:18:12 |INFO  |http-nio-8170-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://127.0.0.1:8170/admin/vod/file/upload POST
+2021-02-03 17:18:12 |INFO  |http-nio-8170-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.admin.VodController.uploadVideo
+2021-02-03 17:18:12 |INFO  |http-nio-8170-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1
+2021-02-03 17:18:37 |INFO  |http-nio-8170-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-02-03 17:18:37 |INFO  |http-nio-8170-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8170/api/vod/media/get-play-url/29776c2352ce4b01bae3b5caef9e061f GET
+2021-02-03 17:18:37 |INFO  |http-nio-8170-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-02-03 17:18:37 |INFO  |http-nio-8170-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 127.0.0.1

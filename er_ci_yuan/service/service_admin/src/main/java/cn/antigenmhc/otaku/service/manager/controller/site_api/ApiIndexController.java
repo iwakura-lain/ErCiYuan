@@ -18,7 +18,7 @@ import java.util.List;
  * @Date: 2021/1/28 11:55
  * @Version: 1.0
  **/
-@Api("前台首页")
+@Api(description = "前台首页")
 @RestController
 @RequestMapping("/api/site/index")
 public class ApiIndexController {

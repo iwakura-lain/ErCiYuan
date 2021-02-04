@@ -7,4 +7,5 @@ package cn.antigenmhc.otaku.service.ucenter.service;
  **/
 public interface Oauth2Service {
     String getJwtTokenByOauth2UserInfo(String userInfo, String oauthFrom);
+    boolean fetchCallBackState(String code, String state);
 }

@@ -199,7 +199,24 @@
              on oadesc.id = oa.id
 
         where oa.id = #{animeId}
-        and status = 'Normal'
+    </select>
+
+    <select id="getAnimeDtoByAnimeId"
+            resultType="AnimeDto"
+            parameterType="string">
+        select
+            oan.id,
+            oan.title,
+            oan.price,
+            oan.cover,
+            oad.name as adminName
+        from
+            er_ci_yuan.otaku_anime as oan
+                inner join
+            er_ci_yuan.otaku_admin as oad
+                on
+            oan.admin_id = oad.id
+        where oan.id = #{animeId}
     </select>
 
 </mapper>

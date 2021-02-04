@@ -44,7 +44,7 @@ mybatis-plus:
     db-config:
       logic-not-delete-value: 0
       logic-delete-value: 1
-  type-aliases-package: cn.antigenmhc.otaku.service.manager.pojo
+  type-aliases-package: cn.antigenmhc.otaku.service.manager.pojo,;cn.antigenmhc.otaku.service.base.dto
   mapper-locations: classpath:/xml/**.xml
 
 #service-oss:

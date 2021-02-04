@@ -34,16 +34,16 @@
 
       <div class="more-sign">
         <h6>社交帐号登录</h6>
-        Tip：
-        使用 GitHub 登录默认没有手机号，登陆后请到用户中心进行设置
-        <br>GitHub 极其慢，不建议使用(除非你挂着梯子)
+        Tip: GitHub 可能会很慢，不建议使用
+        <br>
+        <br>
         <ul>
           <li>
             <a
               id="weixin"
               class="weixin"
               href="http://localhost:8140/api/gitee/login/authorize">
-              <img width="35" height="35" src="~/assets/img/wechat.png">
+              <img width="35" height="35" src="~/assets/img/gitee.png">
             </a>
           </li>
           <li>

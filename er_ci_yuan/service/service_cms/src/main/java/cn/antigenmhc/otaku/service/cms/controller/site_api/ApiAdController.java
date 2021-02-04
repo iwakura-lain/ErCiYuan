@@ -1,7 +1,6 @@
 package cn.antigenmhc.otaku.service.cms.controller.site_api;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
-import cn.antigenmhc.otaku.service.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.cms.pojo.Ad;
 import cn.antigenmhc.otaku.service.cms.service.AdService;
 import io.swagger.annotations.Api;

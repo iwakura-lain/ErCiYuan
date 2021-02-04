@@ -1,5 +1,6 @@
 package cn.antigenmhc.otaku.service.manager.mapper;
 
+import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
 import cn.antigenmhc.otaku.service.manager.pojo.Admin;
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.*;
@@ -30,4 +31,6 @@ public interface AnimeMapper extends BaseMapper<Anime> {
     IPage<Anime> siteSelectPageByQuery(Page<Anime> animePage, SiteAnimeQueryVo queryVo);
 
     SiteAnimeInfoVo siteSelectAnimeInfo(String animeId);
+
+    AnimeDto getAnimeDtoByAnimeId(String animeId);
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2021/1/26 21:42
  * @Version: 1.0
  **/
-@Api("播放动漫")
+@Api(description = "播放动漫")
 @RestController
 @RequestMapping("/api/site/subject")
 public class ApiVideoController {

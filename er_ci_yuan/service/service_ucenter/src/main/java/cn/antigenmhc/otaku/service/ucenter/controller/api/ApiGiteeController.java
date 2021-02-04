@@ -2,22 +2,18 @@ package cn.antigenmhc.otaku.service.ucenter.controller.api;
 
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
-import cn.antigenmhc.otaku.service.base.utils.RedisUtil;
+import cn.antigenmhc.otaku.common.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.ucenter.properties.GiteeOauth2Properties;
 import cn.antigenmhc.otaku.service.ucenter.service.GiteeLoginService;
-import cn.antigenmhc.otaku.service.ucenter.utils.Oauth2FetchCallBackUtil;
-import com.mysql.cj.util.StringUtils;
+import cn.antigenmhc.otaku.service.ucenter.service.Oauth2Service;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -36,6 +32,8 @@ public class ApiGiteeController {
     private GiteeOauth2Properties oauth2Properties;
     @Resource
     private RedisUtil redisUtil;
+    @Resource
+    private Oauth2Service oauth2Service;
 
 
     @GetMapping("authorize")
@@ -57,14 +55,17 @@ public class ApiGiteeController {
     @GetMapping("callback")
     public String callback(@RequestParam("code") String code,
                            @RequestParam("state") String state) {
-        if(!Oauth2FetchCallBackUtil.fetchCallBackState(code, state, redisUtil)){
+        if(!oauth2Service.fetchCallBackState(code, state)){
             log.error("非法回调");
             throw new IntegrateException(ResultCodeEnum.ILLEGAL_CALLBACK_REQUEST_ERROR);
         }
 
         String accessToken = giteeLoginService.getAccessToken(code);
         String userInfo = giteeLoginService.getUserInfo(accessToken);
-        String token = giteeLoginService.getJwtToken(userInfo);
-        return "redirect:http://localhost:3000?token="+token;
+        String token = giteeLoginService.getJwtTokenOrOauthId(userInfo);
+        if(token.contains(".")){
+            return "redirect:http://localhost:3000?token=" + token;
+        }
+        return "redirect:http://localhost:3000/bind?type=gitee&id=" + token;
     }
 }
