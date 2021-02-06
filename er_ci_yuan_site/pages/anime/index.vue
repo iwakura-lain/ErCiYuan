@@ -165,7 +165,7 @@
                       <i class="c-fff fsize12 f-fA">{{ item.price === 0 ? '免费观看':'带会员限定' }}</i>
                     </span>
                     <span class="fl jgAttr c-ccc f-fA">
-                      <i class="c-999 f-fA">观看数：{{ item.viewCount }}</i>
+                      <i class="c-999 f-fA">播放量：{{ item.viewCount }}</i>
                     </span>
                   </section>
                 </div>

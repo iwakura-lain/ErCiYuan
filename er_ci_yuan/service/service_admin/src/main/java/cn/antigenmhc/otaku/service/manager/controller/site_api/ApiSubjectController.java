@@ -20,7 +20,7 @@ import java.util.List;
  **/
 @Api(description = "前台分类展示")
 @RestController
-@RequestMapping("/api/site/subject")
+@RequestMapping("/api/admin/subject")
 public class ApiSubjectController {
 
     @Resource

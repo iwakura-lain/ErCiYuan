@@ -30,7 +30,7 @@
           :on-remove="handleOnRemove"
           :file-list="fileList"
           :limit="1"
-          action="http://127.0.0.1:8170/admin/vod/file/upload"
+          :action="BASE_API+'/admin/vod/file/upload'"
         >
           <el-button slot="trigger" size="small" type="primary">选择视频</el-button>
           <el-button
@@ -68,7 +68,8 @@ export default {
       cancelBtnDisabled: false,
       closeOnPressEscape: true,
       closeOnClickModal: true,
-      showClose: true
+      showClose: true,
+      BASE_API: process.env.BASE_API
     }
   },
 

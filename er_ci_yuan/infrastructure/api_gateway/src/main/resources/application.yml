@@ -1,0 +1,53 @@
+server:
+  port: 9999
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: infrastructure-apigateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          #可以发现 nacos 中的微服务
+          enabled: true
+      routes:
+        - id: service-admin
+          #lb: loadBalance，默认以负载均衡的方式访问 service-admin 微服务
+          uri: lb://service-admin
+          predicates:
+            - Path=/user/**, /*/admin/**, /*/manager/**
+
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/*/oss/**
+
+        - id: service-cms
+          uri: lb://service-cms
+          predicates:
+            - Path=/*/cms/**, /*/site/ad/**
+
+        - id: service-vod
+          uri: lb://service-vod
+          predicates:
+            - Path=/*/vod/**
+
+        - id: service-sms
+          uri: lb://service-sms
+          predicates:
+            - Path=/*/site/sms/**
+
+        - id: service-ucenter
+          uri: lb://service-ucenter
+          predicates:
+            - Path=/*/github/**, /*/gitee/**, /*/site/member/**
+
+        - id: service-trade
+          uri: lb://service-trade
+          predicates:
+            - Path=/*/trade/**

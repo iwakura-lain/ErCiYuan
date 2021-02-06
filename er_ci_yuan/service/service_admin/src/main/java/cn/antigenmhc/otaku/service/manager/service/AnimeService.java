@@ -122,4 +122,10 @@ public interface AnimeService extends IService<Anime> {
      * @return ：animeDto
      */
     AnimeDto getAnimeDtoByAnimeId(String animeId);
+
+    /**
+     * 更新课程销量
+     * @param id：anime_id
+     */
+    void updateAnimeBuyCount(String id);
 }

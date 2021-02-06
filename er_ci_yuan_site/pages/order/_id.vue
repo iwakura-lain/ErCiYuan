@@ -33,7 +33,7 @@
           <nuxt-link :to="'/anime/'+order.animeId">返回动漫详情</nuxt-link>
         </div>
       </div>
-      <el-button :disabled="!agree" type="danger">去支付</el-button>
+      <el-button :disabled="!agree" type="primary" @click="toPay()">去支付</el-button>
       <div class="clear"/>
     </div>
   </div>
@@ -50,10 +50,18 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     orderApi.getById(this.$route.params.id).then(response => {
       this.order = response.data.item
     })
+  },
+
+  methods: {
+    toPay() {
+      if (this.agree) {
+        this.$router.push({ path: '/pay/' + this.order.orderNo })
+      }
+    }
   }
 }
 </script>

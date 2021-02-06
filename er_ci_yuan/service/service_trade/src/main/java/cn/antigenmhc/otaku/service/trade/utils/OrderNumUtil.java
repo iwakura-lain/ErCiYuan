@@ -11,11 +11,11 @@ import java.util.Random;
 
 /**
  * 订单号工具类
- *
- * @author qy
- * @since 1.0
+ * @author antigenMHC
+ * @Date: 2021/2/4 17:29
+ * @Version: 1.0
  */
-public class OrderNumUtils {
+public class OrderNumUtil {
 
     /**
      * 获取订单号

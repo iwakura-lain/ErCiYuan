@@ -60,3 +60,14 @@ ribbon:
 feign:
   sentinel:
     enabled: true
+
+weixin:
+  pay:
+    #关联的公众号appid
+    appId: xxx
+    #商户号
+    partner: xxx
+    #商户key
+    partnerKey: xxx
+    #回调地址
+    notifyUrl: xxx

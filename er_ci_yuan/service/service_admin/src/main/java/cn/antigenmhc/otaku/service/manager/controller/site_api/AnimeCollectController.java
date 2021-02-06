@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Api(description = "动漫收藏")
 @RestController
-@RequestMapping("/api/site/anime-collect")
+@RequestMapping("/api/admin/anime-collect")
 public class AnimeCollectController {
 
     @Resource

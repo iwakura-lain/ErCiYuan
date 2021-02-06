@@ -23,7 +23,7 @@ import java.util.UUID;
  **/
 @Slf4j
 @Controller
-@RequestMapping("api/gitee/login")
+@RequestMapping("/api/gitee/login")
 public class ApiGiteeController {
 
     @Resource
@@ -64,8 +64,8 @@ public class ApiGiteeController {
         String userInfo = giteeLoginService.getUserInfo(accessToken);
         String token = giteeLoginService.getJwtTokenOrOauthId(userInfo);
         if(token.contains(".")){
-            return "redirect:http://localhost:3000?token=" + token;
+            return "redirect:http://ecy.gz2vip.idcfengye.com?token=" + token;
         }
-        return "redirect:http://localhost:3000/bind?type=gitee&id=" + token;
+        return "redirect:http://ecy.gz2vip.idcfengye.com/bind?type=gitee&id=" + token;
     }
 }

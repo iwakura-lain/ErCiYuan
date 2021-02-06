@@ -14,6 +14,17 @@
     <artifactId>service_trade</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+
+    <dependencies>
+        <!-- 微信支付 -->
+        <dependency>
+            <groupId>com.wxpay</groupId>
+            <artifactId>wxpay-sdk</artifactId>
+            <version>3.0.9</version>
+        </dependency>
+
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @Api(description = "播放动漫")
 @RestController
-@RequestMapping("/api/site/subject")
+@RequestMapping("/api/admin/subject")
 public class ApiVideoController {
 
 }

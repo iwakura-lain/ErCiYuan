@@ -61,8 +61,8 @@
           :on-success="handleCoverSuccess"
           :before-upload="beforeCoverUpload"
           :on-error="handleCoverError"
-          class="cover-uploader"
-          action="http://localhost:8180/admin/oss/file/upload?moduleName=cover">
+          :action="BASE_API+'/admin/oss/file/upload?moduleName=cover'"
+          class="cover-uploader">
           <img v-if="animeInfo.cover" :src="animeInfo.cover">
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>
@@ -119,7 +119,8 @@ export default {
         subjectParentId: [
           { required: true, message: '请选择一级类别和二级类别', trigger: 'change' }
         ]
-      }
+      },
+      BASE_API: process.env.BASE_API
     }
   },
 

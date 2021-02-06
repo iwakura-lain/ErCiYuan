@@ -18,7 +18,7 @@
           :on-success="fileUploadSuccess"
           :on-error="fileUploadError"
           :limit="1"
-          action="http://127.0.0.1:8081/admin/manager/subject/import"
+          :action="BASE_API+'/admin/manager/subject/import'"
           name="file"
           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
           <el-button
@@ -42,7 +42,8 @@ export default {
   data() {
     return {
       defaultExcelTemplate: process.env.OSS_PATH + '/excel/动漫分类列表模板.xlsx',
-      importBtnDisabled: false
+      importBtnDisabled: false,
+      BASE_API: process.env.BASE_API
     }
   },
 

@@ -25,8 +25,5 @@ import javax.annotation.Resource;
 @RequestMapping("/ucenter/member")
 public class MemberController {
 
-    @Resource
-    private MemberService memberService;
-
 }
 

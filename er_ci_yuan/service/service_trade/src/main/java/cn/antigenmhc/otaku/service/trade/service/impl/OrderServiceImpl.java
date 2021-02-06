@@ -1,23 +1,30 @@
 package cn.antigenmhc.otaku.service.trade.service.impl;
 
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
+import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
 import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
 import cn.antigenmhc.otaku.service.base.dto.MemberDto;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
+import cn.antigenmhc.otaku.service.trade.mapper.PayLogMapper;
 import cn.antigenmhc.otaku.service.trade.pojo.Order;
 import cn.antigenmhc.otaku.service.trade.mapper.OrderMapper;
+import cn.antigenmhc.otaku.service.trade.pojo.PayLog;
 import cn.antigenmhc.otaku.service.trade.remote.RemoteAdminService;
 import cn.antigenmhc.otaku.service.trade.remote.RemoteUcenterService;
 import cn.antigenmhc.otaku.service.trade.service.OrderService;
-import cn.antigenmhc.otaku.service.trade.utils.OrderNumUtils;
+import cn.antigenmhc.otaku.service.trade.utils.OrderNumUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.google.gson.Gson;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -34,6 +41,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private RemoteAdminService remoteAdminService;
     @Resource
     private RemoteUcenterService remoteUcenterService;
+    @Resource
+    private PayLogMapper payLogMapper;
 
     @Override
     public Order getOrderById(String orderId, String memberId) {
@@ -67,7 +76,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         //创建订单
         Order newOrder = new Order();
         //订单号
-        newOrder.setOrderNo(OrderNumUtils.getOrderNo());
+        newOrder.setOrderNo(OrderNumUtil.getOrderNo());
 
         newOrder
                 //动漫部分信息
@@ -116,5 +125,41 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
                 .eq("id", orderId)
                 .eq("member_id", memberId);
         return this.remove(queryWrapper);
+    }
+
+    @Override
+    public Order getOrderByOrderNo(String orderNo) {
+        QueryWrapper<Order> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("order_no", orderNo);
+        Order order = baseMapper.selectOne(queryWrapper);
+        return order;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void updateOrderStatus(Map<String, String> map) {
+        String orderNo = map.get("out_trade_no");
+        Order order = this.getOrderByOrderNo(orderNo);
+        order.setStatus(1);
+        baseMapper.updateById(order);
+        //更新销量
+        remoteAdminService.updateAnimeBuyCount(order.getAnimeId());
+        //记录支付日志
+        PayLog payLog = new PayLog();
+        payLog
+                .setOrderNo(orderNo)
+                .setPayTime(new Date())
+                .setPayType(1)
+                .setTotalFee(Long.parseLong(map.get("total_fee")))
+                .setTradeState(map.get("result_code"))
+                .setTransactionId(map.get("transaction_id"))
+                .setAttr(new Gson().toJson(map));
+        payLogMapper.insert(payLog);
+    }
+
+    @Override
+    public Order queryOrderStatus(String orderNo) {
+        Order order = this.getOrderByOrderNo(orderNo);
+        return order;
     }
 }

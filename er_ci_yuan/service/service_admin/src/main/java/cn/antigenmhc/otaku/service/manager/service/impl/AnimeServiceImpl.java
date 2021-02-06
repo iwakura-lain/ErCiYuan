@@ -272,4 +272,11 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
     public AnimeDto getAnimeDtoByAnimeId(String animeId) {
         return baseMapper.getAnimeDtoByAnimeId(animeId);
     }
+
+    @Override
+    public void updateAnimeBuyCount(String id) {
+        Anime anime = baseMapper.selectById(id);
+        anime.setBuyCount(anime.getBuyCount()+1);
+        baseMapper.updateById(anime);
+    }
 }

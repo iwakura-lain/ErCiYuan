@@ -39,13 +39,23 @@
               <span class="c-fff fsize14">制作方：{{ animeInfo.adminName }}&nbsp;&nbsp;&nbsp;</span>
             </section>
             <section class="c-attr-mt of">
-              <span v-if="!isCollect" class="ml10 vam" @click="addCollectAnime(animeInfo.id)">
+              <span v-if="!isCollect" class="ml10 vam">
                 👺
-                <el-button style="cursor:pointer" type="success" class="c-fff vam" title="收藏" >收藏</el-button>
+                <el-button
+                  style="cursor:pointer"
+                  type="success"
+                  class="c-fff vam"
+                  title="收藏"
+                  @click="addCollectAnime(animeInfo.id)" >收藏</el-button>
               </span>
               <span v-if="isCollect" class="ml10 vam">
                 🤡
-                <el-button style="cursor:pointer" type="warning" class="c-fff vam" title="取消收藏" @click="deleteCollectAnime(animeInfo.id)" >取消收藏</el-button>
+                <el-button
+                  style="cursor:pointer"
+                  type="warning"
+                  class="c-fff vam"
+                  title="取消收藏"
+                  @click="deleteCollectAnime(animeInfo.id)" >取消收藏</el-button>
               </span>
             </section>
             <section v-if="isBuy || animeInfo.price === 0" class="c-attr-mt">
@@ -149,7 +159,7 @@
                                   :title="video.title"
                                   target="_blacnk" >
                                   <span class="fr">
-                                    <i class="free-icon vam mr10">免费观看</i>
+                                    <i class="free-icon vam mr10">让我康康</i>
                                   </span>
                                   <em class="lh-menu-i-2 icon16 mr5">&nbsp;</em>{{ video.title }}
                                 </a>
@@ -252,13 +262,15 @@ export default {
     },
 
     addCollectAnime(animeId) {
-      collectApi.addCollect(animeId)
-      this.$router.push({ path: '/ucenter/collect' })
+      collectApi.addCollect(animeId).then(response => {
+        this.isCollect = true
+      })
     },
 
     deleteCollectAnime(animeId) {
-      collectApi.removeById(animeId)
-      this.$router.push({ path: '/ucenter/collect' })
+      collectApi.removeById(animeId).then(response => {
+        this.isCollect = false
+      })
     }
   }
 }

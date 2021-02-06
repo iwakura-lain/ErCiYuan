@@ -3,7 +3,7 @@ import request from '~/utils/request'
 export default{
   createOrder(animeId) {
     return request({
-      baseURL: 'http://localhost:8130',
+
       url: `/api/trade/order/auth/add/${animeId}`,
       method: 'post'
     })
@@ -11,7 +11,7 @@ export default{
 
   getById(animeId) {
     return request({
-      baseURL: 'http://localhost:8130',
+
       url: `/api/trade/order/auth/get/${animeId}`,
       method: 'get'
     })
@@ -19,7 +19,7 @@ export default{
 
   isBuy(animeId) {
     return request({
-      baseURL: 'http://localhost:8130',
+
       url: `/api/trade/order/auth/is-buy/${animeId}`,
       method: 'get'
     })
@@ -27,7 +27,7 @@ export default{
 
   getList() {
     return request({
-      baseURL: 'http://localhost:8130',
+
       url: `/api/trade/order/auth/list`,
       method: 'get'
     })
@@ -35,9 +35,17 @@ export default{
 
   removeById(orderId) {
     return request({
-      baseURL: 'http://localhost:8130',
+
       url: `/api/trade/order/auth/delete/${orderId}`,
       method: 'delete'
+    })
+  },
+
+  queryOrderStatus(orderNo) {
+    return request({
+
+      url: `/api/trade/order/query-pay-status/${orderNo}`,
+      method: 'get'
     })
   }
 }

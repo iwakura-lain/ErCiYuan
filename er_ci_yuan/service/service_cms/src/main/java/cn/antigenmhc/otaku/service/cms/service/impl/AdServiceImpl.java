@@ -55,7 +55,7 @@ public class AdServiceImpl extends ServiceImpl<AdMapper, Ad> implements AdServic
     public List<Ad> selectListByTypeId(String adTypeId) {
         QueryWrapper<Ad> adQueryWrapper = new QueryWrapper<>();
         adQueryWrapper.eq("type_id", adTypeId);
-        adQueryWrapper.orderByAsc("sort");
+        adQueryWrapper.orderByDesc("sort");
         return baseMapper.selectList(adQueryWrapper);
     }
 }

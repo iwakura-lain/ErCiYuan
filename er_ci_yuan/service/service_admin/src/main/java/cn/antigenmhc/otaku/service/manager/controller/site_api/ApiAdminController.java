@@ -21,7 +21,7 @@ import java.util.List;
  **/
 @Api(description = "前台制作人展示")
 @RestController
-@RequestMapping("/api/site/admin")
+@RequestMapping("/api/admin/admin")
 public class ApiAdminController {
 
     @Resource

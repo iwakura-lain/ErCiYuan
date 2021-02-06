@@ -4,7 +4,7 @@ import cookie from 'js-cookie'
 
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'http://localhost:8081',
+  baseURL: process.env.baseUrl,
   timeout: 12000 // 请求超时时间
 })
 
@@ -25,14 +25,16 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     /**
-       * code为非20000是抛错 可结合自己业务进行修改
-       */
+     * code为非20000是抛错 可结合自己业务进行修改
+     */
     const res = response.data
     if (res.code === 20000) {
       return response.data
     } else if (res.code === 23004) {
       // 获取用户信息失败，清除本地 cookie 中的 token
       cookie.set('jwt_token', '', { domain: 'localhost' })
+      return response.data
+    } else if (res.code === 25000) {
       return response.data
     } else {
       Message({

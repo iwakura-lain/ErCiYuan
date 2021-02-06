@@ -23,6 +23,7 @@
         <module>dependencies_manager</module>
         <module>service</module>
         <module>common</module>
+        <module>infrastructure</module>
     </modules>
 
     <!-- 依赖管理模块 -->

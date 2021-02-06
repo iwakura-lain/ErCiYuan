@@ -79,7 +79,7 @@
                   <section class="i-admin-wrap">
                     <div class="i-admin-pic">
                       <a :href="'/maker/'+admin.id" :title="admin.name">
-                        <img :alt="admin.name" :src="admin.avatar" width="142">
+                        <img :alt="admin.name" :src="admin.avatar" width="142" height="50">
                       </a>
                     </div>
                     <div class="mt10 hLh30 txtOf tac">

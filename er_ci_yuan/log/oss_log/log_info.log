@@ -29,3 +29,113 @@
 2021-02-03 19:40:57 |INFO  |http-nio-8180-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8180/admin/oss/file/upload POST
 2021-02-03 19:40:57 |INFO  |http-nio-8180-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
 2021-02-03 19:40:57 |INFO  |http-nio-8180-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-02-05 22:29:28 |INFO  |main |SpringApplication.java:655 |cn.antigenmhc.otaku.service.oss.OssApplication |The following profiles are active: dev
+2021-02-05 22:29:29 |INFO  |main |RepositoryConfigurationDelegate.java:249 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-02-05 22:29:29 |INFO  |main |RepositoryConfigurationDelegate.java:127 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-02-05 22:29:29 |INFO  |main |RepositoryConfigurationDelegate.java:187 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2021-02-05 22:29:29 |INFO  |main |GenericScope.java:295 |org.springframework.cloud.context.scope.GenericScope |BeanFactory id=95973652-f8a4-3ec2-ae24-386fca9b776a
+2021-02-05 22:29:30 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-05 22:29:30 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'spring.cloud.sentinel-com.alibaba.cloud.sentinel.SentinelProperties' of type [com.alibaba.cloud.sentinel.SentinelProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-05 22:29:30 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration' of type [com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration$$EnhancerBySpringCGLIB$$c3dd03d0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-05 22:29:30 |INFO  |main |TomcatWebServer.java:92 |org.springframework.boot.web.embedded.tomcat.TomcatWebServer |Tomcat initialized with port(s): 8180 (http)
+2021-02-05 22:29:31 |INFO  |main |DirectJDKLog.java:173 |org.apache.coyote.http11.Http11NioProtocol |Initializing ProtocolHandler ["http-nio-8180"]
+2021-02-05 22:29:31 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.StandardService |Starting service [Tomcat]
+2021-02-05 22:29:31 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.StandardEngine |Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-02-05 22:29:31 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] |Initializing Spring embedded WebApplicationContext
+2021-02-05 22:29:31 |INFO  |main |ServletWebServerApplicationContext.java:284 |org.springframework.web.context.ContextLoader |Root WebApplicationContext: initialization completed in 2783 ms
+2021-02-05 22:29:31 |INFO  |main |SentinelWebAutoConfiguration.java:96 |com.alibaba.cloud.sentinel.SentinelWebAutoConfiguration |[Sentinel Starter] register Sentinel CommonFilter with urlPatterns: [/*].
+2021-02-05 22:29:32 |INFO  |main |PropertySourcedRequestMappingHandlerMapping.java:69 |springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping |Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-02-05 22:29:32 |INFO  |main |URLConfigurationSource.java:122 |com.netflix.config.sources.URLConfigurationSource |To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-05 22:29:32 |INFO  |main |URLConfigurationSource.java:122 |com.netflix.config.sources.URLConfigurationSource |To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-05 22:29:32 |INFO  |main |ExecutorConfigurationSupport.java:171 |org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor |Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-05 22:29:38 |INFO  |main |ExecutorConfigurationSupport.java:171 |org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler |Initializing ExecutorService
+2021-02-05 22:29:50 |INFO  |main |DocumentationPluginsBootstrapper.java:151 |springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper |Context refreshed
+2021-02-05 22:29:50 |INFO  |main |DocumentationPluginsBootstrapper.java:154 |springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper |Found 8 custom documentation plugin(s)
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-05 22:29:50 |INFO  |main |DirectJDKLog.java:173 |org.apache.coyote.http11.Http11NioProtocol |Starting ProtocolHandler ["http-nio-8180"]
+2021-02-05 22:29:50 |INFO  |main |TomcatWebServer.java:204 |org.springframework.boot.web.embedded.tomcat.TomcatWebServer |Tomcat started on port(s): 8180 (http) with context path ''
+2021-02-05 22:29:50 |INFO  |main |NacosServiceRegistry.java:62 |com.alibaba.cloud.nacos.registry.NacosServiceRegistry |nacos registry, service-oss 192.168.211.193:8180 register finished
+2021-02-05 22:29:56 |INFO  |main |StartupInfoLogger.java:61 |cn.antigenmhc.otaku.service.oss.OssApplication |Started OssApplication in 49.61 seconds (JVM running for 53.872)
+2021-02-05 23:55:25 |INFO  |http-nio-8180-exec-1 |DirectJDKLog.java:173 |org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] |Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-05 23:55:25 |INFO  |http-nio-8180-exec-1 |FrameworkServlet.java:525 |org.springframework.web.servlet.DispatcherServlet |Initializing Servlet 'dispatcherServlet'
+2021-02-05 23:55:25 |INFO  |http-nio-8180-exec-1 |FrameworkServlet.java:547 |org.springframework.web.servlet.DispatcherServlet |Completed initialization in 47 ms
+2021-02-05 23:55:25 |INFO  |http-nio-8180-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-05 23:55:25 |INFO  |http-nio-8180-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8180/admin/oss/file/upload POST
+2021-02-05 23:55:25 |INFO  |http-nio-8180-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-05 23:55:25 |INFO  |http-nio-8180-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-02-06 00:08:53 |INFO  |main |SpringApplication.java:655 |cn.antigenmhc.otaku.service.oss.OssApplication |The following profiles are active: dev
+2021-02-06 00:08:56 |INFO  |main |RepositoryConfigurationDelegate.java:249 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-02-06 00:08:56 |INFO  |main |RepositoryConfigurationDelegate.java:127 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-02-06 00:08:56 |INFO  |main |RepositoryConfigurationDelegate.java:187 |org.springframework.data.repository.config.RepositoryConfigurationDelegate |Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2021-02-06 00:08:58 |INFO  |main |GenericScope.java:295 |org.springframework.cloud.context.scope.GenericScope |BeanFactory id=25951c35-c3b3-3128-b762-0a7ee7482387
+2021-02-06 00:08:58 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-06 00:08:59 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'spring.cloud.sentinel-com.alibaba.cloud.sentinel.SentinelProperties' of type [com.alibaba.cloud.sentinel.SentinelProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-06 00:08:59 |INFO  |main |PostProcessorRegistrationDelegate.java:330 |org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker |Bean 'com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration' of type [com.alibaba.cloud.sentinel.custom.SentinelAutoConfiguration$$EnhancerBySpringCGLIB$$717c2c7f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-02-06 00:09:01 |INFO  |main |TomcatWebServer.java:92 |org.springframework.boot.web.embedded.tomcat.TomcatWebServer |Tomcat initialized with port(s): 8180 (http)
+2021-02-06 00:09:01 |INFO  |main |DirectJDKLog.java:173 |org.apache.coyote.http11.Http11NioProtocol |Initializing ProtocolHandler ["http-nio-8180"]
+2021-02-06 00:09:01 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.StandardService |Starting service [Tomcat]
+2021-02-06 00:09:01 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.StandardEngine |Starting Servlet engine: [Apache Tomcat/9.0.29]
+2021-02-06 00:09:01 |INFO  |main |DirectJDKLog.java:173 |org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] |Initializing Spring embedded WebApplicationContext
+2021-02-06 00:09:01 |INFO  |main |ServletWebServerApplicationContext.java:284 |org.springframework.web.context.ContextLoader |Root WebApplicationContext: initialization completed in 8118 ms
+2021-02-06 00:09:01 |INFO  |main |SentinelWebAutoConfiguration.java:96 |com.alibaba.cloud.sentinel.SentinelWebAutoConfiguration |[Sentinel Starter] register Sentinel CommonFilter with urlPatterns: [/*].
+2021-02-06 00:09:12 |INFO  |main |PropertySourcedRequestMappingHandlerMapping.java:69 |springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping |Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-02-06 00:09:12 |INFO  |main |URLConfigurationSource.java:122 |com.netflix.config.sources.URLConfigurationSource |To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-06 00:09:12 |INFO  |main |URLConfigurationSource.java:122 |com.netflix.config.sources.URLConfigurationSource |To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-02-06 00:09:12 |INFO  |main |ExecutorConfigurationSupport.java:171 |org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor |Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-06 00:09:38 |INFO  |main |ExecutorConfigurationSupport.java:171 |org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler |Initializing ExecutorService
+2021-02-06 00:10:02 |INFO  |main |DocumentationPluginsBootstrapper.java:151 |springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper |Context refreshed
+2021-02-06 00:10:02 |INFO  |main |DocumentationPluginsBootstrapper.java:154 |springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper |Found 8 custom documentation plugin(s)
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |ApiListingReferenceScanner.java:41 |springfox.documentation.spring.web.scanners.ApiListingReferenceScanner |Scanning for api listing references
+2021-02-06 00:10:02 |INFO  |main |DirectJDKLog.java:173 |org.apache.coyote.http11.Http11NioProtocol |Starting ProtocolHandler ["http-nio-8180"]
+2021-02-06 00:10:02 |INFO  |main |TomcatWebServer.java:204 |org.springframework.boot.web.embedded.tomcat.TomcatWebServer |Tomcat started on port(s): 8180 (http) with context path ''
+2021-02-06 00:10:02 |INFO  |main |NacosServiceRegistry.java:62 |com.alibaba.cloud.nacos.registry.NacosServiceRegistry |nacos registry, service-oss 192.168.211.193:8180 register finished
+2021-02-06 00:10:13 |INFO  |main |StartupInfoLogger.java:61 |cn.antigenmhc.otaku.service.oss.OssApplication |Started OssApplication in 135.076 seconds (JVM running for 150.262)
+2021-02-06 00:15:34 |INFO  |http-nio-8180-exec-1 |DirectJDKLog.java:173 |org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] |Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-06 00:15:34 |INFO  |http-nio-8180-exec-1 |FrameworkServlet.java:525 |org.springframework.web.servlet.DispatcherServlet |Initializing Servlet 'dispatcherServlet'
+2021-02-06 00:15:34 |INFO  |http-nio-8180-exec-1 |FrameworkServlet.java:547 |org.springframework.web.servlet.DispatcherServlet |Completed initialization in 19 ms
+2021-02-06 00:15:34 |INFO  |http-nio-8180-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 00:15:34 |INFO  |http-nio-8180-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8180/admin/oss/file/upload POST
+2021-02-06 00:15:34 |INFO  |http-nio-8180-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 00:15:34 |INFO  |http-nio-8180-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-02-06 00:15:46 |INFO  |http-nio-8180-exec-2 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 00:15:46 |INFO  |http-nio-8180-exec-2 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://localhost:8180/admin/oss/file/upload POST
+2021-02-06 00:15:46 |INFO  |http-nio-8180-exec-2 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 00:15:46 |INFO  |http-nio-8180-exec-2 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 0:0:0:0:0:0:0:1
+2021-02-06 00:20:14 |INFO  |http-nio-8180-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 00:20:14 |INFO  |http-nio-8180-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/upload POST
+2021-02-06 00:20:14 |INFO  |http-nio-8180-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 00:20:14 |INFO  |http-nio-8180-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-02-06 01:55:34 |INFO  |http-nio-8180-exec-6 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 01:55:34 |INFO  |http-nio-8180-exec-6 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/upload POST
+2021-02-06 01:55:34 |INFO  |http-nio-8180-exec-6 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 01:55:34 |INFO  |http-nio-8180-exec-6 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-02-06 01:55:50 |INFO  |http-nio-8180-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 01:55:50 |INFO  |http-nio-8180-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/upload POST
+2021-02-06 01:55:50 |INFO  |http-nio-8180-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 01:55:50 |INFO  |http-nio-8180-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-02-06 10:19:32 |INFO  |http-nio-8180-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 10:19:32 |INFO  |http-nio-8180-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/upload POST
+2021-02-06 10:19:32 |INFO  |http-nio-8180-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 10:19:32 |INFO  |http-nio-8180-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-02-06 10:29:35 |INFO  |http-nio-8180-exec-1 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 10:29:35 |INFO  |http-nio-8180-exec-1 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/upload POST
+2021-02-06 10:29:35 |INFO  |http-nio-8180-exec-1 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 10:29:35 |INFO  |http-nio-8180-exec-1 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-02-06 10:31:41 |INFO  |http-nio-8180-exec-3 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【POST】操作开始 -------------
+2021-02-06 10:31:41 |INFO  |http-nio-8180-exec-3 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8180/admin/oss/file/upload POST
+2021-02-06 10:31:41 |INFO  |http-nio-8180-exec-3 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.oss.controller.FileController.upload
+2021-02-06 10:31:41 |INFO  |http-nio-8180-exec-3 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193

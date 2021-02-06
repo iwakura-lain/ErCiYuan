@@ -37,9 +37,14 @@ module.exports = {
     }
   },
 
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:9999'
+  },
+
   plugins: [
     { src: '~/plugins/nuxt-swiper-plugin.js', ssr: false },
-    { src: '~/plugins/element-ui-plugin.js', ssr: true }
+    { src: '~/plugins/element-ui-plugin.js', ssr: false },
+    { src: '~/plugins/vue-qriously-plugin.js', ssr: false }
   ]
 }
 

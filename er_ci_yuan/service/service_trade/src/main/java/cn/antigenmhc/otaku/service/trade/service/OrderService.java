@@ -5,6 +5,7 @@ import cn.antigenmhc.otaku.service.trade.pojo.Order;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -27,4 +28,10 @@ public interface OrderService extends IService<Order> {
     List<Order> getOrderList(String memberId);
 
     boolean deleteOrderById(String orderId, String memberId);
+
+    Order getOrderByOrderNo(String orderNo);
+
+    void updateOrderStatus(Map<String, String> map);
+
+    Order queryOrderStatus(String orderNo);
 }

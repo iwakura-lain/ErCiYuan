@@ -2,6 +2,7 @@ package cn.antigenmhc.otaku.service.trade.controller.api;
 
 
 import cn.antigenmhc.otaku.common.base.result.Result;
+import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
 import cn.antigenmhc.otaku.common.base.utils.JwtInfo;
 import cn.antigenmhc.otaku.common.base.utils.JwtUtil;
 import cn.antigenmhc.otaku.service.trade.pojo.Order;
@@ -101,6 +102,19 @@ public class ApiOrderController {
         }else{
             return Result.error().setMessage("删除失败");
         }
+    }
+
+    @ApiOperation("查询支付结果")
+    @GetMapping("query-pay-status/{orderNo}")
+    public Result queryPayStatus(@PathVariable("orderNo") String orderNo){
+        Order order = orderService.queryOrderStatus(orderNo);
+        if(order == null){
+            return Result.setResult(ResultCodeEnum.PAY_ORDERQUERY_ERROR);
+        }
+        if(order.getStatus() == 1){
+            return Result.ok().setMessage("支付成功");
+        }
+        return Result.setResult(ResultCodeEnum.PAY_RUN);
     }
 }
 

@@ -34,8 +34,8 @@
           :on-success="handleAvatarSuccess"
           :on-error="handleAvatarError"
           :before-upload="beforeAvatarUpload"
-          class="avatar-uploader"
-          action="http://127.0.0.1:8180/admin/oss/file/upload?moduleName=avatar">
+          :action="BASE_API+'/admin/oss/file/upload?moduleName=avatar'"
+          class="avatar-uploader">
           <img v-if="admin.avatar" :src="admin.avatar" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"/>
         </el-upload>
@@ -65,7 +65,8 @@ export default {
         level: 1
       },
       // 默认按钮可用
-      saveBtnDisabled: false
+      saveBtnDisabled: false,
+      BASE_API: process.env.BASE_API
     }
   },
 

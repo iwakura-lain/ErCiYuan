@@ -10,9 +10,9 @@
                 :on-success="handleCoverSuccess"
                 :before-upload="beforeCoverUpload"
                 :on-error="handleCoverError"
+                :action="baseURL+'/admin/oss/file/upload?moduleName=ucenter'"
                 class="cover-uploader"
-                style="margin-left: 24%;"
-                action="http://localhost:8180/admin/oss/file/upload?moduleName=ucenter">
+                style="margin-left: 24%;">
                 <img v-if="member.avatar" :src="member.avatar">
                 <i v-else class="el-icon-plus avatar-uploader-icon"/>
               </el-upload>
@@ -96,7 +96,8 @@ export default {
       sending: false, // 是否发送验证码
       second: 60, // 倒计时间
       codeText: '获取验证码',
-      disable: false
+      disable: false,
+      baseURL: process.env.baseUrl
     }
   },
 

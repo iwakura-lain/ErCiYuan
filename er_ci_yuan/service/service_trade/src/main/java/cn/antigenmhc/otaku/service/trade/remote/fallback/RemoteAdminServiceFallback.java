@@ -1,5 +1,6 @@
 package cn.antigenmhc.otaku.service.trade.remote.fallback;
 
+import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
 import cn.antigenmhc.otaku.service.trade.remote.RemoteAdminService;
 import lombok.extern.slf4j.Slf4j;
@@ -16,5 +17,10 @@ public class RemoteAdminServiceFallback implements RemoteAdminService {
     @Override
     public AnimeDto getAnimeDtoByAnimeId(String animeId) {
         return null;
+    }
+
+    @Override
+    public Result updateAnimeBuyCount(String animeId) {
+        return Result.error();
     }
 }

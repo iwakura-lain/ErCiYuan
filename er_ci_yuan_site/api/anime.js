@@ -3,7 +3,7 @@ import request from '~/utils/request'
 export default{
   list(searchObj) {
     return request({
-      url: '/api/site/anime/get-anime-by-query',
+      url: '/api/admin/anime/get-anime-by-query',
       method: 'get',
       params: searchObj
     })
@@ -11,14 +11,14 @@ export default{
 
   nestedList() {
     return request({
-      url: '/api/site/subject/nested-list',
+      url: '/api/admin/subject/nested-list',
       method: 'get'
     })
   },
 
   pageList(searchObj) {
     return request({
-      url: `/api/site/anime/list`,
+      url: `/api/admin/anime/list`,
       method: 'get',
       params: searchObj
     })
@@ -26,14 +26,14 @@ export default{
 
   animeInfo(id) {
     return request({
-      url: `/api/site/anime/anime-info/${id}`,
+      url: `/api/admin/anime/anime-info/${id}`,
       method: 'get'
     })
   },
 
   searchAutoComplete(title) {
     return request({
-      url: `/api/site/anime/auto-list/${title}`,
+      url: `/api/admin/anime/auto-list/${title}`,
       method: 'get'
     })
   }

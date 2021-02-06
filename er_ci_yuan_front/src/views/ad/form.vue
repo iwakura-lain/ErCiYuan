@@ -29,7 +29,7 @@
           :before-remove="handleRemoveExceed"
           :limit="1"
           :file-list="fileList"
-          action="http://localhost:8180/admin/oss/file/upload?moduleName=ad"
+          :action="BASE_API+'/admin/oss/file/upload?moduleName=ad'"
           list-type="picture">
           <el-button size="small" type="primary">点击上传</el-button>
         </el-upload>
@@ -61,7 +61,8 @@ export default {
       },
       fileList: [], // 上传文件列表
       adTypeList: [],
-      saveBtnDisabled: false // 保存按钮是否禁用，防止表单重复提交
+      saveBtnDisabled: false, // 保存按钮是否禁用，防止表单重复提交
+      BASE_API: process.env.BASE_API
     }
   },
 

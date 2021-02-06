@@ -31,7 +31,7 @@ import java.util.Map;
  **/
 @Api(description = "前台动漫展示")
 @RestController
-@RequestMapping("/api/site/anime")
+@RequestMapping("/api/admin/anime")
 public class ApiAnimeController {
 
     @Resource
@@ -78,6 +78,13 @@ public class ApiAnimeController {
     public AnimeDto getAnimeDtoByAnimeId(@PathVariable("animeId") String animeId){
         AnimeDto animeDto = animeService.getAnimeDtoByAnimeId(animeId);
         return animeDto;
+    }
+
+    @ApiOperation("更新销量")
+    @GetMapping("inner/update-but-count/{animeId}")
+    public Result updateAnimeBuyCount(@PathVariable("animeId") String animeId){
+        animeService.updateAnimeBuyCount(animeId);
+        return Result.ok();
     }
 
 }
