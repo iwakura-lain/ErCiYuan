@@ -91,7 +91,7 @@ export default {
       })
     },
 
-    // 新增讲师
+    // 新增制作方
     saveData() {
       userApi.save(this.user).then(response => {
         // debugger

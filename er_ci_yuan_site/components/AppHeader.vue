@@ -18,12 +18,6 @@
           <nuxt-link to="/maker" tag="li" active-class="current">
             <a>制作方</a>
           </nuxt-link>
-          <nuxt-link to="/article" tag="li" active-class="current">
-            <a>资源</a>
-          </nuxt-link>
-          <nuxt-link to="/question" tag="li" active-class="current">
-            <a>讨论</a>
-          </nuxt-link>
         </ul>
         <!-- / nav -->
         <ul class="h-r-login">

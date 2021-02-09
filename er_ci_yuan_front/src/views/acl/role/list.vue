@@ -78,7 +78,7 @@ export default {
   data() {
     return {
       listLoading: true, // 数据是否正在加载
-      list: null, // 讲师列表
+      list: null, // 制作方列表
       total: 0, // 数据库中的总记录数
       page: 1, // 默认页码
       limit: 10, // 每页记录数
@@ -111,7 +111,7 @@ export default {
       this.$router.push({ path: '/acl/role/add' })
     },
 
-    // 加载讲师列表数据
+    // 加载制作方列表数据
     fetchData(page = 1) {
       console.log('翻页。。。' + page)
       // 异步获取远程数据（ajax）

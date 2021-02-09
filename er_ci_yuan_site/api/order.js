@@ -3,7 +3,6 @@ import request from '~/utils/request'
 export default{
   createOrder(animeId) {
     return request({
-
       url: `/api/trade/order/auth/add/${animeId}`,
       method: 'post'
     })
@@ -11,7 +10,6 @@ export default{
 
   getById(animeId) {
     return request({
-
       url: `/api/trade/order/auth/get/${animeId}`,
       method: 'get'
     })
@@ -19,7 +17,6 @@ export default{
 
   isBuy(animeId) {
     return request({
-
       url: `/api/trade/order/auth/is-buy/${animeId}`,
       method: 'get'
     })
@@ -27,7 +24,6 @@ export default{
 
   getList() {
     return request({
-
       url: `/api/trade/order/auth/list`,
       method: 'get'
     })
@@ -35,7 +31,6 @@ export default{
 
   removeById(orderId) {
     return request({
-
       url: `/api/trade/order/auth/delete/${orderId}`,
       method: 'delete'
     })
@@ -43,7 +38,6 @@ export default{
 
   queryOrderStatus(orderNo) {
     return request({
-
       url: `/api/trade/order/query-pay-status/${orderNo}`,
       method: 'get'
     })

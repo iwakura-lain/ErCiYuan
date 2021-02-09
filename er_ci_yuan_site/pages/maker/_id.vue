@@ -77,11 +77,11 @@
             </ul>
             <div class="clear"/>
           </article>
-          <!-- /课程列表 结束-->
+          <!-- /动漫列表 结束-->
         </div>
       </section>
     </section>
-    <!-- /讲师介绍 结束 -->
+    <!-- /制作方介绍 结束 -->
   </div>
 </template>
 

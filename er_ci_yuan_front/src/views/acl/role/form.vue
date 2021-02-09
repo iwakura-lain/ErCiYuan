@@ -72,7 +72,7 @@ export default {
       })
     },
 
-    // 新增讲师
+    // 新增制作方
     saveData() {
       roleApi.save(this.role).then(response => {
         // debugger

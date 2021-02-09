@@ -1,6 +1,6 @@
 <template>
   <div id="aCoursesList" class="bg-fa of">
-    <!-- 课程列表 开始 -->
+    <!-- 动漫列表 开始 -->
     <section class="container">
       <header class="comm-title">
         <h2 class="fl tac">
@@ -177,7 +177,7 @@
         </div>
       </section>
     </section>
-    <!-- /课程列表 结束 -->
+    <!-- /动漫列表 结束 -->
     <!-- 分页组件 -->
     <el-pagination
       :current-page="pages"
