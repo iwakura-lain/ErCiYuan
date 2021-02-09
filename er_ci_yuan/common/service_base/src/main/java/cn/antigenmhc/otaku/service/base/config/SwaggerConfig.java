@@ -46,6 +46,18 @@ public class SwaggerConfig {
     }
 
     @Bean
+    public Docket aclApiConfig(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("aclAPi")
+                .apiInfo(apiInfo("权限管理", "权限管理接口"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("cn.antigenmhc.otaku.service.acl.controller.admin"))
+                //请求路径过滤
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
     public Docket siteApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("siteApi")

@@ -247,6 +247,10 @@ export default {
     if (!token) return
     orderApi.isBuy(this.animeInfo.id).then(response => {
       this.isBuy = response.data.isBuy
+      this.refreshToken = response.data.token
+      if (this.refreshToken) {
+        cookie.set('jwt_token', this.refreshToken, { domain: 'localhost' })
+      }
     })
     collectApi.isCollect(this.animeInfo.id).then(response => {
       this.isCollect = response.data.isCollect

@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @author helen
- * @since 2020/4/13
- */
+ * @Author: antigenMHC
+ * @Date: 2021/1/27 18:10
+ * @Version: 1.0
+ **/
 @FeignClient(value = "service-oss", fallback = OssFileServiceFallBack.class)
 public interface OssFileService {
 

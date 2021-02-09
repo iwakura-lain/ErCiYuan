@@ -36,6 +36,9 @@ service.interceptors.response.use(
       return response.data
     } else if (res.code === 25000) {
       return response.data
+      // 鉴权失败
+    } else if (res.code === 28040) {
+      window.location.href = '/login'
     } else {
       Message({
         message: res.message || 'error',

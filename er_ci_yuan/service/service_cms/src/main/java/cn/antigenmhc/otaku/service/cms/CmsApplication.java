@@ -7,9 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author helen
- * @since 2020/4/26
- */
+ * @Author: antigenMHC
+ * @Date: 2021/2/07 14:58
+ * @Version: 1.0
+ **/
 @SpringBootApplication
 @ComponentScan({"cn.antigenmhc.otaku"})
 @EnableDiscoveryClient

@@ -13,8 +13,8 @@ import lombok.experimental.Accessors;
  * 广告推荐
  * </p>
  *
- * @author Helen
- * @since 2020-04-26
+ * @author antigenmhc
+ * @since 2021-02-07
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

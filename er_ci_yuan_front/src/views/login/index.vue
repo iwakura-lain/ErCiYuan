@@ -20,17 +20,17 @@
           placeholder="password"
           @keyup.enter.native="handleLogin" />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="pwdType === 'password' ? 'eye' : 'eye-open'" />
+          <svg-icon icon-class="eye" />
         </span>
       </el-form-item>
       <el-form-item>
-        <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
+        <el-button :loading="loading" type="primary" style="width:100%;" @click="handleLogin">
           登录
         </el-button>
       </el-form-item>
       <div class="tips">
-        <span style="margin-right:20px;">用户名: admin</span>
-        <span>密码: admin</span>
+        <span style="margin-right:20px;">username: normal</span>
+        <span> password: 123456</span>
       </div>
     </el-form>
   </div>
@@ -50,16 +50,16 @@ export default {
       }
     }
     const validatePass = (rule, value, callback) => {
-      if (value.length < 5) {
-        callback(new Error('密码不能小于5位'))
+      if (value.length < 6) {
+        callback(new Error('密码不能小于6位'))
       } else {
         callback()
       }
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: 'admin'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],

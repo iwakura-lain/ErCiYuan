@@ -40,7 +40,7 @@
     </el-form>
 
     <div style="margin-bottom: 20px">
-      <el-button type="danger" size="mini" @click="batchRemove()">
+      <el-button v-if="hasPerm('anime.remove')" type="danger" size="mini" @click="batchRemove()">
         批量删除
       </el-button>
     </div>
@@ -73,12 +73,13 @@
       <el-table-column align="center" prop="joinDate" label="注册时间" width="120" />
       <el-table-column align="center" prop="intro" label="人生格言" width="530" />
 
-      <el-table-column fixed="right" align="center" label="操作" width="200">
+      <el-table-column v-if="hasPerm('admin.update') && hasPerm('admin.update')" fixed="right" align="center" label="操作" width="200">
         <template slot-scope="scope">
           <router-link :to="'/admin/edit/'+scope.row.id">
-            <el-button type="primary" size="mini" icon="el-icon-edit">更新</el-button>
+            <el-button v-if="hasPerm('admin.update')" type="primary" size="mini" icon="el-icon-edit">更新</el-button>
           </router-link>
           <el-button
+            v-if="hasPerm('admin.remove')"
             size="mini"
             type="danger"
             icon="el-icon-delete"

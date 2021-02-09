@@ -30,6 +30,10 @@
         <module>service_ucenter</module>
         <!-- 订单模块 -->
         <module>service_trade</module>
+        <!-- 权限管理 -->
+        <module>service_acl</module>
+        <!-- 统计分析 -->
+        <module>service_statistics</module>
     </modules>
 
     <dependencies>

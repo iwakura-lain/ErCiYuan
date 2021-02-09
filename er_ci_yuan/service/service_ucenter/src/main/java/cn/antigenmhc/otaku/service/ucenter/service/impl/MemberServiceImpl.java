@@ -178,6 +178,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         return jwtToken;
     }
 
+    @Override
+    public Integer registerCount(String date) {
+        return baseMapper.getRegisterNumByDate(date);
+    }
+
     private boolean checkParams(RegisterVo registerVo){
         String nickname = registerVo.getNickname();
         String mobile = registerVo.getMobile();

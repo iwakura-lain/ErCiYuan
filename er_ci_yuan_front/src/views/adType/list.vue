@@ -3,7 +3,7 @@
 
     <!-- 工具按钮 -->
     <div style="margin-bottom: 10px">
-      <el-button type="primary" size="mini" icon="el-icon-edit" @click="openDialog()">添加推荐位</el-button>
+      <el-button v-if="hasPerm('adtype.add')" type="primary" size="mini" icon="el-icon-edit" @click="openDialog()">添加推荐位</el-button>
     </div>
 
     <!-- 表格 -->
@@ -11,10 +11,14 @@
 
       <el-table-column prop="title" label="推荐位名称" />
 
-      <el-table-column label="操作" width="200" align="center">
+      <el-table-column
+        v-if="hasPerm('adtype.update') || hasPerm('adtype.remove')"
+        label="操作"
+        width="200"
+        align="center">
         <template slot-scope="scope">
-          <el-button type="primary" size="mini" icon="el-icon-edit" @click="openDialog(scope.row.id)">修改</el-button>
-          <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
+          <el-button v-if="hasPerm('adtype.update')" type="primary" size="mini" icon="el-icon-edit" @click="openDialog(scope.row.id)">修改</el-button>
+          <el-button v-if="hasPerm('adtype.remove')" type="danger" size="mini" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

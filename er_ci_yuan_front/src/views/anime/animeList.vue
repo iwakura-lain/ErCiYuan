@@ -67,14 +67,13 @@
       </el-table-column>
       <el-table-column label="动漫信息">
         <template slot-scope="scope">
-          <a href="'/anime/info/'+scope.row.id">{{ scope.row.title }}</a>
+          <a>{{ scope.row.title }}</a>
           <p>
             分类：{{ scope.row.subjectParentTitle }} > {{ scope.row.subjectTitle }}
           </p>
           <p>
             集数:{{ scope.row.animeNum+'&nbsp;&nbsp;&nbsp;&nbsp;' }}
             播放量:{{ scope.row.viewCount+'&nbsp;&nbsp;&nbsp;&nbsp;' }}
-            带会员:{{ scope.row.buyCount }}
           </p>
         </template>
       </el-table-column>
@@ -86,7 +85,6 @@
       <el-table-column label="价格(元)" width="100" align="center" >
         <template slot-scope="scope">
           <el-tag v-if="Number(scope.row.price) === 0" type="success">免费</el-tag>
-
           <el-tag v-else>{{ scope.row.price }}</el-tag>
         </template>
       </el-table-column>
@@ -101,15 +99,20 @@
         </template>
       </el-table-column>
 
-      <el-table-column fixed="right" label="操作" width="350" align="center">
+      <el-table-column
+        v-if="hasPerm('anime.update') || hasPerm('chapter.update') || hasPerm('anime.remove')"
+        fixed="right"
+        label="操作"
+        width="350"
+        align="center">
         <template slot-scope="scope">
           <router-link :to="'/anime/info/'+scope.row.id">
-            <el-button type="success" size="mini" icon="el-icon-edit">修改基本信息</el-button>
+            <el-button v-if="hasPerm('anime.update')" type="success" size="mini" icon="el-icon-edit">修改基本信息</el-button>
           </router-link>
           <router-link :to="'/anime/chapter/'+scope.row.id">
-            <el-button type="primary" size="mini" icon="el-icon-edit">增加视频</el-button>
+            <el-button v-if="hasPerm('chapter.update')" type="primary" size="mini" icon="el-icon-edit">增加视频</el-button>
           </router-link>
-          <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
+          <el-button v-if="hasPerm('anime.remove')" type="danger" size="mini" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

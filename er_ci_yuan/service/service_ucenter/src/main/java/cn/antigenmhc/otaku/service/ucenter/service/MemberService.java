@@ -26,4 +26,6 @@ public interface MemberService extends IService<Member> {
     MemberDto getMemberDtoByMemberId(String memberId);
 
     String updateMemberInfo(UpdateVo updateVo);
+
+    Integer registerCount(String date);
 }

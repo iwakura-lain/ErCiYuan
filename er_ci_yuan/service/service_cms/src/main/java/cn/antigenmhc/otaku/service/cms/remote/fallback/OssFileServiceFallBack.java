@@ -6,10 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
- * @author helen
- * @since 2020/4/17
- */
-
+ * @Author: antigenMHC
+ * @Date: 2021/2/07 18:12
+ * @Version: 1.0
+ **/
 @Service
 @Slf4j
 public class OssFileServiceFallBack implements OssFileService {

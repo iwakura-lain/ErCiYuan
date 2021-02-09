@@ -20,8 +20,8 @@ import java.util.List;
  *  推荐位 前端控制器
  * </p>
  *
- * @author Helen
- * @since 2020-04-26
+ * @author antigenmhc
+ * @since 2021-02-07
  */
 @Api(description = "推荐类别管理")
 @RestController

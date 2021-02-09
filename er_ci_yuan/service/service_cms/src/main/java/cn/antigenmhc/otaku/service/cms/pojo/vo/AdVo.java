@@ -5,9 +5,10 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author helen
- * @since 2020/4/26
- */
+ * @Author: antigenMHC
+ * @Date: 2021/2/07 18:32
+ * @Version: 1.0
+ **/
 @Data
 public class AdVo implements Serializable {
 

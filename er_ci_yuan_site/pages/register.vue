@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="title">
-      <a href="/login">登录</a>
+      <nuxt-link :to="'/login'">登录</nuxt-link>
       <span>·</span>
-      <a class="active" href="/register">注册</a>
+      <nuxt-link :to="'/register'" class="active">注册</nuxt-link>
     </div>
 
     <div class="sign-up-container">
@@ -62,22 +62,20 @@
       <div class="more-sign">
         <h6>社交帐号登录</h6>
         Tip: GitHub 可能会很慢，不建议使用
-        <br>
-        <br>
         <ul>
           <li>
             <a
               id="weixin"
-              class="weixin"
-              href="http://localhost:8140/api/vx/login/authorize">
+              :href="baseURL+'/api/gitee/login/authorize'"
+              class="weixin">
               <img width="35" height="35" src="~/assets/img/gitee.png">
             </a>
           </li>
           <li>
             <a
               id="github"
-              class="github"
-              href="http://localhost:8140/api/github/login/authorize">
+              :href="baseURL+'/api/github/login/authorize'"
+              class="github">
               <img width="30" height="30" src="~/assets/img/github.png">
             </a>
           </li>
@@ -100,7 +98,8 @@ export default {
       sending: false, // 是否发送验证码
       second: 60, // 倒计时间
       codeText: '获取验证码',
-      disable: false
+      disable: false,
+      baseURL: process.env.baseUrl
     }
   },
   methods: {
@@ -137,9 +136,7 @@ export default {
     submitRegister() {
       registerApi.register(this.member).then((response) => {
         this.$message.success(response.message)
-        this.$router.push({ path: 'login' })
-      }).catch(error => {
-        this.$message.error(error.message)
+        window.location.href = '/login'
       })
     }
   }

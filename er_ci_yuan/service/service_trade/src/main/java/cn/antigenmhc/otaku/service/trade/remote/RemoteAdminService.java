@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
  **/
 @FeignClient(value = "service-admin", fallback = RemoteAdminServiceFallback.class)
 public interface RemoteAdminService {
-    @GetMapping("/api/site/anime/inner/get-anime-dto/{animeId}")
+    @GetMapping("/api/admin/anime/inner/get-anime-dto/{animeId}")
     AnimeDto getAnimeDtoByAnimeId(@PathVariable("animeId") String animeId);
 
-    @GetMapping("/api/site/anime/inner/update-but-count/{animeId}")
+    @GetMapping("/api/admin/anime/inner/update-but-count/{animeId}")
     Result updateAnimeBuyCount(@PathVariable("animeId") String animeId);
 }

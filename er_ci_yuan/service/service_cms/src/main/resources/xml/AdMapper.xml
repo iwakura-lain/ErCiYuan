@@ -12,6 +12,6 @@
         FROM er_ci_yuan_cms.cms_ad a
         inner join er_ci_yuan_cms.cms_ad_type t
             ON a.type_id = t.id
-        order by a.type_id, a.sort
+        order by a.type_id, a.sort desc
     </select>
 </mapper>

@@ -1,0 +1,45 @@
+server:
+  port: 8120 # 服务端口
+
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-acl # 服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+  datasource: # mysql数据库连接
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/er_ci_yuan_rbac?useSSL=true&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  #spring:
+  jackson: #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  #redis
+  redis:
+    host: 192.168.224.129
+    port: 6380
+    database: 0
+    password: 123456
+    lettuce:
+      pool:
+        max-active: 20 #最大连接数，默认8，负数为没有限制
+        max-wait: -1 #最大阻塞等待时间，负数为没有限制，默认为-1
+        max-idle: 8 #最大空闲连接数，默认为8
+        min-idle: 0 #最小空闲连接数，默认为0
+
+# 日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  type-aliases-package: cn.antigenmhc.otaku.service.acl.pojo
+  mapper-locations: classpath:/xml/**.xml

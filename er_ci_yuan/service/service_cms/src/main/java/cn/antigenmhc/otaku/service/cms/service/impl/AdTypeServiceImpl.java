@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
  *  推荐位 服务实现类
  * </p>
  *
- * @author Helen
- * @since 2020-04-26
+ * @author antigenmhc
+ * @since 2021-02-07
  */
 @Service
 public class AdTypeServiceImpl extends ServiceImpl<AdTypeMapper, AdType> implements AdTypeService {

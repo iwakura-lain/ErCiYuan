@@ -28,7 +28,6 @@ import java.util.concurrent.TimeUnit;
 public class RedisConfig {
 
     @Bean
-    @ConditionalOnMissingBean(name = "redisTemplate")
     public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory connectionFactory){
         RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
         redisTemplate.setKeySerializer(new StringRedisSerializer());

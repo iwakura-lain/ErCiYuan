@@ -4,7 +4,7 @@
     <!-- 工具按钮 -->
     <div style="margin-bottom: 10px">
       <router-link to="/ad/create">
-        <el-button type="primary" size="mini" icon="el-icon-edit">添加推荐</el-button>
+        <el-button v-if="hasPerm('ad.add')" type="primary" size="mini" icon="el-icon-edit">添加推荐</el-button>
       </router-link>
     </div>
 
@@ -15,12 +15,12 @@
       <el-table-column prop="title" label="名称" />
       <el-table-column prop="sort" label="排序" />
 
-      <el-table-column label="操作" width="200" align="center">
+      <el-table-column v-if="hasPerm('ad.update') || hasPerm('ad.remove')" label="操作" width="200" align="center">
         <template slot-scope="scope">
           <router-link :to="'/ad/edit/'+scope.row.id">
-            <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
+            <el-button v-if="hasPerm('ad.update')" type="primary" size="mini" icon="el-icon-edit">修改</el-button>
           </router-link>
-          <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
+          <el-button v-if="hasPerm('ad.remove')" type="danger" size="mini" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>

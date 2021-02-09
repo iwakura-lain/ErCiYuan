@@ -16,8 +16,8 @@ import java.util.List;
  * 广告推荐 Mapper 接口
  * </p>
  *
- * @author Helen
- * @since 2020-04-26
+ * @author antigenmhc
+ * @since 2021-02-07
  */
 public interface AdMapper extends BaseMapper<Ad> {
 

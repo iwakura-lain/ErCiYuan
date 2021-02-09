@@ -1,6 +1,8 @@
 package cn.antigenmhc.otaku.common.base.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -18,9 +20,8 @@ import java.util.concurrent.TimeUnit;
 @Component
 public final class RedisUtil {
 
-    @Resource
+    @Autowired
     private RedisTemplate<String, Serializable> redisTemplate;
-
 // =============================common============================
 
     /**

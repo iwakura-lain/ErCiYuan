@@ -78,9 +78,9 @@ public class ApiGitHubController {
         String token = githubLoginService.getJwtTokenOrOauthId(userInfo);
         //如果数据已经绑定了，则跳转到首页
         if(token.contains(".")){
-            return "redirect:http://ecy.gz2vip.idcfengye.com?token=" + token;
+            return "redirect:http://localhost:3000?token=" + token;
         }
-        return "redirect:http://ecy.gz2vip.idcfengye.com/bind?type=github&id=" + token;
+        return "redirect:http://localhost:3000/bind?type=github&id=" + token;
     }
 }
 

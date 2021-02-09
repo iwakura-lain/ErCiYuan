@@ -6,6 +6,18 @@ spring:
     active: dev
   application:
     name: infrastructure-apigateway
+  #redis
+  redis:
+    host: 192.168.224.129
+    port: 6380
+    database: 0
+    password: 123456
+    lettuce:
+      pool:
+        max-active: 20 #最大连接数，默认8，负数为没有限制
+        max-wait: -1 #最大阻塞等待时间，负数为没有限制，默认为-1
+        max-idle: 8 #最大空闲连接数，默认为8
+        min-idle: 0 #最小空闲连接数，默认为0
   cloud:
     nacos:
       discovery:
@@ -51,3 +63,13 @@ spring:
           uri: lb://service-trade
           predicates:
             - Path=/*/trade/**
+
+        - id: service-acl
+          uri: lb://service-acl
+          predicates:
+            - Path=/*/acl/**
+
+        - id: service-statistics
+          uri: lb://service-statistics
+          predicates:
+            - Path=/*/statistics/**

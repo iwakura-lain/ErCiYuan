@@ -2,4 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.antigenmhc.otaku.service.ucenter.mapper.MemberMapper">
 
+    <select id="getRegisterNumByDate"
+            resultType="java.lang.Integer">
+        select count(*)
+        from er_ci_yuan_ucenter.ucenter_member as um
+        where DATE(um.gmt_create) = #{date}
+    </select>
 </mapper>

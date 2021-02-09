@@ -96,7 +96,7 @@
           </div>
         </section>
       </div>
-      <!-- /网校名师 结束 -->
+      <!-- /制作方 结束 -->
     </div>
   </div>
 </template>

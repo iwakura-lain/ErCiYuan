@@ -4,6 +4,7 @@ import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.common.base.result.ResultCodeEnum;
 import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
 import cn.antigenmhc.otaku.common.base.utils.JwtInfo;
+import cn.antigenmhc.otaku.common.base.utils.JwtUtil;
 import cn.antigenmhc.otaku.service.base.dto.MemberDto;
 import cn.antigenmhc.otaku.common.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
@@ -58,7 +59,7 @@ public class ApiMemberController {
         try {
             //检查是否是濒死 jwt (剩余存活时间小于5min)，如果是的话，则生成新的 jwt
             //同时，如果 jwt 是正常过期 (jwt 过期，redis 中还有，则也生成一个新的 jwt)
-            String token = JwtUtilEx.checkTokenExpireTimeAndGetNew(request, redisUtil);
+            String token = JwtUtil.checkTokenExpireTimeAndGetNew(jwtToken, redisUtil);
             if(!StringUtils.isEmpty(token)){
                 JwtInfo userInfo = JwtUtilEx.getMemberByJwtToken(token);
                 return Result.ok().setData("token", token).setData("userInfo", userInfo);

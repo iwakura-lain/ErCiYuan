@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <div class="title">
-      <a class="active" href="/login">登录</a>
+      <nuxt-link :to="'/login'" class="active">登录</nuxt-link>
       <span>·</span>
-      <a href="/register">注册</a>
+      <nuxt-link :to="'/register'">注册</nuxt-link>
     </div>
 
     <div class="sign-up-container">
@@ -41,16 +41,16 @@
           <li>
             <a
               id="weixin"
-              class="weixin"
-              href="http://localhost:8140/api/gitee/login/authorize">
+              :href="baseURL+'/api/gitee/login/authorize'"
+              class="weixin">
               <img width="35" height="35" src="~/assets/img/gitee.png">
             </a>
           </li>
           <li>
             <a
               id="github"
-              class="github"
-              href="http://localhost:8140/api/github/login/authorize">
+              :href="baseURL+'/api/github/login/authorize'"
+              class="github">
               <img width="30" height="30" src="~/assets/img/github.png">
             </a>
           </li>
@@ -74,7 +74,8 @@ export default {
       user: {
         mobile: '',
         password: ''
-      }
+      },
+      baseURL: process.env.baseUrl
     }
   },
 
@@ -86,8 +87,12 @@ export default {
         // jwt 写入 cookie, domain 就是各个子网站之间的顶级域名
         // 这里设置的 cookie 的 path 默认为 /
         cookie.set('jwt_token', response.data.token, { domain: 'localhost' })
-        // 跳转到首页
-        window.location.href = '/'
+        // 如果用户是从注册页面过来的，则跳转到首页
+        if (document.referrer.indexOf('register') !== -1) {
+          window.location.href = '/'
+        } else {
+          history.go(-1)
+        }
       })
     }
   }

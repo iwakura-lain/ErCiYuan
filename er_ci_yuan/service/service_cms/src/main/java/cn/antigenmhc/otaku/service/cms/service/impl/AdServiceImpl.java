@@ -22,8 +22,8 @@ import java.util.List;
  * 广告推荐 服务实现类
  * </p>
  *
- * @author Helen
- * @since 2020-04-26
+ * @author antigenmhc
+ * @since 2021-02-07
  */
 @Service
 public class AdServiceImpl extends ServiceImpl<AdMapper, Ad> implements AdService {

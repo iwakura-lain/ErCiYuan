@@ -5,7 +5,7 @@
       v-model="filterText"
       placeholder="搜索"/>
     <div style="margin-top: 20px">
-      <el-button type="primary" size="mini" @click="openDialogByFirstSubject()">
+      <el-button v-if="hasPerm('subject.add')" type="primary" size="mini" @click="openDialogByFirstSubject()">
         添加一级类目
       </el-button>
     </div>
@@ -41,7 +41,7 @@
         <div v-if="data.parentId === '0'" class="leaf-node">{{ node.label }}</div>
         <div class="leaf-node">
           <el-button
-            v-if="data.parentId === '0'"
+            v-if="data.parentId === '0' && hasPerm('subject.update')"
             class="hasBackground"
             icon="el-icon-edit"
             type="warning"
@@ -49,7 +49,7 @@
             @click="openDialog(data, 1)"
           />
           <el-button
-            v-if="data.parentId === '0'"
+            v-if="data.parentId === '0' && hasPerm('subject.add')"
             class="hasBackground"
             icon="el-icon-circle-plus"
             type="primary"
@@ -58,13 +58,13 @@
           />
 
           <el-button
-            v-if="data.parentId !== '0'"
+            v-if="data.parentId !== '0' && hasPerm('subject.update')"
             icon="el-icon-edit"
             type="warning"
             size="mini"
             @click="openDialog(data)"/>
           <el-button
-            v-if="data.parentId !== '0'"
+            v-if="data.parentId !== '0' && hasPerm('subject.remove')"
             icon="el-icon-delete"
             type="danger"
             size="mini"

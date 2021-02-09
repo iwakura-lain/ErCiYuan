@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  *  推荐位 服务类
  * </p>
  *
- * @author Helen
- * @since 2020-04-26
+ * @author antigenmhc
+ * @since 2021-02-07
  */
 public interface AdTypeService extends IService<AdType> {
 
