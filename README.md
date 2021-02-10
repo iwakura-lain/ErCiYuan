@@ -1,6 +1,24 @@
-
-
 # ErCiYuan
+
+
+
+## 路径说明
+
+|-er_ci_yuan：后端服务
+
+​	|-common：工具类、全局配置，安全等
+
+​    |-dependencies_manager：第三方依赖版本统一控制
+
+​    |-infrastructure：基础设施，如网关、链路追踪 (未整合) 等
+
+​    |-log：日志
+
+​    |-service：微服务模块
+
+|-er_ci_yuan_front：后台页面
+
+|-er_ci_yuan_site：前台页面
 
 
 
@@ -8,14 +26,15 @@
 
 ### 项目骨架
 
-| 框架               | 版本          |                          |
-| ------------------ | ------------- | ------------------------ |
-| SpringBoot         | 2.2.2.RELEASE | √                        |
-| SpringCloud        | Hoxton.SR1    | √                        |
-| SpringCloudAlibaba | 2.1.0.RELEASE | √                        |
-| Mybatis Plus       | 3.3.1         | ORM                      |
-| Swagger            | 2.8.0         | 接口文档及测试           |
-| SpringSecurity     | 2.2.2.RELEASE | 用户认证与授权，动态路由 |
+| 框架               | 版本          |                                                              |
+| ------------------ | ------------- | ------------------------------------------------------------ |
+| SpringBoot         | 2.2.2.RELEASE | √                                                            |
+| SpringCloud        | Hoxton.SR1    | √                                                            |
+| SpringCloudAlibaba | 2.1.0.RELEASE | √                                                            |
+| Mybatis Plus       | 3.3.1         | ORM                                                          |
+| Swagger            | 2.8.0         | 接口文档及测试                                               |
+| SpringSecurity     | 2.2.2.RELEASE | 用户认证与授权，动态路由                                     |
+| gateway            | 2.2.1.RELEASE | SpringCloud Gateway，新一代微服务网关，进行请求过滤以以及转发 |
 
 
 
@@ -48,6 +67,10 @@
 | openFegin | http 远程调用                  |
 | easyExcel | Excel 操作                     |
 | jjwt      | jwt token 工具                 |
+
+
+
+
 
 
 
@@ -126,9 +149,11 @@ nacos 可以本地启动，也可以在虚拟机上启动，这里介绍使用 d
 
 ### 修改配置文件
 
-oss、vod、sms、ucenter、trade 服务中都涉及到了 Key 和 Secret，请自行申请并替换
+oss、vod、sms、ucenter、trade 服务中都涉及到了 Key 和 Secret，请自行申请并替换 ( 阿里云的，github 和 gitee 的，微信支付的 )
 
 以及涉及到 nacos 和 sentinel 的端口以及 ip 请自行修改
+
+ps：项目中提供的配置文件是通过 nacos 进行整合的，如果想要不在 nacos 上的版本，请看过往版本
 
 
 
