@@ -4,21 +4,17 @@
 
 ## 路径说明
 
-|-er_ci_yuan：后端服务
-
-​		|-common：工具类、全局配置，安全等通用类模块
-
-   	 |-dependencies_manager：依赖版本统一控制模块
-
-​    	|-infrastructure：基础设施模块 
-
-​    	|-log：日志记录
-
-​    	|-service：微服务模块
-
-|-er_ci_yuan_front：后台页面
-
-|-er_ci_yuan_site：前台页面
+.
+|-- er_ci_yuan
+|   |-- common：通用类模块
+|   |-- dependencies_manager：依赖版本管理模块
+|   |-- infrastructure：基础设施模块
+|   |-- log：日志
+|   |\-- service：微服务模块
+|-- er_ci_yuan_front：后台前端
+|-- er_ci_yuan_site：前台前端
+|-- sql：数据库表
+\|-- yml：配置文件 ( nacos 中 )
 
 
 
