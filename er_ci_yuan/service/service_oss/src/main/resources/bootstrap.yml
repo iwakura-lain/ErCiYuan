@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-oss
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 8936ae1e-0056-4d80-98a5-b9f222dbc944

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-cms
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 5b4efe2e-cc8f-47c7-ad30-14c591c260e1

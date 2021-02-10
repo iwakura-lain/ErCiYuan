@@ -1,6 +1,7 @@
 package cn.antigenmhc.otaku.service.statistics.remote;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
+import cn.antigenmhc.otaku.service.base.dto.RegisterDto;
 import cn.antigenmhc.otaku.service.statistics.remote.fallback.UcenterServiceFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,5 +16,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface RemoteUcenterService {
 
     @GetMapping("/admin/ucenter/member/register-count/{date}")
-    Result getRegisterCount(@PathVariable("date") String date);
+    RegisterDto getRegisterCount(@PathVariable("date") String date);
 }

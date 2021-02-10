@@ -27,7 +27,7 @@
                 <section class="i-admin-wrap">
                   <div class="i-admin-pic">
                     <nuxt-link :title="item.name" :to="'/maker/'+item.id">
-                      <img :src="item.avatar" :alt="item.name" style="border-radius:0%" width="142">
+                      <img :src="item.avatar" :alt="item.name" style="border-radius:0%" width="142" height="31">
                     </nuxt-link>
                   </div>
                   <div class="mt10 hLh30 txtOf tac">

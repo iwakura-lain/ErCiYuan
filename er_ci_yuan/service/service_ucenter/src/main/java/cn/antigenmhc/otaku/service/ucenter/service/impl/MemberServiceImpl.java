@@ -5,6 +5,7 @@ import cn.antigenmhc.otaku.common.base.utils.FormUtils;
 import cn.antigenmhc.otaku.common.base.utils.JwtInfo;
 import cn.antigenmhc.otaku.service.base.dto.MemberDto;
 import cn.antigenmhc.otaku.common.base.utils.MD5;
+import cn.antigenmhc.otaku.service.base.dto.RegisterDto;
 import cn.antigenmhc.otaku.service.base.exception.IntegrateException;
 import cn.antigenmhc.otaku.common.base.utils.RedisUtil;
 import cn.antigenmhc.otaku.service.ucenter.pojo.Member;
@@ -179,7 +180,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     }
 
     @Override
-    public Integer registerCount(String date) {
+    public RegisterDto registerCount(String date) {
         return baseMapper.getRegisterNumByDate(date);
     }
 

@@ -1,6 +1,8 @@
 package cn.antigenmhc.otaku.service.ucenter.mapper;
 
+import cn.antigenmhc.otaku.service.base.dto.RegisterDto;
 import cn.antigenmhc.otaku.service.ucenter.pojo.Member;
+import cn.antigenmhc.otaku.service.ucenter.pojo.vo.RegisterVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -13,6 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface MemberMapper extends BaseMapper<Member> {
 
-
-    Integer getRegisterNumByDate(String date);
+    RegisterDto getRegisterNumByDate(String date);
 }

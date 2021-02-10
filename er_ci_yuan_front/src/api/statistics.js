@@ -7,5 +7,11 @@ export default {
       url: `/admin/statistics/daily/create/${day}`,
       method: 'post'
     })
+  },
+  getCharts(search) {
+    return request({
+      url: `/admin/statistics/daily/get-charts/${search.startTime}/${search.endTime}`,
+      method: 'get'
+    })
   }
 }

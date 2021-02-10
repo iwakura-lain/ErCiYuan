@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-sms
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 219cf3a8-8b1e-4289-9bcb-af245a1527b4

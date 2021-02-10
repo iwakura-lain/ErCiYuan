@@ -3,8 +3,11 @@
 <mapper namespace="cn.antigenmhc.otaku.service.ucenter.mapper.MemberMapper">
 
     <select id="getRegisterNumByDate"
-            resultType="java.lang.Integer">
-        select count(*)
+            resultType="RegisterDto">
+        select
+            count(*) as registerCount,
+            count(um.gitee_id) as giteeCount,
+            count(um.github_id) as githubCount
         from er_ci_yuan_ucenter.ucenter_member as um
         where DATE(um.gmt_create) = #{date}
     </select>

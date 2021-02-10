@@ -42,4 +42,10 @@ public class Daily extends BasePojo {
 
     @ApiModelProperty(value = "每日新增课程数")
     private Integer animeNum;
+
+    @ApiModelProperty(value = "gitee的用户数")
+    private Integer giteeNum;
+
+    @ApiModelProperty(value = "github的用户数")
+    private Integer githubNum;
 }

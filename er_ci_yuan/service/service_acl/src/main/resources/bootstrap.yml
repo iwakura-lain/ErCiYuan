@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-acl
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 9708c22a-1551-433d-b3e8-b2b1243f4b80

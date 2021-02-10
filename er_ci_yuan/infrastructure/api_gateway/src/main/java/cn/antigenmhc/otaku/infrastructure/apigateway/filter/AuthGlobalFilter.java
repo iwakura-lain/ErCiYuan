@@ -66,7 +66,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
         }
 
-        //过滤器链，传递请求
+        //过滤器链，放行
         return chain.filter(exchange);
     }
 

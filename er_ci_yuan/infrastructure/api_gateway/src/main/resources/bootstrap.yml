@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 5a44ec9b-99bf-411a-9491-d6d0c9119a77

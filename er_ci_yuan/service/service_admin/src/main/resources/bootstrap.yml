@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-admin
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 16e9e416-eb94-4a83-94fe-8cee5c2d0b40

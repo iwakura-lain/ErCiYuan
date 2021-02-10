@@ -8,6 +8,7 @@ import com.aliyun.oss.model.DeleteObjectsRequest;
 import com.aliyun.oss.model.DeleteObjectsResult;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ import java.util.UUID;
  * @Version: 1.0
  **/
 @Service
+@RefreshScope
 public class FileServiceImpl implements FileService {
 
     @Value("${aliyun.oss.endPoint}")

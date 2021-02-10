@@ -1,6 +1,7 @@
 package cn.antigenmhc.otaku.service.ucenter.service;
 
 import cn.antigenmhc.otaku.service.base.dto.MemberDto;
+import cn.antigenmhc.otaku.service.base.dto.RegisterDto;
 import cn.antigenmhc.otaku.service.ucenter.pojo.Member;
 import cn.antigenmhc.otaku.service.ucenter.pojo.vo.LoginVo;
 import cn.antigenmhc.otaku.service.ucenter.pojo.vo.RegisterVo;
@@ -27,5 +28,5 @@ public interface MemberService extends IService<Member> {
 
     String updateMemberInfo(UpdateVo updateVo);
 
-    Integer registerCount(String date);
+    RegisterDto registerCount(String date);
 }
