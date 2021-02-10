@@ -6,15 +6,15 @@
 
 |-er_ci_yuan：后端服务
 
-​	|-common：工具类、全局配置，安全等
+​		|-common：工具类、全局配置，安全等通用类模块
 
-​    |-dependencies_manager：第三方依赖版本统一控制
+   	 |-dependencies_manager：依赖版本统一控制模块
 
-​    |-infrastructure：基础设施，如网关、链路追踪 (未整合) 等
+​    	|-infrastructure：基础设施模块 
 
-​    |-log：日志
+​    	|-log：日志记录
 
-​    |-service：微服务模块
+​    	|-service：微服务模块
 
 |-er_ci_yuan_front：后台页面
 
