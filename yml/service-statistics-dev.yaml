@@ -1,0 +1,41 @@
+server:
+  port: 8110 # 服务端口
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 8878 #跟控制台交互的端口，随便指定一个没有使用的即可
+        dashboard: localhost:8858
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+  datasource: # mysql数据库连接
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/er_ci_yuan_statistics?useSSL=true&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  #spring:
+  jackson: #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# 日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  type-aliases-package: cn.antigenmhc.otaku.service.statistics.pojo
+  mapper-locations: classpath:/xml/**.xml
+
+ribbon:
+  ConnectTimeout: 10000 #连接建立的超时时长，默认1秒
+  ReadTimeout: 10000 #处理请求的超时时间，默认为1秒
+
+feign:
+  sentinel:
+    enabled: true

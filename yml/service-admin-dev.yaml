@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/er_ci_yuan?useSSL=true&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  cloud:
+    sentinel:
+      transport:
+        port: 8878 #跟控制台交互的端口，随便指定一个没有使用的即可
+        dashboard: localhost:8858
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  #redis
+  redis:
+    host: 192.168.224.129
+    port: 6380
+    database: 0
+    password: 123456
+    lettuce:
+      pool:
+        max-active: 20 #最大连接数，默认8，负数为没有限制
+        max-wait: -1 #最大阻塞等待时间，负数为没有限制，默认为-1
+        max-idle: 8 #最大空闲连接数，默认为8
+        min-idle: 0 #最小空闲连接数，默认为0
+
+server:
+  port: 8081
+
+# 日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  type-aliases-package: cn.antigenmhc.otaku.service.manager.pojo,;cn.antigenmhc.otaku.service.base.dto
+  mapper-locations: classpath:/xml/**.xml
+
+#service-oss:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+ribbon:
+  # 同一实例中调用最大重试次数，不包括首次调用，默认为 0
+  MaxAutoRetries: 1
+  # 重试负载均衡中其它实例的次数，不包括首次调用，默认为 1
+  MaxAutoRetriesNextServer: 1
+  # 连接建立的超时时长，默认 1s，单位为 ms
+  ConnectTimeout: 10000
+  # 处理请求的超时时长，默认 1s，单位为 ms
+  ReadTimeout: 10000
+
+feign:
+  sentinel:
+    enabled: true
