@@ -2,19 +2,9 @@
 
 
 
-## 路径说明
+## 项目结构
 
-.
-|-- er_ci_yuan
-|   |-- common：通用类模块
-|   |-- dependencies_manager：依赖版本管理模块
-|   |-- infrastructure：基础设施模块
-|   |-- log：日志
-|   |\-- service：微服务模块
-|-- er_ci_yuan_front：后台前端
-|-- er_ci_yuan_site：前台前端
-|-- sql：数据库表
-\|-- yml：配置文件 ( nacos 中 )
+![image-20210211001824317](../mdPicture/image-20210211001824317.png)
 
 
 
