@@ -19,8 +19,6 @@ public class MenuUtil {
 
     /**
      * 构建菜单
-     * @param treeNodes
-     * @return
      */
     public static List<JSONObject> bulid(List<Permission> treeNodes) {
         List<JSONObject> meuns = new ArrayList<>();

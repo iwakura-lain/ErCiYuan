@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -24,10 +25,9 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/acl/role")
-//@CrossOrigin
 public class RoleController {
 
-    @Autowired
+    @Resource
     private RoleService roleService;
 
     @ApiOperation(value = "获取角色分页列表")

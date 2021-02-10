@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
@@ -28,13 +29,12 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin/acl/user")
-//@CrossOrigin
 public class UserController {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
-    @Autowired
+    @Resource
     private RoleService roleService;
 
     @ApiOperation(value = "获取管理用户分页列表")

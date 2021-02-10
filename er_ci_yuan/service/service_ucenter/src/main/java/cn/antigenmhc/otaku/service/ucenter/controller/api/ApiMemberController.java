@@ -94,6 +94,4 @@ public class ApiMemberController {
         MemberDto memberDto = memberService.getMemberDtoByMemberId(memberId);
         return memberDto;
     }
-
-
 }

@@ -20,10 +20,6 @@ public class DefaultPasswordEncoder implements PasswordEncoder {
         this(-1);
     }
 
-    /**
-     * @param strength
-     * the log rounds to use, between 4 and 31
-     */
     public DefaultPasswordEncoder(int strength) {
 
     }

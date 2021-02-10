@@ -33,8 +33,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     /***
      * 根据账号获取用户信息
-     * @param username:
-     * @return: org.springframework.security.core.userdetails.UserDetails
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

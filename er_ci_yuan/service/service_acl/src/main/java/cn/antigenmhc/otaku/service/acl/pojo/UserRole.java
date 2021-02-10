@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ * 用户角色
  * </p>
  *
  * @author antigenmhc

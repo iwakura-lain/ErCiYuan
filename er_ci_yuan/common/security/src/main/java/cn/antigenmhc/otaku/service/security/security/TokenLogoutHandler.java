@@ -32,7 +32,6 @@ public class TokenLogoutHandler implements LogoutHandler {
     public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
         String token = request.getHeader("token");
         if (token != null) {
-            tokenManager.removeToken(token);
 
             //清空当前用户缓存中的权限数据
             String userName = tokenManager.getUserFromToken(token);

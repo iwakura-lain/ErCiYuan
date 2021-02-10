@@ -36,7 +36,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     @Resource
     private UserService userService;
     
-    //获取全部菜单
     @Override
     public List<Permission> queryAllMenu() {
 
@@ -50,22 +49,12 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         return result;
     }
 
-    //根据角色获取菜单
     @Override
     public List<Permission> selectAllMenu(String roleId) {
         List<Permission> allPermissionList = baseMapper.selectList(new QueryWrapper<Permission>().orderByAsc("CAST(id AS SIGNED)"));
 
         //根据角色id获取角色权限
         List<RolePermission> rolePermissionList = rolePermissionService.list(new QueryWrapper<RolePermission>().eq("role_id",roleId));
-        //转换给角色id与角色权限对应Map对象
-//        List<String> permissionIdList = rolePermissionList.stream().map(e -> e.getPermissionId()).collect(Collectors.toList());
-//        allPermissionList.forEach(permission -> {
-//            if(permissionIdList.contains(permission.getId())) {
-//                permission.setSelect(true);
-//            } else {
-//                permission.setSelect(false);
-//            }
-//        });
         for (Permission permission : allPermissionList) {
             for (RolePermission rolePermission : rolePermissionList) {
                 if (rolePermission.getPermissionId().equals(permission.getId())) {
@@ -78,7 +67,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         return permissionList;
     }
 
-    //给角色分配权限
     @Override
     public void saveRolePermissionRelationShip(String roleId, String[] permissionIds) {
 
@@ -110,7 +98,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         baseMapper.deleteBatchIds(idList);
     }
 
-    //根据用户id获取用户菜单
     @Override
     public List<String> selectPermissionValueByUserId(String id) {
 

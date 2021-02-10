@@ -35,8 +35,6 @@ public class PermissionUtil {
 
     /**
      * 递归查找子节点
-     * @param treeNodes
-     * @return
      */
     public static Permission findChildren(Permission treeNode, List<Permission> treeNodes) {
         treeNode.setChildren(new ArrayList<>());

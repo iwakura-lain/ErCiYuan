@@ -32,8 +32,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     @Resource
     private UserRoleService userRoleService;
 
-
-    //根据用户获取角色数据
     @Override
     public Map<String, Object> findRoleByUserId(String userId) {
         //查询所有的角色
@@ -59,7 +57,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         return roleMap;
     }
 
-    //根据用户分配角色
     @Override
     public void saveUserRoleRelationShip(String userId, String[] roleIds) {
         userRoleService.remove(new QueryWrapper<UserRole>().eq("user_id", userId));

@@ -34,9 +34,4 @@ public class TokenManager {
         String user = Jwts.parser().setSigningKey(SIGN_KEY).parseClaimsJws(token).getBody().getSubject();
         return user;
     }
-
-    public void removeToken(String token) {
-        //jwt token无需删除，客户端扔掉即可。
-    }
-
 }

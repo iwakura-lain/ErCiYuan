@@ -34,9 +34,6 @@ public class AclIndexServiceImpl implements AclIndexService {
 
     /**
      * 根据用户名获取用户登录信息
-     *
-     * @param username
-     * @return
      */
     @Override
     public Map<String, Object> getUserInfo(String username) {
@@ -67,8 +64,6 @@ public class AclIndexServiceImpl implements AclIndexService {
 
     /**
      * 根据用户名获取动态菜单
-     * @param username
-     * @return
      */
     @Override
     public List<JSONObject> getMenu(String username) {

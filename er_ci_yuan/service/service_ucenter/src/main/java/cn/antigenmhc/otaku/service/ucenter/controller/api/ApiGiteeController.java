@@ -7,6 +7,8 @@ import cn.antigenmhc.otaku.service.ucenter.properties.GiteeOauth2Properties;
 import cn.antigenmhc.otaku.service.ucenter.service.GiteeLoginService;
 import cn.antigenmhc.otaku.service.ucenter.service.Oauth2Service;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,7 @@ import java.util.UUID;
  **/
 @Slf4j
 @Controller
+@RefreshScope
 @RequestMapping("/api/gitee/login")
 public class ApiGiteeController {
 
@@ -34,6 +37,8 @@ public class ApiGiteeController {
     private RedisUtil redisUtil;
     @Resource
     private Oauth2Service oauth2Service;
+    @Value("${redirectUri}")
+    private String redirectUri;
 
 
     @GetMapping("authorize")
@@ -64,8 +69,8 @@ public class ApiGiteeController {
         String userInfo = giteeLoginService.getUserInfo(accessToken);
         String token = giteeLoginService.getJwtTokenOrOauthId(userInfo);
         if(token.contains(".")){
-            return "redirect:http://localhost:3000?token=" + token;
+            return "redirect:"+ redirectUri + "?token=" + token;
         }
-        return "redirect:http://localhost:3000/bind?type=gitee&id=" + token;
+        return "redirect:" + redirectUri + "/bind?type=gitee&id=" + token;
     }
 }
