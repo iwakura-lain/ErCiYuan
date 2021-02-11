@@ -52,10 +52,10 @@ public class SmsServiceImpl implements SmsService {
         String sixCheckCode = RandomUtils.getSixBitRandom();
 
         //调用sdk，发送验证码到阿里云，发送短信，并判断 code 以返回信息
-//        String code = sendCode(sixCheckCode, mobile);
-//        if("isv.BUSINESS_LIMIT_CONTROL".equals(code)){
-//            return Result.setResult(ResultCodeEnum.SMS_SEND_ERROR_BUSINESS_LIMIT_CONTROL);
-//        }
+        String code = sendCode(sixCheckCode, mobile);
+        if("isv.BUSINESS_LIMIT_CONTROL".equals(code)){
+            return Result.setResult(ResultCodeEnum.SMS_SEND_ERROR_BUSINESS_LIMIT_CONTROL);
+        }
 
         //存储验证码到 redis, 并设置过期时间为 300s
         redisUtil.set(mobile, sixCheckCode, 300);
