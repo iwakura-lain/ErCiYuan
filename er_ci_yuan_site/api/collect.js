@@ -4,7 +4,7 @@ export default {
 
   isCollect(animeId) {
     return request({
-      url: `/api/admin/anime-collect/auth/is-collect/${animeId}`,
+      url: `/api/admin/anime-collect/is-collect/${animeId}`,
       method: 'get'
     })
   },

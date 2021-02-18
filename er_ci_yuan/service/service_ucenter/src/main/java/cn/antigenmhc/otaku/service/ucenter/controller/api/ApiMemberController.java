@@ -60,11 +60,13 @@ public class ApiMemberController {
             //检查是否是濒死 jwt (剩余存活时间小于5min)，如果是的话，则生成新的 jwt
             //同时，如果 jwt 是正常过期 (jwt 过期，redis 中还有，则也生成一个新的 jwt)
             String token = JwtUtil.checkTokenExpireTimeAndGetNew(jwtToken, redisUtil);
+            //如果 jwt 不为 null，解析 jwt 中的用户信息
             if(!StringUtils.isEmpty(token)){
                 JwtInfo userInfo = JwtUtilEx.getMemberByJwtToken(token);
                 return Result.ok().setData("token", token).setData("userInfo", userInfo);
             }
-            JwtInfo userInfo = JwtUtilEx.getMemberByJwtToken(jwtToken);
+            // 如果 jwt 为 null，返回 null 即可
+            JwtInfo userInfo = JwtUtilEx.getMemberByJwtToken(token);
             return Result.ok().setData("userInfo", userInfo);
         }catch (Exception e){
             log.error(ExceptionUtils.getMessage(e));

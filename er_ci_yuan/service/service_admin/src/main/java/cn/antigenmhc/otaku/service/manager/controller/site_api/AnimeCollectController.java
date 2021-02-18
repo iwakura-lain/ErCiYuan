@@ -9,6 +9,7 @@ import cn.antigenmhc.otaku.service.manager.pojo.vo.AnimeCollectVo;
 import cn.antigenmhc.otaku.service.manager.service.AnimeCollectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -34,10 +35,13 @@ public class AnimeCollectController {
     private RedisUtil redisUtil;
 
     @ApiOperation("是否已经被收藏")
-    @GetMapping("auth/is-collect/{animeId}")
+    @GetMapping("is-collect/{animeId}")
     public Result isCollect(@PathVariable("animeId") String animeId,
                             HttpServletRequest request){
         String token = request.getHeader("token");
+        if(StringUtils.isEmpty(token)){
+            return Result.ok().setData("isCollect", false);
+        }
         String newToken = JwtUtil.checkTokenExpireTimeAndGetNew(token, redisUtil);
         JwtInfo userInfo = JwtUtil.getMemberByJwtToken(newToken);
 

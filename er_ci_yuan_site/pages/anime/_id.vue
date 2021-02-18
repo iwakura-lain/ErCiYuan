@@ -166,10 +166,10 @@
                                 <a
                                   v-else-if="video.videoSourceId !== null"
                                   :title="video.title"
-                                  href="javascript:void(0)"
+                                  @click="checkUserInfo()"
                                 >
                                   <span class="fr">
-                                    <i class="free-icon vam mr10">请先购买</i>
+                                    <i class="free-icon vam mr10" >请先购买</i>
                                   </span>
                                   <em class="lh-menu-i-2 icon16 mr5">&nbsp;</em>{{ video.title }}
                                 </a>
@@ -275,8 +275,15 @@ export default {
       collectApi.removeById(animeId).then(response => {
         this.isCollect = false
       })
+    },
+
+    checkUserInfo() {
+      if (!cookie.get('jwt_token')) {
+        window.location.href = '/login'
+      }
     }
   }
+
 }
 </script>
 

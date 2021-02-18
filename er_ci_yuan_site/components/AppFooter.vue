@@ -20,7 +20,7 @@
         <section class="fl col-7">
           <section class="mr20">
             <section class="b-f-link">
-              <a href="#" title="关于我们" target="_blank">关于我</a>|
+              <a href="https://www.yuque.com/antigenmhc" title="关于我们" target="_blank">关于我</a>|
               <a href="#">资源免责声明</a>
               <span style="font-size: 16px">联系方式：Q723493929@gmail.com</span>
             </section>

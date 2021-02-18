@@ -63,7 +63,6 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             if(JwtUtil.checkTokenExpireTimeAndGetNew(token.get(0), redisUtil) == null){
                 return out(exchange.getResponse());
             }
-
         }
 
         //过滤器链，放行
