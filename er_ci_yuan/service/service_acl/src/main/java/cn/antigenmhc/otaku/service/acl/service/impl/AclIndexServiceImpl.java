@@ -7,7 +7,6 @@ import cn.antigenmhc.otaku.service.acl.service.PermissionService;
 import cn.antigenmhc.otaku.service.acl.service.RoleService;
 import cn.antigenmhc.otaku.service.acl.service.UserService;
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -70,8 +69,7 @@ public class AclIndexServiceImpl implements AclIndexService {
         User user = userService.selectByUsername(username);
 
         //根据用户id获取用户菜单权限
-        List<JSONObject> permissionList = permissionService.selectPermissionByUserId(user.getId());
-        return permissionList;
+        return permissionService.selectPermissionByUserId(user.getId());
     }
 
 

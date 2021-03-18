@@ -120,9 +120,7 @@ public class JwtUtil {
      * @param redisUtil：redis工具类
      * @return ：jwt
      */
-    public static String checkTokenExpireTimeAndGetNew(
-            String token,
-            RedisUtil redisUtil){
+    public static String checkTokenExpireTimeAndGetNew(String token, RedisUtil redisUtil) {
         Jws<Claims> claimsJws = null;
         Claims claims;
         JwtInfo member;

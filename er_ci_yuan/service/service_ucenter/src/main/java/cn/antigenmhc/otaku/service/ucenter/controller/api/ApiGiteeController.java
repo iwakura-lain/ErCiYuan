@@ -40,13 +40,12 @@ public class ApiGiteeController {
     @Value("${redirectUri}")
     private String redirectUri;
 
-
     @GetMapping("authorize")
     public String authorize(HttpSession httpSession) {
         String state = UUID.randomUUID().toString();
         //将 state 存在 redis 中
         String sessionId = httpSession.getId();
-        //双向关联设置，用于在回调后比较 state
+        //双向关联设置，用于在回调后比较 state，并设置较短的过期时间
         redisUtil.set(sessionId, state, 600);
         redisUtil.set(state, sessionId, 600);
         String url = oauth2Properties.getAuthorizeUrl() +

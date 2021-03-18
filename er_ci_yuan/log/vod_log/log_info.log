@@ -1,12 +1,12 @@
-2021-02-08 16:11:28 |INFO  |http-nio-8170-exec-8 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
-2021-02-08 16:11:28 |INFO  |http-nio-8170-exec-8 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/api/vod/media/get-play-url/6d18dad9406540279a064fbb23c3093b GET
-2021-02-08 16:11:28 |INFO  |http-nio-8170-exec-8 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
-2021-02-08 16:11:28 |INFO  |http-nio-8170-exec-8 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
-2021-02-08 16:11:45 |INFO  |http-nio-8170-exec-9 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
-2021-02-08 16:11:45 |INFO  |http-nio-8170-exec-9 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/api/vod/media/get-play-url/509c923e5c194211a8e8c001596f64db GET
-2021-02-08 16:11:45 |INFO  |http-nio-8170-exec-9 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
-2021-02-08 16:11:45 |INFO  |http-nio-8170-exec-9 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
-2021-02-08 16:11:55 |INFO  |http-nio-8170-exec-7 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
-2021-02-08 16:11:55 |INFO  |http-nio-8170-exec-7 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/api/vod/media/get-play-url/a6fe4d5378db4b4fa5b3dc89f9b4c8f1 GET
-2021-02-08 16:11:55 |INFO  |http-nio-8170-exec-7 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
-2021-02-08 16:11:55 |INFO  |http-nio-8170-exec-7 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-03-19 06:37:53 |INFO  |http-nio-8170-exec-5 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-03-19 06:37:53 |INFO  |http-nio-8170-exec-5 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/api/vod/media/get-play-url/a6fe4d5378db4b4fa5b3dc89f9b4c8f1 GET
+2021-03-19 06:37:53 |INFO  |http-nio-8170-exec-5 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-03-19 06:37:53 |INFO  |http-nio-8170-exec-5 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-03-19 06:38:50 |INFO  |http-nio-8170-exec-4 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-03-19 06:38:50 |INFO  |http-nio-8170-exec-4 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/api/vod/media/get-play-url/a6fe4d5378db4b4fa5b3dc89f9b4c8f1 GET
+2021-03-19 06:38:50 |INFO  |http-nio-8170-exec-4 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-03-19 06:38:50 |INFO  |http-nio-8170-exec-4 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193
+2021-03-19 06:40:12 |INFO  |http-nio-8170-exec-10 |LogHandler.java:62 |cn.antigenmhc.otaku.service.base.handler.LogHandler |------------- 【GET】查询开始 -------------
+2021-03-19 06:40:12 |INFO  |http-nio-8170-exec-10 |LogHandler.java:63 |cn.antigenmhc.otaku.service.base.handler.LogHandler |请求地址: http://192.168.211.193:8170/api/vod/media/get-play-url/a6fe4d5378db4b4fa5b3dc89f9b4c8f1 GET
+2021-03-19 06:40:12 |INFO  |http-nio-8170-exec-10 |LogHandler.java:64 |cn.antigenmhc.otaku.service.base.handler.LogHandler |类名方法: cn.antigenmhc.otaku.service.vod.controller.api.ApiMediaController.getPlayUrl
+2021-03-19 06:40:12 |INFO  |http-nio-8170-exec-10 |LogHandler.java:65 |cn.antigenmhc.otaku.service.base.handler.LogHandler |远程地址: 192.168.211.193

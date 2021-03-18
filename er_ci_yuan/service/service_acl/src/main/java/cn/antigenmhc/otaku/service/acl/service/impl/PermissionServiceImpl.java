@@ -44,9 +44,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         List<Permission> permissionList = baseMapper.selectList(wrapper);
 
         //递归创建菜单
-        List<Permission> result = PermissionUtil.build(permissionList);
-
-        return result;
+        return PermissionUtil.build(permissionList);
     }
 
     @Override
@@ -63,8 +61,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
             }
         }
 
-        List<Permission> permissionList = PermissionUtil.build(allPermissionList);
-        return permissionList;
+        return PermissionUtil.build(allPermissionList);
     }
 
     @Override
@@ -122,8 +119,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         }
 
         List<Permission> permissionList = PermissionUtil.build(selectPermissionList);
-        List<JSONObject> result = MenuUtil.bulid(permissionList);
-        return result;
+        return MenuUtil.bulid(permissionList);
     }
 
     /**
@@ -134,10 +130,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
     private boolean isSysAdmin(String userId) {
         User user = userService.getById(userId);
 
-        if(null != user && "admin".equals(user.getUsername())) {
-            return true;
-        }
-        return false;
+        return null != user && "admin".equals(user.getUsername());
     }
 
     /**

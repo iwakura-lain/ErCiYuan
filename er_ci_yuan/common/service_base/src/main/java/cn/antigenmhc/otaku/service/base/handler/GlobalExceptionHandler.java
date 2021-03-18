@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 通用异常处理
-     * @return：统一结果对象
+     * @return ：统一结果对象
      */
     @ExceptionHandler(Exception.class)
     @ResponseBody
@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
 
     /**
      * SQL 语法错误异常处理 / SQL 错误处理
-     * @return：错误枚举
+     * @return ：错误枚举
      */
     @ExceptionHandler(BadSqlGrammarException.class)
     @ResponseBody
@@ -53,7 +53,7 @@ public class GlobalExceptionHandler {
     /**
      * 统一异常处理
      * @param e: 统一异常处理
-     * @return
+     * @return :
      */
     @ExceptionHandler(IntegrateException.class)
     @ResponseBody
