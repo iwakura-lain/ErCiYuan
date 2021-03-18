@@ -63,7 +63,7 @@ export default {
           this.$message.success(response.message)
           // 清除定时器
           clearInterval(this.timer)
-          // 3s后跳转到动漫详情页
+          // 跳转到动漫详情页
           setTimeout(() => {
             this.$router.push({ path: '/anime/' + this.payObj.animeId })
           }, 2000)

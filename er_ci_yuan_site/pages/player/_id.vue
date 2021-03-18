@@ -2,14 +2,16 @@
   <div style="background-color:black;">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dplayer/1.26.0/DPlayer.min.js"/>
     <div id="dplayer"/>
+    <AnimeComment/>
   </div>
 </template>
 
 <script>
 import videoApi from '~/api/video'
+import AnimeComment from '~/components/comments.vue'
 
 export default {
-
+  components: { AnimeComment },
   async asyncData(page) {
     // 得到视频id
     const vid = page.route.params.id
@@ -59,8 +61,8 @@ export default {
 
 <style >
   .dplayer{
-    width: 80%;
-    height: 50%;
-    margin-left: 10%;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 30px;
   }
 </style>
