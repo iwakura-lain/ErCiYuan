@@ -18,14 +18,14 @@
       </div>
     </div>
     <div v-for="(item,i) in comments" :key="i" class="author-title reply-father">
-      <img :src="item.headImg" width="40px" height="40px" style="border-radius: 25px" class="header-img">
+      <img :src="item.userAvatar" width="40px" height="40px" style="border-radius: 25px" class="header-img">
       <div class="author-info">
-        <span class="author-name">{{ item.name }}</span>
-        <span class="author-time">{{ item.time }}</span>
+        <span class="author-name">{{ item.userNickname }}</span>
+        <span class="author-time">{{ item.gmtCreate }}</span>
       </div>
       <div class="icon-btn">
-        <span @click="showReplyInput(i,item.name,item.id)"><i
-          class="el-icon-chat-dot-square"/>💬{{ item.commentNum }}</span>
+        <span @click="showReplyInput(i, item.userNickname, item.userId, item.id)"><i
+          class="el-icon-chat-dot-square"/>💬 Reply</span>
           <!--<i/>👍{{ item.like }}-->
       </div>
       <div class="talk-box">
@@ -34,20 +34,20 @@
         </p>
       </div>
       <div class="reply-box">
-        <div v-for="(reply,j) in item.reply" :key="j" class="author-title">
-          <img :src="reply.fromHeadImg" width="40px" height="40px" style="border-radius: 25px" class="header-img">
+        <div v-for="(reply,j) in item.childrenComments" :key="j" class="author-title">
+          <img :src="reply.userAvatar" width="40px" height="40px" style="border-radius: 25px" class="header-img">
           <div class="author-info">
-            <span class="author-name">{{ reply.from }}</span>
-            <span class="author-time">{{ reply.time }}</span>
+            <span class="author-name">{{ reply.userNickname }}</span>
+            <span class="author-time">{{ reply.gmtCreate }}</span>
           </div>
           <div class="icon-btn">
-            <span @click="showReplyInput(i,reply.from,reply.id)"><i
-              class="el-icon-chat-dot-square"/>💬{{ item.commentNum }}</span>
-              <!--<i class="el-icon-arrow-up"/>{{ reply.like }}-->
+            <span @click="showReplyInput(i, reply.userNickname, reply.userId, reply.id)">
+            <i class="el-icon-chat-dot-square"/>💬 </span>
+            <!--<i class="el-icon-arrow-up"/>{{ reply.like }}-->
           </div>
           <div class="talk-box">
             <p>
-              <span>回复 {{ reply.to }}:</span>
+              <span>回复 {{ reply.toNickname }}:</span>
               <span class="reply">{{ reply.comment }}</span>
             </p>
           </div>
@@ -56,10 +56,20 @@
       </div>
       <div v-show="_inputShow(i)" class="my-reply my-comment-reply">
         <div class="reply-info" >
-          <div :placeholder="'回复：'+toName" tabindex="0" contenteditable="true" spellcheck="false" class="reply-input reply-comment-input" @input="onDivInput($event)"/>
+          <div
+            :placeholder="'回复：'+toName"
+            tabindex="0"
+            contenteditable="true"
+            spellcheck="false"
+            class="reply-input reply-comment-input"
+            @input="onDivInput($event)"/>
         </div>
         <div class=" reply-btn-box">
-          <el-button class="reply-btn" size="medium" type="primary" @click="sendCommentReply(i,j)">发表评论</el-button>
+          <el-button
+            class="reply-btn"
+            size="medium"
+            type="primary"
+            @click="sendCommentReply(i, reply)">发表评论</el-button>
         </div>
       </div>
     </div>
@@ -69,6 +79,7 @@
 <script>
 import loginApi from '~/api/login'
 import cookie from 'js-cookie'
+import commentApi from '~/api/comment'
 
 const clickoutside = {
   // 初始化指令
@@ -108,88 +119,19 @@ export default {
       myName: '',
       myHeader: '',
       myId: null,
+      replyId: '',
       to: '',
       toId: -1,
-      comments: [
-        {
-          name: 'Lana Del Rey',
-          id: 19870621,
-          headImg: 'https://antigenmhc-erciyuan.oss-cn-hangzhou.aliyuncs.com/ucenter/2021/02/03/98edcbcd-5277-4117-ab8e-843eb741b328.jpg',
-          comment: '我发布一张新专辑Norman Fucking Rockwell,大家快来听啊',
-          time: '2019年9月16日 18:43',
-          commentNum: 2,
-          like: 15,
-          inputShow: false,
-          reply: [
-            {
-              from: 'Taylor Swift',
-              fromId: 19891221,
-              fromHeadImg: 'https://antigenmhc-erciyuan.oss-cn-hangzhou.aliyuncs.com/ucenter/2021/02/06/07b7725f-b16c-4b9a-a23d-02b5def66f71.jpg',
-              to: 'Lana Del Rey',
-              toId: 19870621,
-              comment: '我很喜欢你的新专辑！！',
-              time: '2019年9月16日 18:43',
-              commentNum: 1,
-              like: 15,
-              inputShow: false
-            },
-            {
-              from: 'Ariana Grande',
-              fromId: 1123,
-              fromHeadImg: 'https://antigenmhc-erciyuan.oss-cn-hangzhou.aliyuncs.com/ucenter/2021/02/06/07b7725f-b16c-4b9a-a23d-02b5def66f71.jpg',
-              to: 'Lana Del Rey',
-              toId: 19870621,
-              comment: '别忘记宣传我们的合作单曲啊',
-              time: '2019年9月16日 18:43',
-              commentNum: 0,
-              like: 5,
-              inputShow: false
-
-            }
-          ]
-        },
-        {
-          name: 'Taylor Swift',
-          id: 19891221,
-          headImg: 'https://ae01.alicdn.com/kf/H94c78935ffa64e7e977544d19ecebf06L.jpg',
-          comment: '我发行了我的新专辑Lover',
-          time: '2019年9月16日 18:43',
-          commentNum: 1,
-          like: 5,
-          inputShow: false,
-          reply: [
-            {
-              from: 'Lana Del Rey',
-              fromId: 19870621,
-              fromHeadImg: 'https://ae01.alicdn.com/kf/Hd60a3f7c06fd47ae85624badd32ce54dv.jpg',
-              to: 'Taylor Swift',
-              toId: 19891221,
-              comment: '新专辑和speak now 一样棒！',
-              time: '2019年9月16日 18:43',
-              commentNum: 25,
-              like: 5,
-              inputShow: false
-
-            }
-          ]
-        },
-        {
-          name: 'Norman Fucking Rockwell',
-          id: 20190830,
-          headImg: 'https://ae01.alicdn.com/kf/Hdd856ae4c81545d2b51fa0c209f7aa28Z.jpg',
-          comment: 'Plz buy Norman Fucking Rockwell on everywhere',
-          time: '2019年9月16日 18:43',
-          commentNum: 0,
-          like: 5,
-          inputShow: false,
-          reply: []
-        }
-      ]
+      userInfo: null,
+      comments: []
     }
   },
 
-  created() {
+  mounted() {
     this.getUserInfo()
+    commentApi.get(this.$route.params.id).then(response => {
+      this.comments = response.data.items
+    })
   },
 
   methods: {
@@ -199,9 +141,6 @@ export default {
       }
       loginApi.getLoginInfo().then(response => {
         this.userInfo = response.data.userInfo
-        this.myName = this.userInfo.nickname
-        this.myId = this.userInfo.id
-        this.myHeader = this.userInfo.avatar
         this.refreshToken = response.data.token
         if (this.refreshToken) {
           cookie.set('jwt_token', this.refreshToken, { domain: 'localhost' })
@@ -224,12 +163,13 @@ export default {
       replyInput.style.padding = '10px'
       replyInput.style.border = 'none'
     },
-    showReplyInput(i, name, id) {
+    showReplyInput(i, name, id, replyId) {
       this.toName = name
       this.comments[this.index].inputShow = false
       this.index = i
       this.comments[i].inputShow = true
       this.to = name
+      this.replyId = replyId
       this.toId = id
     },
     _inputShow(i) {
@@ -246,19 +186,33 @@ export default {
         const a = {}
         const input = document.getElementById('replyInput')
         const timeNow = new Date().getTime()
-        const time = this.dateStr(timeNow)
-        a.name = this.myName
+
+        a.userNickname = this.userInfo.nickname
         a.comment = this.replyComment
-        a.headImg = this.myHeader
-        a.time = time
+        a.userAvatar = this.userInfo.avatar
+        a.gmtCreate = this.timestampToTime(timeNow)
         a.commentNum = 0
-        a.like = 0
+        a.userId = this.userInfo.id
+        a.parentCommentId = '0'
+        a.animeId = this.$route.params.id
+        a.childrenComments = []
+
         this.comments.push(a)
+
+        const comment = JSON.parse(JSON.stringify(a))
+        comment.gmtCreate = timeNow
+        commentApi.post(comment).then(res => {
+          this.$message({
+            showClose: true,
+            type: 'success',
+            message: res.message
+          })
+        })
         this.replyComment = ''
         input.innerHTML = ''
       }
     },
-    sendCommentReply(i, j) {
+    sendCommentReply(i, reply) {
       if (!this.replyComment) {
         this.$message({
           showClose: true,
@@ -268,15 +222,29 @@ export default {
       } else {
         const a = {}
         const timeNow = new Date().getTime()
-        const time = this.dateStr(timeNow)
-        a.from = this.myName
-        a.to = this.to
-        a.fromHeadImg = this.myHeader
+
+        a.userNickname = this.userInfo.nickname
         a.comment = this.replyComment
-        a.time = time
+        a.userAvatar = this.userInfo.avatar
+        a.gmtCreate = this.timestampToTime(timeNow)
         a.commentNum = 0
-        a.like = 0
-        this.comments[i].reply.push(a)
+        a.toNickname = this.to
+        a.parentCommentId = this.replyId
+        a.userId = this.userInfo.id
+        a.animeId = this.$route.params.id
+
+        this.comments[i].childrenComments.push(a)
+
+        const comment = JSON.parse(JSON.stringify(a))
+        comment.gmtCreate = timeNow
+        commentApi.post(comment).then(res => {
+          this.$message({
+            showClose: true,
+            type: 'success',
+            message: res.message
+          })
+        })
+
         this.replyComment = ''
         document.getElementsByClassName('reply-comment-input')[i].innerHTML = ''
       }
@@ -284,7 +252,16 @@ export default {
     onDivInput: function(e) {
       this.replyComment = e.target.innerHTML
     },
-    dateStr(date) {
+    timestampToTime(timestamp) {
+      var date = new Date(timestamp)// 时间戳为10位需*1000，时间戳为13位的话不需乘1000
+      const Y = date.getFullYear() + '-'
+      const M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+      const D = date.getDate() + ' '
+      const h = date.getHours() + ':'
+      const m = date.getMinutes()
+      return Y + M + D + h + m
+    }
+    /* dateStr(date) {
       // 获取js 时间戳
       var time = new Date().getTime()
       // 去掉 js 时间戳后三位
@@ -310,7 +287,7 @@ export default {
         var date2 = new Date(parseInt(date))
         return date2.getFullYear() + '/' + (date2.getMonth() + 1) + '/' + date2.getDate()
       }
-    }
+    }*/
   }
 }
 </script>
@@ -318,7 +295,7 @@ export default {
 <style lang="stylus" scoped>
 .my-reply
     padding 10px
-    background-color #6aa2dd
+    background-color #5387e7
     width 80%
     margin-left 10%
     .header-img
@@ -362,7 +339,7 @@ export default {
     margin-left 50px
     width 80%
     margin-left 10%
-    background-color #011d6e
+    background-color #5387e7
     .reply-input
         width flex
 .author-title:not(:last-child)

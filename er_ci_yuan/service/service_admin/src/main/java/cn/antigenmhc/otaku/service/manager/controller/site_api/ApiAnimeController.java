@@ -2,9 +2,7 @@ package cn.antigenmhc.otaku.service.manager.controller.site_api;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
 import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
-import cn.antigenmhc.otaku.service.manager.pojo.Admin;
 import cn.antigenmhc.otaku.service.manager.pojo.Anime;
-import cn.antigenmhc.otaku.service.manager.pojo.vo.AdminQueryVo;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.ChapterVo;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.SiteAnimeInfoVo;
 import cn.antigenmhc.otaku.service.manager.pojo.vo.SiteAnimeQueryVo;
