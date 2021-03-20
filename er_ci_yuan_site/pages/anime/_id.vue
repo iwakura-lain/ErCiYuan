@@ -181,7 +181,8 @@
                     </div>
                   </section>
                   <!-- /动漫每一集以及每一季 结束 -->
-              </div></article>
+                </div>
+              </article>
             </div>
           </section>
         </article>

@@ -128,4 +128,6 @@ public interface AnimeService extends IService<Anime> {
      * @param id：anime_id
      */
     void updateAnimeBuyCount(String id);
+
+    SiteAnimeInfoVo getAnimeInfoByVideoSourceId(String videoSourceId);
 }

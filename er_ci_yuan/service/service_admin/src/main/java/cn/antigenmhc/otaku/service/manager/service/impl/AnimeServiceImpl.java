@@ -1,7 +1,6 @@
 package cn.antigenmhc.otaku.service.manager.service.impl;
 
 import cn.antigenmhc.otaku.common.base.result.Result;
-import cn.antigenmhc.otaku.common.base.utils.ExceptionUtils;
 import cn.antigenmhc.otaku.service.base.dto.AnimeDto;
 import cn.antigenmhc.otaku.service.manager.mapper.*;
 import cn.antigenmhc.otaku.service.manager.pojo.*;
@@ -15,7 +14,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mysql.cj.util.StringUtils;
-import org.apache.commons.collections4.collection.SynchronizedCollection;
 import org.springframework.beans.BeanUtils;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -24,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * <p>
@@ -278,5 +275,13 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         Anime anime = baseMapper.selectById(id);
         anime.setBuyCount(anime.getBuyCount()+1);
         baseMapper.updateById(anime);
+    }
+
+    @Override
+    public SiteAnimeInfoVo getAnimeInfoByVideoSourceId(String videoSourceId) {
+        QueryWrapper<Video> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("video_source_id", videoSourceId);
+        Video video = videoMapper.selectOne(queryWrapper);
+        return baseMapper.siteSelectAnimeInfo(video.getAnimeId());
     }
 }

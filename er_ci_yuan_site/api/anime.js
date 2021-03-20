@@ -36,5 +36,12 @@ export default{
       url: `/api/admin/anime/auto-list/${title}`,
       method: 'get'
     })
+  },
+
+  getAnimeInfoByVideoSourceId(id) {
+    return request({
+      url: `/api/admin/anime/get-anime-by-video/${id}`,
+      method: 'get'
+    })
   }
 }

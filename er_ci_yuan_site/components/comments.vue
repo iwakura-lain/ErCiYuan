@@ -17,6 +17,7 @@
         <el-button class="reply-btn" size="medium" type="primary" @click="sendComment">发表评论</el-button>
       </div>
     </div>
+
     <div v-for="(item,i) in comments" :key="i" class="author-title reply-father">
       <img :src="item.userAvatar" width="40px" height="40px" style="border-radius: 25px" class="header-img">
       <div class="author-info">
@@ -25,12 +26,15 @@
       </div>
       <div class="icon-btn">
         <span @click="showReplyInput(i, item.userNickname, item.userId, item.id)"><i
-          class="el-icon-chat-dot-square"/>💬 Reply</span>
+          class="el-icon-chat-dot-square"/>💬</span>
           <!--<i/>👍{{ item.like }}-->
       </div>
       <div class="talk-box">
         <p>
-          <span class="reply">{{ item.comment }}</span>
+          <section class="reply" v-html="item.comment">
+            <!-- 将内容中的html翻译过来 -->
+            {{ item.comment }}
+          </section>
         </p>
       </div>
       <div class="reply-box">
@@ -46,10 +50,10 @@
             <!--<i class="el-icon-arrow-up"/>{{ reply.like }}-->
           </div>
           <div class="talk-box">
-            <p>
-              <span>回复 {{ reply.toNickname }}:</span>
-              <span class="reply">{{ reply.comment }}</span>
-            </p>
+            回复 {{ reply.toNickname }}：
+            <span style="color:#00008B	" class="reply" v-html="reply.comment">
+              {{ reply.comment }}
+            </span>
           </div>
           <div class="reply-box"/>
         </div>
@@ -80,6 +84,7 @@
 import loginApi from '~/api/login'
 import cookie from 'js-cookie'
 import commentApi from '~/api/comment'
+import About from '~/components/About.vue'
 
 const clickoutside = {
   // 初始化指令
@@ -108,6 +113,9 @@ const clickoutside = {
 }
 export default {
   name: 'AnimeComment',
+  components: {
+    About
+  },
   directives: { clickoutside },
 
   data() {
@@ -296,8 +304,7 @@ export default {
 .my-reply
     padding 10px
     background-color #5387e7
-    width 80%
-    margin-left 10%
+    width 75%
     .header-img
         display inline-block
         vertical-align top
@@ -333,12 +340,10 @@ export default {
             margin-right 15px
 .reply-father
     background-color #5387e7
-    width 80%
-    margin-left 10%
+    width 75%
 .my-comment-reply
     margin-left 50px
-    width 80%
-    margin-left 10%
+    width 75%
     background-color #5387e7
     .reply-input
         width flex

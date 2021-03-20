@@ -71,7 +71,7 @@ public class ApiAnimeController {
         return Result.ok().setData("animes", reList);
     }
 
-    @ApiOperation("根据课程id，取出 AnimeDto")
+    @ApiOperation("根据动漫 id，取出 AnimeDto")
     @GetMapping("inner/get-anime-dto/{animeId}")
     public AnimeDto getAnimeDtoByAnimeId(@PathVariable("animeId") String animeId){
         AnimeDto animeDto = animeService.getAnimeDtoByAnimeId(animeId);
@@ -83,6 +83,14 @@ public class ApiAnimeController {
     public Result updateAnimeBuyCount(@PathVariable("animeId") String animeId){
         animeService.updateAnimeBuyCount(animeId);
         return Result.ok();
+    }
+
+    @ApiOperation("根据 videoSourceId 查询动漫信息")
+    @GetMapping("get-anime-by-video/{videoSourceId}")
+    public Result getAnimeInfoByVideo(@PathVariable("videoSourceId") String videoSourceId){
+        SiteAnimeInfoVo animeInfoVo = animeService.getAnimeInfoByVideoSourceId(videoSourceId);
+        List<ChapterVo> nestedList = chapterService.getNestedList(animeInfoVo.getId());
+        return Result.ok().setData("item", animeInfoVo).setData("chapterList", nestedList);
     }
 
 }

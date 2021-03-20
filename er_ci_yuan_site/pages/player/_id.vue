@@ -2,6 +2,7 @@
   <div style="background-color:black;">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dplayer/1.26.0/DPlayer.min.js"/>
     <div id="dplayer"/>
+    <About/>
     <AnimeComment/>
   </div>
 </template>
@@ -9,9 +10,13 @@
 <script>
 import videoApi from '~/api/video'
 import AnimeComment from '~/components/comments.vue'
+import About from '~/components/About.vue'
+import orderApi from '~/api/order'
+import cookie from 'js-cookie'
+import animeApi from '~/api/anime'
 
 export default {
-  components: { AnimeComment },
+  components: { AnimeComment, About },
   async asyncData(page) {
     // 得到视频id
     const vid = page.route.params.id
@@ -21,11 +26,31 @@ export default {
     const baseUrl = urls[0].substring(0, urls[0].lastIndexOf('/'))
     // 视频不同清晰度的 url
     const ldUrl = urls[0]
+    const id = page.route.params.id
+    const animeResponse = await animeApi.getAnimeInfoByVideoSourceId(id)
+    const animeInfo = animeResponse.data.item
+    const chapterList = animeResponse.data.chapterList
     return {
       vid: vid,
       baseUrl: baseUrl,
-      ldUrl: ldUrl
+      ldUrl: ldUrl,
+      animeInfo: animeInfo,
+      chapterList: chapterList
     }
+  },
+
+  created() {
+    const token = cookie.get('jwt_token')
+    if (!token) return
+    orderApi.isBuy(this.animeInfo.id).then(response => {
+      this.isBuy = response.data.isBuy
+      // 这里有安全问题，暂定！！！！！
+      cookie.set('buyStatus', this.isBuy)
+      this.refreshToken = response.data.token
+      if (this.refreshToken) {
+        cookie.set('jwt_token', this.refreshToken, { domain: 'localhost' })
+      }
+    })
   },
 
   // 页面渲染之后执行
