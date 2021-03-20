@@ -127,7 +127,9 @@ export default {
   created() {
     if (this.$parent.animeId) { // 回显
       this.fetchAnimeInfoById(this.$parent.animeId)
-    } else { // 只渲染一级类别
+    } else if (this.$route.params.id) { // 只渲染一级类别
+      this.fetchAnimeInfoById(this.$route.params.id)
+    } else {
       this.initSubjectList()
     }
     this.initadminList()
@@ -191,7 +193,7 @@ export default {
       this.saveBtnDisabled = true
       this.$refs[animeInfo].validate((valid) => {
         if (valid) {
-          if (!this.$parent.animeId) {
+          if (!this.$parent.animeId && !this.$route.params.id) {
             this.saveData()
           } else {
             this.updateData()
@@ -220,6 +222,7 @@ export default {
     updateData() {
       animeApi.updateAnimeInfoById(this.animeInfo).then(response => {
         this.$message.success(response.message)
+        this.$parent.animeId = response.data.animeId
         this.$parent.active = 1
       })
     },

@@ -68,6 +68,7 @@ export default {
 
     // 保存季
     save() {
+      debugger
       this.chapter.animeId = this.$parent.$parent.animeId
       chapterApi.addChapter(this.chapter).then(response => {
         this.$message.success(response.message)

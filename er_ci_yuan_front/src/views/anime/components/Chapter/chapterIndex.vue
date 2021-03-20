@@ -70,10 +70,12 @@ export default {
   created() {
     this.fetchTreeList()
   },
+
   methods: {
     fetchTreeList() {
       chapterApi.getNestedTreeList(this.$parent.animeId)
         .then(response => {
+          this.$parent.animeId = this.$parent.animeId
           this.chapterList = response.data.items
         })
     },

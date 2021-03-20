@@ -30,7 +30,6 @@ export default {
     return {
       publishBtnDisabled: false, // 按钮是否禁用
       animePublish: {}
-
     }
   },
 
