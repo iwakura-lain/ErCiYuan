@@ -135,7 +135,9 @@ nacos 可以本地启动，也可以在虚拟机上启动，这里介绍使用 d
 
 oss、vod、sms、ucenter、trade 服务中都涉及到了 Key 和 Secret，请自行申请并替换 ( 阿里云的，github 和 gitee 的，微信支付的 )
 
-以及涉及到 nacos 和 sentinel 的端口以及 ip 请自行修改
+涉及到 nacos 和 sentinel 的端口以及 ip 请自行修改
+
+涉及到的内网穿透，请自行搭建 / 购买
 
 ps：项目中提供的配置文件是通过 nacos 进行整合的，如果想要不在 nacos 上的版本，请看过往版本
 
