@@ -242,7 +242,7 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeMapper, Anime> implements
         if(animeList.size() <= 8){
             return animeList;
         }else{
-            return animeList.subList(0, 8);
+            return new ArrayList<>(animeList.subList(0, 8));
         }
     }
 

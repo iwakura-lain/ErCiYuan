@@ -25,8 +25,6 @@
             <if test="queryVo.adminId != null">
                 and oan.admin_id = #{queryVo.adminId}
             </if>
-            <!-- 模糊查询, 从关联后的表中，模糊查询到与
-            查询条件中的 subjectId 对应的 title 相似的记录 -->
             <if test="queryVo.subjectId != '' and queryVo.subjectId != null">
                 and os1.title like concat('%',
                     (

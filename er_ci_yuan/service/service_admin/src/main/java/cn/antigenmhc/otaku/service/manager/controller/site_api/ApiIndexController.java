@@ -34,5 +34,4 @@ public class ApiIndexController {
         List<Admin> adminList = adminService.getAdminListToIndex();
         return Result.ok().setData("animes", animeList).setData("admins", adminList);
     }
-
 }

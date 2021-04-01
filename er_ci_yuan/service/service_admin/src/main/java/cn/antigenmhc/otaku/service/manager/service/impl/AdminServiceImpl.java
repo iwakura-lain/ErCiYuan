@@ -71,7 +71,6 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 //            queryWrapper.le("join_date", joinDateEnd);
 //        }
         return adminMapper.selectAdminByQuery(adminPage, adminQueryVo);
-        //return baseMapper.selectPage(adminPage, queryWrapper);
     }
 
     @Override
@@ -149,7 +148,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         if(adminList.size() <= 4){
             return adminList;
         }else{
-            return adminList.subList(0, 4);
+            return new ArrayList<>(adminList.subList(0, 4));
         }
     }
 }

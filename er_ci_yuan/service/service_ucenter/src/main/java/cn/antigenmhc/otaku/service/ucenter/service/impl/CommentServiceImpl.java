@@ -43,7 +43,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         for (CommentVo commentVo : list) {
             mergeChildren(commentVo);
         }
-        list.sort((o1, o2) -> o2.getCommentNum() - o1.getCommentNum());
+        list.sort((o1, o2) -> o2.getGmtCreate().compareTo(o1.getGmtCreate()));
         return list;
     }
 
@@ -64,12 +64,13 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         for (CommentVo it : treeNodes) {
             if(treeNode.getId().equals(it.getParentCommentId())) {
                 int level = treeNode.getLevel() + 1;
+                List<CommentVo> childrenComments = treeNode.getChildrenComments();
                 it.setLevel(level);
 
-                if (treeNode.getChildrenComments() == null) {
+                if (childrenComments == null) {
                     treeNode.setChildrenComments(new ArrayList<>());
                 }
-                treeNode.getChildrenComments().add(findAllChildren(it, treeNodes));
+                childrenComments.add(findAllChildren(it, treeNodes));
             }
         }
 

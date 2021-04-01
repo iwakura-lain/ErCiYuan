@@ -13,13 +13,14 @@
              oad.name as adminName,
              oan.price
         from
-             er_ci_yuan.otaku_anime_collect as oac
-                inner join
-             er_ci_yuan.otaku_anime as oan
-                on oac.anime_id = oan.id
-                inner join
-             er_ci_yuan.otaku_admin as oad
-                on oan.admin_id = oad.id
+              er_ci_yuan.otaku_anime_collect as oac
+            inner join
+              er_ci_yuan.otaku_anime as oan
+            on oac.anime_id = oan.id
+            inner join
+              er_ci_yuan.otaku_admin as oad
+            on oan.admin_id = oad.id
         where oac.member_id = #{memberId}
     </select>
+
 </mapper>

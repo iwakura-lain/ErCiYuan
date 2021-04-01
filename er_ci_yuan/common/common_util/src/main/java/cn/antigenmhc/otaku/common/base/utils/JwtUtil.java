@@ -158,11 +158,10 @@ public class JwtUtil {
                 member.setNickname((String) claims.get("nickname"));
                 return getJwtToken(member, 18000);
             }
-            //如果 Redis 中的 jwt 也过期了，则返回 null，强制登录
-            return null;
-        } catch (Exception e){
+            // 如果 Redis 中的 jwt 也过期了，则返回 null，强制登录
             return null;
         }
+        // 否则正常返回
         return token;
     }
 
