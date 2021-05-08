@@ -3,11 +3,8 @@ package cn.antigenmhc;
 import cn.antigenmhc.otaku.service.manager.AdminApplication;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.model.CannedAccessControlList;
-import org.apache.commons.lang3.builder.ToStringExclude;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
 
 import java.io.ByteArrayInputStream;
 
@@ -22,8 +19,8 @@ public class OSSTest {
     // Endpoint以杭州为例，其它Region请按实际情况填写。
     String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
     // RAM 账号的 accessKey
-    String accessKeyId = "LTAI4GHuKKmNvRD7yMynyc2R";
-    String accessKeySecret = "5FmTCHVQjvzz4yocGnGUk2246FKXYY";
+    String accessKeyId = "xxx";
+    String accessKeySecret = "xxx";
     //已经创建了的
     String bucketName = "antigenmhc-erciyuan";
 

@@ -31,7 +31,7 @@ public class Test {
     public void test1(){
         redisUtil.set("123", "222", 18000);
         System.out.println(redisUtil.get("123"));
-        String key = "1356490735013920770";
+        String key = "xxxxx";
         String s = (String)redisTemplate.opsForValue().get(key);
         System.out.println(s);
         String o = (String)redisUtil.get(key);
